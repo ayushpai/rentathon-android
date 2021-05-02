@@ -1,0 +1,1941 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_color_background"
+    tools:context=".Home.Home">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/popup"
+        android:layout_width="301dp"
+        android:layout_height="315dp"
+        android:background="@drawable/popup"
+        android:translationZ="90dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/search_background"
+        app:layout_constraintBottom_toTopOf="@id/navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/search_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:fontFamily="@font/roboto"
+        android:translationZ="180dp"
+        android:padding="16dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sort_btn"
+        android:layout_width="42dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="13dp"
+
+
+        android:src="@drawable/filter_black"
+        android:clickable="true"
+        android:translationZ="180dp"
+        app:layout_constraintEnd_toStartOf="@id/search_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+    <EditText
+        android:id="@+id/search_input"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:clickable="true"
+        android:translationZ="180dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/edt_txt"
+        android:fontFamily="@font/roboto"
+        android:hint="Rent Anything"
+        android:padding="12dp"
+
+
+
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/search_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/search_icon"
+        android:layout_width="30dp"
+        android:layout_height="32dp"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="183dp"
+        android:clickable="true"
+        android:src="@drawable/s_icon"
+        app:layout_constraintStart_toStartOf="@id/search_input"
+        app:layout_constraintEnd_toEndOf="@id/search_input"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/refresh_btn"
+        android:layout_width="30dp"
+        android:layout_height="32dp"
+        android:translationZ="180dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:src="@drawable/re"
+        app:layout_constraintStart_toEndOf="@id/search_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_product_layout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:visibility="gone"
+
+        tools:context=".Home.Home"
+        android:translationZ="180dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/add_inside"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:background="@drawable/background_right"
+            tools:context=".Home.Home"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="150dp"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="List Your Product"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:isScrollContainer="false">
+
+
+        <ScrollView
+            android:id="@+id/scroll_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_background">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".Home.Home">
+
+
+                <ImageView
+                    android:id="@+id/logo_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/logo_home"
+                    android:layout_width="248dp"
+                    android:layout_height="65dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/rentathon_long_logo"
+                    app:layout_constraintBottom_toBottomOf="@+id/logo_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="124dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="@id/page_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/logo_background">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/a"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            tools:visibility="visible">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+
+
+
+                            <ImageView
+                                android:id="@+id/product_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+
+
+
+                            <TextView
+                                android:id="@+id/productName1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/c"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/productValue3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/e"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName5"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue5"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/g"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_7"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/i"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_9"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName9"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue9"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/k"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_11"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName11"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue11"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/m"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_13"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName13"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue13"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/o"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_15"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName15"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue15"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/q"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_17"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName17"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue17"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/s"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_19"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName19"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue19"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/u"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_21"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName21"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue21"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/w"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_23"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName23"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue23"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+
+                    <!-- Right side spacer -->
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/b"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/productValue2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/d"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/productValue4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/f"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="visible">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName6"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue6"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/h"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_8"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName8"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue8"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/j"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_10"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName10"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue10"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/l"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_12"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName12"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue12"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/n"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_14"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName14"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue14"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/p"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_16"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName16"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue16"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/r"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_18"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName18"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue18"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/t"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_20"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName20"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue20"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/v"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_22"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#2fffff"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName22"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue22"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/x"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:visibility="gone">
+
+                            <ProgressBar
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                />
+
+                            <ImageView
+                                android:id="@+id/product_24"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/red"
+                                android:clickable="true"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productName24"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="20dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="7dp"
+                                android:text="Product Name"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/productValue24"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="#9e303030"
+                                android:fontFamily="@font/roboto"
+                                android:padding="4dp"
+                                android:text="$0/day"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:visibility="gone" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/page_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:layout_marginBottom="55dp"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/next_pg_btn"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/login_btn"
+                    android:clickable="true"
+                    android:padding="9dp"
+                    android:text="Next Page"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/page_background" />
+
+                <TextView
+                    android:id="@+id/back_pg_btn"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/login_btn"
+                    android:clickable="true"
+                    android:padding="9dp"
+                    android:text="Back Page"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/page_background" />
+
+                <TextView
+                    android:id="@+id/page_number_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="Page 1"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/page_background"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:background="#E6000000"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/menu_navigation"
+
+
+        />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/search_list"
+        android:layout_marginTop="50dp"
+        android:foregroundGravity="center"
+        android:visibility="invisible"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
+        android:paddingTop="12dp"
+        android:background="@color/accent_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+    />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_color_background"
+    tools:context=".Chat.ChatSender">
+
+
+
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="44dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:translationZ="90dp"
+            android:clickable="true"
+            android:src="@drawable/back_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/screen_header"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/picture_sender"
+            android:layout_width="45dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginLeft="88dp"
+            android:clickable="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/insert_photo_icon"
+            app:civ_border_width="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/screen_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <TextView
+            android:id="@+id/name_sender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="Name"
+            android:textColor="@color/dark_background"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="@+id/picture_sender"
+            app:layout_constraintStart_toEndOf="@+id/picture_sender"
+            app:layout_constraintTop_toTopOf="@+id/picture_sender"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <ImageView
+            android:id="@+id/chat_background"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:layout_marginBottom="44dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/chat_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/msg_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edt_txt"
+            android:hint="Enter your message"
+            android:padding="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/send_btn"
+            app:layout_constraintStart_toStartOf="@+id/chat_background"
+            app:layout_constraintTop_toTopOf="@id/chat_background" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/send_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="16dp"
+            app:civ_border_width="2dp"
+            app:civ_border="true"
+            app:civ_border_color="#883322"
+            app:layout_constraintBottom_toBottomOf="@+id/msg_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/msg_input"
+            app:srcCompat="@android:drawable/ic_menu_send" />
+
+        <ImageView
+            android:id="@+id/chat_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitEnd"
+            android:scaleX="1.01"
+            android:scaleY="1.01"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/bar_chat2" />
+
+        <Button
+            android:id="@+id/user_button_nav"
+            android:layout_width="100dp"
+            android:layout_height="63dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="#00ffffff"
+            />
+
+        <Button
+            android:id="@+id/cart_button_nav"
+            android:layout_width="100dp"
+            android:layout_height="63dp"
+            android:background="#00ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/user_button_nav" />
+
+        <Button
+            android:id="@+id/chat_button_nav"
+            android:layout_width="100dp"
+            android:layout_height="63dp"
+            android:background="#00ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            app:layout_constraintBottom_toTopOf="@id/chat_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/screen_header">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_color_background"
+            tools:context=".Chat.ChatSender">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="450dp"
+                android:id="@+id/a"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/profile_image"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_marginRight="330dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_left"
+                    android:id="@+id/show_message"
+                    android:textSize="18sp"
+
+
+                    android:layout_marginLeft="5dp"
+                    android:text="Test Message"
+                    android:padding="8dp"
+                    android:fontFamily="@font/roboto"
+                    app:layout_constraintStart_toEndOf="@id/profile_image"
+                    app:layout_constraintTop_toTopOf="parent"
+
+
+
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/b"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/a"
+                >
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/profile_image2"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_marginRight="330dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_left"
+                    android:id="@+id/show_message2"
+                    android:textSize="18sp"
+
+
+                    android:layout_marginLeft="5dp"
+                    android:text="Test Message"
+                    android:padding="8dp"
+                    android:fontFamily="@font/roboto"
+                    app:layout_constraintStart_toEndOf="@id/profile_image2"
+                    app:layout_constraintTop_toTopOf="parent"
+
+
+
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

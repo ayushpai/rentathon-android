@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:paddingTop="2dip"
+    android:paddingBottom="3dip"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:fontFamily="@font/roboto"
+
+    android:textColor="#FFFFFF"
+    android:text="Apple iPad Pro"
+    android:textSize="20dp" />

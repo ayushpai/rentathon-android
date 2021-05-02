@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".S">
+
+    <ImageView
+        android:id="@id/rentathon_logo"
+        android:layout_width="186dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/signin_email_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rentathon_the_renting_app_logo" />
+
+    <TextView
+        android:id="@+id/signup_address_input"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/edt_txt"
+        android:clickable="true"
+        android:text="Click to Choose Address"
+        android:inputType="textPersonName"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rentathon_logo" />
+
+
+    <EditText
+        android:id="@+id/signup_city_input"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edt_txt"
+        android:hint="Enter City"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/state_in_layout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/state_in_layout"
+        android:layout_width="236dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_address_input">
+
+        <TextView
+            android:id="@+id/signup_state_txt"
+            android:layout_width="121dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/condition_title_background"
+            android:text="Select State:"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/signup_country_input"
+            app:layout_constraintEnd_toStartOf="@+id/signup_country_input"
+            app:layout_constraintTop_toTopOf="@+id/signup_country_input"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Spinner
+            android:id="@+id/signup_country_input"
+            android:layout_width="114dp"
+            android:layout_height="53dp"
+            android:background="@drawable/condition_spinner_background"
+            android:entries="@array/states"
+            android:padding="16dp"
+            android:spinnerMode="dropdown"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:background="@drawable/login_btn"
+        android:fontFamily="sans-serif-black"
+        android:hint="Sign Up"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proximity_seekbar_txt_output" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:theme="@style/LightProgressBarStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proximity_seekbar_txt_output"/>
+
+
+    <TextView
+        android:id="@+id/proximity_seekbar_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/seekbar_txt_top_background"
+        android:hint="Maximum Preferred Travel Distance"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/proximity_seekbar"
+        app:layout_constraintEnd_toEndOf="@+id/proximity_seekbar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/proximity_seekbar"
+        app:layout_constraintTop_toBottomOf="@id/signup_city_input" />
+
+    <SeekBar
+        android:id="@+id/proximity_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/seekbar_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proximity_seekbar_txt" />
+
+    <TextView
+        android:id="@+id/proximity_seekbar_txt_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/seekbar_txt_bottom_background"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="16sp"
+        android:hint="0 Miles"
+        android:padding="5dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/proximity_seekbar"
+        app:layout_constraintStart_toStartOf="@+id/proximity_seekbar"
+        app:layout_constraintTop_toBottomOf="@+id/proximity_seekbar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

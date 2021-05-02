@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".Profile.ConfiimEdit">
+
+    <TextView
+        android:id="@+id/act_crdt_txt"
+        android:layout_width="356dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:text="Enter Account Credentials"
+        android:textAlignment="center"
+        android:textSize="27sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rentathon_logo" />
+
+    <EditText
+        android:id="@+id/signin_email_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="70dp"
+        android:background="@drawable/edt_txt"
+        android:hint="Enter Current Email"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/act_crdt_txt" />
+
+    <EditText
+        android:id="@+id/signin_password_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="70dp"
+        android:background="@drawable/edt_txt"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signin_email_input" />
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="119sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_btn"
+        android:fontFamily="sans-serif-black"
+        android:hint="Confirm"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/signin_password_input"
+        app:layout_constraintStart_toStartOf="@+id/signin_password_input"
+        app:layout_constraintTop_toBottomOf="@id/signin_password_input" />
+
+    <ImageView
+        android:id="@+id/rentathon_logo"
+        android:layout_width="307dp"
+        android:layout_height="224dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@id/act_crdt_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rentathon_the_renting_app_logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

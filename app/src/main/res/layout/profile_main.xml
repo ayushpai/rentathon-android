@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@color/colorPrimary"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".Profile.ProfileMain">
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            tools:context=".Signin.MainActivity">
+
+            <Button
+                android:id="@+id/logout_btn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_btn"
+                android:fontFamily="roboto_medium"
+                android:hint="Logout"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="70dp"
+                android:padding="5dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_profile_btn" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/product_pic_input"
+                android:layout_width="265dp"
+                android:layout_height="273dp"
+                android:layout_marginTop="3dp"
+                android:clickable="true"
+
+                app:civ_border_color="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/constraint_lay" />
+
+            <TextView
+                android:id="@+id/full_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="34dp"
+                android:background="@drawable/edt_txt"
+                android:fontFamily="@font/roboto_medium"
+                android:padding="12dp"
+                android:text=""
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_pic_input" />
+
+            <TextView
+                android:id="@+id/email_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="34dp"
+                android:background="@drawable/edt_txt"
+                android:fontFamily="@font/roboto_medium"
+                android:padding="12dp"
+                android:text=""
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/full_name" />
+
+            <TextView
+                android:id="@+id/max_travel_distance_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="34dp"
+                android:background="@drawable/seekbar_txt_top_background"
+                android:fontFamily="@font/roboto_bold"
+
+                android:padding="7dp"
+                android:text="Max Preferred Travel Distance"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email_address" />
+
+            <TextView
+                android:id="@+id/max_travel_distance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="34dp"
+                android:layout_marginRight="34dp"
+                android:background="@drawable/seekbar_txt_bottom_background"
+                android:fontFamily="@font/roboto_medium"
+                android:padding="12dp"
+                android:text=""
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/max_travel_distance_title" />
+
+            <Button
+                android:id="@+id/personal_statistics_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_btn"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:fontFamily="roboto_medium"
+                android:hint="Personal Statistics"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/max_travel_distance" />
+
+            <Button
+                android:id="@+id/manage_products_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/login_btn"
+                android:fontFamily=""
+                android:hint="Verify Account"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/personal_statistics_btn" />
+
+            <TextView
+                android:id="@+id/availability_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/seekbar_txt_top_background"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Your Availability"
+                android:padding="8dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tableLayout"
+                app:layout_constraintTop_toBottomOf="@+id/manage_products_btn" />
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/seekbar_txt_bottom_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/availability_title">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Sunday"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/sunday"
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Not Available"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Monday"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/monday"
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Not Available"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Tuesday"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tuesday"
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Not Available"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Wednsday"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/wednesday"
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Not Available"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Thursday"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/thursday"
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Not Available"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Friday"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/friday"
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Not Available"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Saturday"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/saturday"
+                        android:layout_width="140dp"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Not Available"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/address_info_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Address Info"
+                android:textAlignment="center"
+                android:textSize="24dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+
+            <TextView
+                android:id="@+id/street_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="34dp"
+                android:layout_marginRight="34dp"
+                android:background="@drawable/edt_txt"
+                android:padding="12dp"
+                android:text="Street Address"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_info_txt" />
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edt_txt"
+                android:padding="12dp"
+                android:text="City"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/street_address" />
+
+            <TextView
+                android:id="@+id/state"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="34dp"
+                android:background="@drawable/edt_txt"
+                android:padding="12dp"
+                android:text="State"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/street_address" />
+
+            <TextView
+                android:id="@+id/payment_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Payment"
+                android:textAlignment="center"
+                android:layout_marginTop="34dp"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/city" />
+
+            <TextView
+                android:id="@+id/card_owner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="34dp"
+                android:layout_marginRight="34dp"
+                android:background="@drawable/edt_txt"
+                android:padding="12dp"
+                android:text="Name of Card Owner"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/payment_txt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="652dp" />
+
+            <TextView
+                android:id="@+id/card_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="34dp"
+                android:layout_marginLeft="34dp"
+                android:background="@drawable/edt_txt"
+                android:padding="12dp"
+                android:text="Card Number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_owner" />
+
+            <TextView
+                android:id="@+id/expiration_date"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edt_txt"
+
+                android:padding="12dp"
+                android:text="Expiration Date"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_number" />
+
+            <TextView
+                android:id="@+id/CVV"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="34dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/edt_txt"
+                android:padding="12dp"
+                android:text="CVV"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_number" />
+
+            <Button
+                android:id="@+id/edit_profile_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/upload_pictures_btn"
+                android:clickable="true"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Edit Profile"
+                android:textColorHint="#FFFFFF"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/CVV" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:background="#E6000000"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        app:menu="@menu/menu_navigation"
+
+
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

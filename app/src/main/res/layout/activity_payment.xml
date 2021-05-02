@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_color_background"
+    tools:context=".Rent.Payment">
+
+    <TextView
+        android:id="@+id/screen_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:fontFamily="sans-serif-medium"
+        android:hint="Payment"
+        android:padding="12dp"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/screen_header">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/product_pic_input"
+            android:layout_width="121dp"
+            android:layout_height="122dp"
+            android:clickable="true"
+            android:src="@drawable/insert_photo_icon"
+            app:civ_border_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/product_pic_input"
+            app:layout_constraintStart_toEndOf="@+id/product_pic_input"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Product Name"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/product_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Owner Name"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/product_rent_fee_title"
+            android:layout_width="132dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/seekbar_txt_top_background"
+            android:fontFamily="sans-serif-medium"
+            android:hint="Total Cost"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/product_rent_price_input"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/product_rent_price_input"
+            app:layout_constraintTop_toBottomOf="@+id/product_pic_input" />
+
+        <TextView
+            android:id="@+id/product_rent_price_txt"
+            android:layout_width="132dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_txt"
+            android:hint="$0.00"
+            android:inputType="textPersonName"
+            android:maxLength="8"
+            android:padding="6dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_rent_fee_title" />
+
+
+
+        <TextView
+            android:id="@+id/product_condition_title"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/seekbar_txt_top_background"
+            android:fontFamily="sans-serif-medium"
+            android:hint="Condition"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/product_condition_txt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/product_condition_txt"
+            app:layout_constraintTop_toBottomOf="@+id/product_pic_input" />
+
+        <TextView
+            android:id="@+id/product_condition_txt"
+            android:layout_width="132dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_txt"
+            android:hint="None"
+            android:inputType="textPersonName"
+            android:maxLength="8"
+            android:padding="6dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_rent_fee_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/purchase_button"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/pay_btn"
+        android:hint="Confirm"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_description_input" />
+
+
+
+    <com.stripe.android.view.CardInputWidget
+        android:id="@+id/cardInputWidget"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_txt"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:clickable="true"
+        android:src="@drawable/back_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_txt"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="100dp"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Pick Up"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/pick_up_txt"
+                android:layout_width="220dp"
+                android:fontFamily="sans-serif-light"
+                android:hint="Not Available"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="100dp"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Return"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/return_txt"
+                android:layout_width="220dp"
+                android:fontFamily="sans-serif-light"
+                android:hint="Not Available"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="100dp"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Location"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/location_txt"
+                android:layout_width="220dp"
+                android:fontFamily="sans-serif-light"
+                android:hint="Not Available"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textSize="14sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

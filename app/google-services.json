@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "262748777312",
+    "firebase_url": "https://rentathon3620.firebaseio.com",
+    "project_id": "rentathon3620",
+    "storage_bucket": "rentathon3620.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262748777312:android:bc9486b0dfeccc29b78c05",
+        "android_client_info": {
+          "package_name": "com.neuralgorithmic.rentathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "262748777312-pkskf5bl6jm3dvobngns4m5ag8nc6pdr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.neuralgorithmic.rentathon",
+            "certificate_hash": "f940cc7aa48b7ccf3af70426d2c139609f75b1ee"
+          }
+        },
+        {
+          "client_id": "262748777312-oshus3p114cii3j05gcilusik1p85kaf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.neuralgorithmic.rentathon",
+            "certificate_hash": "f50bc9aa077295258725f575bcb48bbca93412b3"
+          }
+        },
+        {
+          "client_id": "262748777312-ohf8g7ljtbm3kfp63v97dovqi0i35ego.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHDkoaa3xmsP1V1Pm3_8MWKscg_-eSn-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "262748777312-ohf8g7ljtbm3kfp63v97dovqi0i35ego.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
