@@ -11,11 +11,7 @@
     //MAKE THE "RENTATHON recommends you have a profile picture if the click 'skip'
     if they upload a picture 'skip' should become 'continue'
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black_p50" />
+
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profile_pic_input"
