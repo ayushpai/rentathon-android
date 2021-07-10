@@ -77,6 +77,7 @@ import java.util.List;
 
 import pl.droidsonroids.gif.GifImageView;
 
+//testing github
 public class Home extends AppCompatActivity {
 
     Button  cartNavBtn, chatNavBtn, profileNavBtn, productBtn;
