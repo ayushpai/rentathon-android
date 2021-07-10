@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/chat"
-        android:title="Forums"
+        android:title="Chat"
         android:icon="@drawable/ic_chat"
 
         />
