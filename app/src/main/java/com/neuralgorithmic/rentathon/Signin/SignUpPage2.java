@@ -146,7 +146,7 @@ public class SignUpPage2 extends AppCompatActivity {
 
 
 
-                    CreateUserAccount(SignUpPage1.email, SignUpPage1.name, SignUpPage1.password);
+                    CreateUserAccount(SignUpPage1.email, SignUpPage1.fullName, SignUpPage1.password);
 
 
                 }
@@ -196,7 +196,7 @@ public class SignUpPage2 extends AppCompatActivity {
                                     FirebaseUser userSet = FirebaseAuth.getInstance().getCurrentUser();
 
                                     UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                            .setDisplayName(SignUpPage1.name).build();
+                                            .setDisplayName(SignUpPage1.fullName).build();
 
                                     userSet.updateProfile(profileUpdates);
                                     String currentDate = new SimpleDateFormat("MM-dd-yyyy", Locale.getDefault()).format(new Date());
@@ -206,7 +206,7 @@ public class SignUpPage2 extends AppCompatActivity {
                                     Map<String, Object> userMap = new HashMap<>();
                                     mFirestore.collection("users").add(userMap);
                                     CollectionReference user = mFirestore.collection("users");
-                                    userMap.put("Name", SignUpPage1.name);
+                                    userMap.put("Name", SignUpPage1.fullName);
                                     userMap.put("Email", SignUpPage1.email);
                                     userMap.put("Address", address);
                                     userMap.put("City", city);

@@ -6,80 +6,66 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/backgroundmain"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".Profile.VerifyEmail">
 
-    <ImageView
-        android:id="@+id/logo_background"
-        android:layout_width="408dp"
-        android:layout_height="108dp"
-        android:background="@color/colorPrimary"
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Email"
+        android:fontFamily="@font/raleway_black"
+        android:textColor="#FFFFFF"
+        android:textSize="48dp"
+        android:background="@drawable/outline"
+        android:padding="8dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Email"
+        android:fontFamily="@font/raleway_black"
+        android:textColor="#FFFFFF"
+        android:textSize="48dp"
+        android:background="@drawable/outline"
+        android:padding="8dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/raleway_light"
+
+        android:padding="55dp"
+        android:text="A verification email has been sent to your email address. Verify your email to start renting!"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
-    <ImageView
-        android:id="@+id/logo_home"
-        android:layout_width="339dp"
-        android:layout_height="94dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/rentathon_long_logo"
-        app:layout_constraintBottom_toBottomOf="@+id/logo_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/okay_btn"
-        app:layout_constraintTop_toBottomOf="@+id/logo_background"
-        app:layout_constraintVertical_bias="0.275"
-        tools:layout_editor_absoluteX="0dp">
-
-        <TextView
-            android:id="@+id/description_txt"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="sans-serif-medium"
-            android:hint="Please click the link that has been sent to the email you signed up with to verify your email. Then you can begin renting!"
-            android:maxLength="45"
-            android:padding="16dp"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Verify Your Email"
-            android:textAlignment="center"
-            android:textSize="41sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/okay_btn"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
-        android:background="@drawable/login_btn"
-        android:fontFamily="sans-serif-black"
-        android:hint="Okay"
-        android:padding="5dp"
-        android:textSize="17sp"
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="213dp"
+        android:layout_height="169dp"
+        android:layout_marginBottom="150dp"
+        android:src="@drawable/loadinggif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
