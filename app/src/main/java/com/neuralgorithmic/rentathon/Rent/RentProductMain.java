@@ -761,8 +761,8 @@ public class RentProductMain extends AppCompatActivity {
                                                 DocumentSnapshot document = task.getResult();
 
 
-                                                userRating = Double.parseDouble(document.get("Rating").toString());
-                                                numOfReviews = Integer.parseInt(document.get("Num Reviews").toString());
+                                                //userRating = Double.parseDouble(document.get("Rating").toString());
+                                                //numOfReviews = Integer.parseInt(document.get("Num Reviews").toString());
 
 
                                                 docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
