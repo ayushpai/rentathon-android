@@ -129,7 +129,7 @@ public class RentProductMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rent_product_main);
+        setContentView(R.layout.renter_product_pg1);
 
 
         ProfileMain.fromProfile = false;

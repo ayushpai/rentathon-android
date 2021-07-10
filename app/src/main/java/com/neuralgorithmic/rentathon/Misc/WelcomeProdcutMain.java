@@ -19,7 +19,7 @@ public class WelcomeProdcutMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome_prodcut_main);
+        setContentView(R.layout.account_welcome);
         ok = findViewById(R.id.okay_btn);
         back = findViewById(R.id.back_btn);
 

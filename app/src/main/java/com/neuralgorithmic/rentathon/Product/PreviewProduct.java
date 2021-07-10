@@ -65,7 +65,7 @@ public class PreviewProduct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preview_product);
+        setContentView(R.layout.owner_preview_product);
         ProfileMain.fromProfile = false;
         ProductMain.fromPreview = true;
 

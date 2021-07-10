@@ -41,7 +41,7 @@ public class ProductInsights extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.product_insights);
+        setContentView(R.layout.owner_product_insights);
         Slidr.attach(this);
 
 

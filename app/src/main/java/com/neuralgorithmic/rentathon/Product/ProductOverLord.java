@@ -56,7 +56,7 @@ public class ProductOverLord extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_over_lord);
+        setContentView(R.layout.account_my_products);
         RentProductMain.fromHome = false;
         fromOverLord = true;
         UserHomeMain.fromUserHomeMain = false;

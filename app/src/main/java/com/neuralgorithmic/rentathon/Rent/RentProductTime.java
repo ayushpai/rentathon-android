@@ -74,7 +74,7 @@ public class RentProductTime extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rent_product_time_main);
+        setContentView(R.layout.renter_product_pg2);
 
 
         storage = FirebaseStorage.getInstance();

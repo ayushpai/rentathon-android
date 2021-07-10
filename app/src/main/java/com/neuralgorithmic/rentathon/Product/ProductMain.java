@@ -141,7 +141,7 @@ public class ProductMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.product_main);
+        setContentView(R.layout.owner_upload_product);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         ProductOverLord.fromOverLord = false;
         //sp = getSharedPreferences("app_name", Context.MODE_PRIVATE);

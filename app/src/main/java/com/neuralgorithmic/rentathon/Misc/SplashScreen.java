@@ -16,7 +16,7 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_home_rent_main);
+        setContentView(R.layout.market_user_products);
 
         EasySplashScreen config = new EasySplashScreen(SplashScreen.this)
                 .withFullScreen()

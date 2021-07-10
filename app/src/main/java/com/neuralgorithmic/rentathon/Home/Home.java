@@ -153,7 +153,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ProductOverLord.fromOverLord = false;
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.market_home);
 
         mainScrollView = findViewById(R.id.scroll_home);
         bottomNavigationView = findViewById(R.id.navigation);

@@ -59,7 +59,7 @@ public class UserHomeMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_home_rent_main);
+        setContentView(R.layout.market_user_products);
         renterImage = findViewById(R.id.profile_pic_output);
         renterName = findViewById(R.id.renter_name);
         Slidr.attach(this);
