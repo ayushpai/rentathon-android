@@ -45,7 +45,6 @@
         <activity android:name="com.neuralgorithmic.rentathon.Rent.ProductInsights" />
         <activity android:name="com.neuralgorithmic.rentathon.Rent.EditProduct" />
         <activity android:name="com.neuralgorithmic.rentathon.Rent.MorePhotos" />
-        <activity android:name="com.neuralgorithmic.rentathon.Misc.ComingSoon" />
         <activity android:name="com.neuralgorithmic.rentathon.Rent.Payment" />
         <activity android:name="com.neuralgorithmic.rentathon.Profile.VerifyEmail" />
         <activity android:name="com.neuralgorithmic.rentathon.Misc.WelcomeProdcutMain" />

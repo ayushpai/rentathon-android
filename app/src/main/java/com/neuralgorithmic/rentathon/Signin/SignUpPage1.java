@@ -39,7 +39,7 @@ public class SignUpPage1 extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup1_main);
+        setContentView(R.layout.account_signup_pg1);
 
         confirmPassword = findViewById(R.id.confirm_password_input);
 

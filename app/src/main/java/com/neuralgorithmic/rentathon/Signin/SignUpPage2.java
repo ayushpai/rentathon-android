@@ -66,7 +66,7 @@ public class SignUpPage2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup2_main);
+        setContentView(R.layout.account_signup_pg2);
 
         startBtn = findViewById(R.id.signup_button);
         mAuth = FirebaseAuth.getInstance();

@@ -43,7 +43,7 @@ public class UserStatsMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_statistics_main);
+        setContentView(R.layout.account_statistics);
         Slidr.attach(this);
 
         userProductPhotos = findViewById(R.id.user_product_photos);

@@ -64,7 +64,7 @@ public class ProfileMain extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_main);
+        setContentView(R.layout.account_profile);
         fromProfile = true;
 
         ProductOverLord.fromOverLord = false;

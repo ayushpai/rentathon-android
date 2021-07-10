@@ -27,7 +27,7 @@ public class ConfiimEdit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_confiim_edit);
+        setContentView(R.layout.account_confirm_profile_edit);
         email = findViewById(R.id.signin_email_input);
         password = findViewById(R.id.signin_password_input);
         confirim = findViewById(R.id.confirm_button);
