@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         mEmailField = (EditText) findViewById(R.id.signin_email_input);
         mPasswordField= (EditText) findViewById(R.id.signin_password_input);
         progressBar = findViewById(R.id.progressBarGoogle);
-        btn_google = findViewById(R.id.google_btn);
         signUpBtn = findViewById(R.id.signup_button);
         mFirestore = FirebaseFirestore.getInstance();
         resetPasswordBtn = findViewById(R.id.forgot_password);
@@ -133,19 +132,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(MainActivity.this, googleSignInOptions);
-
-        btn_google.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent signIntent = mGoogleSignInClient.getSignInIntent();
-                startActivityForResult(signIntent, GOOGLE_SIGN);
-            }
-        });
 
 
 
