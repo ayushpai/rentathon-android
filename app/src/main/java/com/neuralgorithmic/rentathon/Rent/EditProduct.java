@@ -79,7 +79,7 @@ public class EditProduct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_product);
+        setContentView(R.layout.owner_edit_product);
         RentProductMain.fromHome = false;
         Slidr.attach(this);
         UserHomeMain.fromUserHomeMain = false;
