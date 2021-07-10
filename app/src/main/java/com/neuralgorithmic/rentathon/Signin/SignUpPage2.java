@@ -68,7 +68,7 @@ public class SignUpPage2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_signup_pg2);
 
-        startBtn = findViewById(R.id.signup_button);
+        startBtn = findViewById(R.id.done_button);
         mAuth = FirebaseAuth.getInstance();
         seekBarText = findViewById(R.id.proximity_seekbar_txt_output);
         seekBar = findViewById(R.id.proximity_seekbar);
@@ -171,101 +171,72 @@ public class SignUpPage2 extends AppCompatActivity {
     private void CreateUserAccount(String email, final String name, String password){
 
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
 
 
-                            AlertDialog.Builder builder2 = new AlertDialog.Builder(SignUpPage2.this);
-                            builder2.setCancelable(false);
-                            builder2.setTitle("Terms & Conditions");
+        AlertDialog.Builder builder2 = new AlertDialog.Builder(SignUpPage2.this);
+        builder2.setCancelable(false);
+        builder2.setTitle("Terms & Conditions");
 
 
-                            builder2.setMessage("By clicking " + "\"Agree\"" +", you are agreeing to Rentathon's Terms & Conditions: \n \n" + "rentathonapp.com/terms-of-service");
+        builder2.setMessage("By clicking " + "\"Agree\"" +", you are agreeing to Rentathon's Terms & Conditions: \n \n" + "rentathonapp.com/tos");
 
 
 
-                            builder2.setPositiveButton("Agree", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-//showMessage("Account Created");
-                                    startActivity(new Intent(SignUpPage2.this, Home.class));
+        builder2.setPositiveButton("Agree", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(SignUpPage2.this, Home.class));
 
-                                    FirebaseUser userSet = FirebaseAuth.getInstance().getCurrentUser();
+                FirebaseUser userSet = FirebaseAuth.getInstance().getCurrentUser();
 
-                                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                            .setDisplayName(SignUpPage1.fullName).build();
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                        .setDisplayName(SignUpPage1.fullName).build();
 
-                                    userSet.updateProfile(profileUpdates);
-                                    String currentDate = new SimpleDateFormat("MM-dd-yyyy", Locale.getDefault()).format(new Date());
-
+                userSet.updateProfile(profileUpdates);
+                String currentDate = new SimpleDateFormat("MM-dd-yyyy", Locale.getDefault()).format(new Date());
 
 
-                                    Map<String, Object> userMap = new HashMap<>();
-                                    mFirestore.collection("users").add(userMap);
-                                    CollectionReference user = mFirestore.collection("users");
-                                    userMap.put("Name", SignUpPage1.fullName);
-                                    userMap.put("Email", SignUpPage1.email);
-                                    userMap.put("Address", address);
-                                    userMap.put("City", city);
-                                    userMap.put("State", userState.getSelectedItem().toString());
-                                    userMap.put("Preffered Travel Distance(m)", String.valueOf(miles));
-                                    userMap.put("Sunday", "");
-                                    userMap.put("Monday", "");
-                                    userMap.put("Tuesday", "");
-                                    userMap.put("Wednesday", "");
-                                    userMap.put("Thursday","");
-                                    userMap.put("Friday", "");
-                                    userMap.put("Saturday", "");
-                                    userMap.put("Filled Out", "false");
-                                    userMap.put("User ID", mAuth.getUid());
-                                    userMap.put("Num Reviews", "0");
-                                    userMap.put("Rating", "0");
-                                    userMap.put("Creation Date", currentDate);
-                                    userMap.put("Current Product Num", "0");
-                                    userMap.put("Viewed Announcement", false);
-                                    userMap.put("Verified User", false);
+
+                Map<String, Object> userMap = new HashMap<>();
+                mFirestore.collection("users").add(userMap);
+                CollectionReference user = mFirestore.collection("users");
+                userMap.put("Name", SignUpPage1.fullName);
+                userMap.put("Email", SignUpPage1.email);
+                userMap.put("Address", address);
+                userMap.put("City", city);
+                userMap.put("State", userState.getSelectedItem().toString());
+                userMap.put("Preffered Travel Distance(m)", String.valueOf(miles));
+                userMap.put("Sunday", "");
+                userMap.put("Monday", "");
+                userMap.put("Tuesday", "");
+                userMap.put("Wednesday", "");
+                userMap.put("Thursday","");
+                userMap.put("Friday", "");
+                userMap.put("Saturday", "");
+                userMap.put("Filled Out", "false");
+                userMap.put("User ID", mAuth.getUid());
+                userMap.put("Num Reviews", "0");
+                userMap.put("Rating", "0");
+                userMap.put("Creation Date", currentDate);
+                userMap.put("Current Product Num", "0");
+                userMap.put("Viewed Announcement", false);
+                userMap.put("Verified User", false);
 
 
 
 
-                                    user.document(mAuth.getUid()).set(userMap);
-                                    mFirestore.collection("users").add(userMap);
-                                    fileUploader(mAuth.getUid());
+                user.document(mAuth.getUid()).set(userMap);
+                mFirestore.collection("users").add(userMap);
+                fileUploader(mAuth.getUid());
 
-                                }
-                            });
+            }
+        });
 
-                            builder2.show();
-
-
-
-
-
-
-
-
-
-                            //updateUserInfo(name, pickedImgUri, mAuth.getCurrentUser());
-
-
-
-                        }
-
-                        else {
-                            startBtn.setVisibility(View.VISIBLE);
-                            showMessage(task.getException().getMessage());
-
-                        }
-
-
-                    }
-                });
-
+        builder2.show();
 
     }
+
+
 
     private void updateUserInfo(final String name, Uri pickedImgUri, final FirebaseUser currentUser) {
 
