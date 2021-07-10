@@ -49,7 +49,7 @@ import com.neuralgorithmic.rentathon.R;
 import com.neuralgorithmic.rentathon.Rent.RentProductMain;
 
 import pl.droidsonroids.gif.GifImageView;
-//fgddfgd
+
 public class Home_2 extends AppCompatActivity {
 
     Button  cartNavBtn, chatNavBtn, profileNavBtn, productBtn;
