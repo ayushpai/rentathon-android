@@ -29,8 +29,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.neuralgorithmic.rentathon.Chat.ChatMain;
 import com.neuralgorithmic.rentathon.Home.Home;
+import com.neuralgorithmic.rentathon.MessagingHome;
 import com.neuralgorithmic.rentathon.Misc.WelcomeProdcutMain;
 import com.neuralgorithmic.rentathon.Profile.ProfileMain;
 import com.neuralgorithmic.rentathon.Profile.UserHomeMain;
@@ -68,7 +68,7 @@ public class ProductOverLord extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.chat:
-                        startActivity(new Intent(getApplicationContext(), ChatMain.class));
+                        startActivity(new Intent(getApplicationContext(), MessagingHome.class));
                         overridePendingTransition(0, 0);
 
                         return true;

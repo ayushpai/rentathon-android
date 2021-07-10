@@ -28,8 +28,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.mikhaellopez.circularimageview.CircularImageView;
-import com.neuralgorithmic.rentathon.Chat.ChatMain;
 import com.neuralgorithmic.rentathon.Home.Home;
+import com.neuralgorithmic.rentathon.MessagingHome;
 import com.neuralgorithmic.rentathon.Product.ProductOverLord;
 import com.neuralgorithmic.rentathon.Signin.MainActivity;
 import com.neuralgorithmic.rentathon.Product.ProductMain;
@@ -213,7 +213,7 @@ public class ProfileMain extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.chat:
-                        startActivity(new Intent(getApplicationContext(), ChatMain.class));
+                        startActivity(new Intent(getApplicationContext(), MessagingHome.class));
                         overridePendingTransition(0, 0);
 
                         return true;
@@ -258,16 +258,7 @@ public class ProfileMain extends AppCompatActivity {
             }
         });
 
-        manageProductsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                startActivity(new Intent(ProfileMain.this, VerifyUserMain.class));
-                overridePendingTransition(0, 0);
-            }
-
-
-        });
 
 
 

@@ -20,9 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.neuralgorithmic.rentathon.Profile.VerifyUserMain" />
-        <activity android:name="com.neuralgorithmic.rentathon.Home.Home_2" />
-        <activity android:name="com.neuralgorithmic.rentathon.Product.ProductOverLord" />
+        <activity android:name=".MessagingHome"></activity>
+        <activity android:name=".Product.ProductOverLord" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -41,32 +40,28 @@
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
 
-        <activity android:name="com.neuralgorithmic.rentathon.Product.PreviewProduct" />
-        <activity android:name="com.neuralgorithmic.rentathon.Rent.ProductInsights" />
-        <activity android:name="com.neuralgorithmic.rentathon.Rent.EditProduct" />
-        <activity android:name="com.neuralgorithmic.rentathon.Rent.MorePhotos" />
-        <activity android:name="com.neuralgorithmic.rentathon.Rent.Payment" />
-        <activity android:name="com.neuralgorithmic.rentathon.Profile.VerifyEmail" />
-        <activity android:name="com.neuralgorithmic.rentathon.Misc.WelcomeProdcutMain" />
-        <activity android:name="com.neuralgorithmic.rentathon.Profile.ConfiimEdit" />
-        <activity android:name="com.neuralgorithmic.rentathon.Profile.EditProfile" />
-        <activity android:name="com.neuralgorithmic.rentathon.Profile.UserHomeMain" />
-        <activity android:name="com.neuralgorithmic.rentathon.Chat.ChatSender" />
-        <activity android:name="com.neuralgorithmic.rentathon.Profile.UserStatsMain" />
-        <activity android:name="com.neuralgorithmic.rentathon.Rent.RentProductTime" />
-        <activity android:name="com.neuralgorithmic.rentathon.Rent.RentProductLocation" />
+        <activity android:name=".Product.PreviewProduct" />
+        <activity android:name=".Rent.ProductInsights" />
+        <activity android:name=".Rent.EditProduct" />
+        <activity android:name=".Rent.MorePhotos" />
+        <activity android:name=".Rent.Payment" />
+        <activity android:name=".Profile.VerifyEmail" />
+        <activity android:name=".Misc.WelcomeProdcutMain" />
+        <activity android:name=".Profile.ConfiimEdit" />
+        <activity android:name=".Profile.EditProfile" />
+        <activity android:name=".Profile.UserHomeMain" />
+        <activity android:name=".Profile.UserStatsMain" />
+        <activity android:name=".Rent.RentProductTime" />
         <activity
-            android:name="com.neuralgorithmic.rentathon.Rent.RentProductMain"
+            android:name=".Rent.RentProductMain"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
-        <activity android:name="com.neuralgorithmic.rentathon.Chat.ChatMain" />
-        <activity android:name="com.neuralgorithmic.rentathon.Profile.ProfileMain" />
-        <activity android:name="com.neuralgorithmic.rentathon.Product.ProductMain" />
-        <activity android:name="com.neuralgorithmic.rentathon.Signin.SignUpPage2" />
-        <activity android:name="com.neuralgorithmic.rentathon.Home.Home" />
-        <activity android:name="com.neuralgorithmic.rentathon.Signin.SignUpPage1" />
-        <activity android:name="com.neuralgorithmic.rentathon.Rent.RentProductMain2" />
-        <activity android:name="com.neuralgorithmic.rentathon.Signin.MainActivity" />
-        <activity android:name="com.neuralgorithmic.rentathon.Misc.SplashScreen">
+        <activity android:name=".Profile.ProfileMain" />
+        <activity android:name=".Product.ProductMain" />
+        <activity android:name=".Signin.SignUpPage2" />
+        <activity android:name=".Home.Home" />
+        <activity android:name=".Signin.SignUpPage1" />
+        <activity android:name=".Signin.MainActivity" />
+        <activity android:name=".Misc.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

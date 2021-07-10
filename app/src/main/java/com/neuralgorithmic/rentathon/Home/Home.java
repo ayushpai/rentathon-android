@@ -60,7 +60,8 @@ import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.neuralgorithmic.rentathon.Chat.ChatMain;
+
+import com.neuralgorithmic.rentathon.MessagingHome;
 import com.neuralgorithmic.rentathon.Product.ProductMain;
 import com.neuralgorithmic.rentathon.Product.ProductOverLord;
 import com.neuralgorithmic.rentathon.Profile.ProfileMain;
@@ -726,7 +727,7 @@ public class Home extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.chat:
-                        startActivity(new Intent(Home.this, ChatMain.class));
+                        startActivity(new Intent(Home.this, MessagingHome.class));
                         overridePendingTransition(0, 0);
                         scrollY = 0;
                         return true;
