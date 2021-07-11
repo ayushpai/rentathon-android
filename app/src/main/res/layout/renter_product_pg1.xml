@@ -36,7 +36,7 @@
         android:background="#2e303030"
         android:translationZ="90dp"
 
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/raleway"
 
 
         android:textColor="#FFFFFF"
@@ -519,14 +519,13 @@
             <TextView
                 android:id="@+id/productTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:background="@drawable/outline_dark"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="0dp"
                 android:fontFamily="@font/raleway_bold"
                 android:padding="5dp"
                 android:gravity="center"
 
-                android:text="Product Information"
                 android:textColor="@color/accent_background"
                 android:textSize="30sp"
 
@@ -648,7 +647,7 @@
             android:layout_marginRight="150dp"
             android:layout_marginBottom="14dp"
             android:clickable="true"
-            android:textColor="@color/white"
+            android:textColor="@color/quantum_grey300"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
