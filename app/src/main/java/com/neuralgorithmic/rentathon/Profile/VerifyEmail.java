@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.neuralgorithmic.rentathon.R;
 import com.neuralgorithmic.rentathon.Signin.SignUpPage2;
+import com.neuralgorithmic.rentathon.Signin.SignUpProfilePic;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -41,7 +42,7 @@ public class VerifyEmail extends AppCompatActivity {
                 if(run) {
                     user.reload();
                     if (user.isEmailVerified()) {
-                        startActivity(new Intent(VerifyEmail.this, SignUpPage2.class));
+                        startActivity(new Intent(VerifyEmail.this, SignUpProfilePic.class));
                         run = false;
 
                     }

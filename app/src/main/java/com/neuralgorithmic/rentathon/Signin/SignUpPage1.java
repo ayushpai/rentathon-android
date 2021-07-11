@@ -57,12 +57,12 @@ public class SignUpPage1 extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_signup_pg1);
 
-        confirmPassword = findViewById(R.id.password_confirm_input);
-        userEmail = findViewById(R.id.email_input);
+        confirmPassword = findViewById(R.id.confirm_password_input);
+        userEmail = findViewById(R.id.signup_email_input);
         firstNameEntry = findViewById(R.id.first_name_input);
         lastNameEntry = findViewById(R.id.last_name_input);
-        userPassword = findViewById(R.id.password_input);
-        signUpBtn = findViewById(R.id.signup_btn);
+        userPassword = findViewById(R.id.signup_password_input);
+        signUpBtn = findViewById(R.id.next_button);
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         profilePicSet = false;

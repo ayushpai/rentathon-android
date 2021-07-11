@@ -80,7 +80,7 @@ public class SignUpPage2 extends AppCompatActivity {
         userState = findViewById(R.id.signup_country_input);
         storageRef = FirebaseStorage.getInstance().getReference("users");
 
-        userAddress.setOnClickListener(new View.OnClickListener() {
+       /* userAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PingPlacePicker.IntentBuilder builder = new PingPlacePicker.IntentBuilder();
@@ -96,6 +96,8 @@ public class SignUpPage2 extends AppCompatActivity {
                 }
             }
         });
+
+        */
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressValue;

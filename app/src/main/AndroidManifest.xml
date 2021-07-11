@@ -20,7 +20,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MessagingHome"></activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".Signin.SignUpProfilePic"></activity>
+        <activity android:name=".MessagingHome" />
         <activity android:name=".Product.ProductOverLord" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -61,6 +73,11 @@
         <activity android:name=".Home.Home" />
         <activity android:name=".Signin.SignUpPage1" />
         <activity android:name=".Signin.MainActivity" />
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/PictureCropperTheme" />
+
         <activity android:name=".Misc.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

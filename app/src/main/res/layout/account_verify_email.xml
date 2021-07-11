@@ -59,13 +59,12 @@
         app:layout_constraintTop_toBottomOf="@id/title" />
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="213dp"
-        android:layout_height="169dp"
-        android:layout_marginBottom="150dp"
+        android:layout_width="232dp"
+        android:layout_height="135dp"
         android:src="@drawable/loadinggif"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

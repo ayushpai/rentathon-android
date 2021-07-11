@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context=".S">
+    tools:context=".Signin.SignUpPage1">
 
     <ImageView
         android:id="@+id/cart_logo"
@@ -14,10 +14,11 @@
         android:scaleX="1.7"
         android:scaleY="1.7"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHeight_percent=".08"
         app:layout_constraintHorizontal_bias="0.975"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.016"
         app:layout_constraintWidth_percent=".16"
@@ -41,18 +42,18 @@
         android:id="@+id/create_account_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="@font/raleway_black"
         android:text="Create Account"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="36dp"
+        android:textSize="39dp"
         app:layout_constraintBottom_toTopOf="@+id/last_name_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/account_icon"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+    <EditText
         android:id="@+id/first_name_input"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -62,7 +63,8 @@
         android:gravity="center"
         android:hint="First Name"
         android:inputType="textPersonName"
-        android:textSize="16sp"
+        android:textSize="18dp"
+        android:fontFamily="@font/raleway"
         app:layout_constraintBottom_toBottomOf="@+id/last_name_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.13"
@@ -71,7 +73,7 @@
         app:layout_constraintVertical_bias="0.108"
         app:layout_constraintWidth_percent=".4" />
 
-    <TextView
+    <EditText
         android:id="@+id/last_name_input"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -80,8 +82,9 @@
         android:clickable="true"
         android:gravity="center"
         android:hint="Last Name"
+        android:fontFamily="@font/raleway"
         android:inputType="textPersonName"
-        android:textSize="16sp"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.869"
@@ -98,7 +101,8 @@
         app:layout_constraintHeight_percent=".075"
         android:layout_marginTop="12dp"
         android:background="@drawable/edt_txt"
-        android:fontFamily="@font/roboto"
+        android:textSize="18dp"
+        android:fontFamily="@font/raleway"
         android:hint="Enter Email"
         android:inputType="textPersonName"
         android:paddingLeft="16dp"
@@ -114,7 +118,8 @@
         app:layout_constraintHeight_percent=".075"
         android:layout_marginTop="12dp"
         android:background="@drawable/edt_txt"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/raleway"
+        android:textSize="18dp"
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:paddingLeft="16dp"
@@ -131,9 +136,10 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/edt_txt"
         android:hint="Confirm Password"
+        android:textSize="18dp"
         android:inputType="textPassword"
         android:paddingLeft="16dp"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/raleway"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signup_password_input" />
@@ -143,10 +149,11 @@
         android:layout_width="130dp"
         android:layout_height="0dp"
         app:layout_constraintHeight_percent=".075"
-        android:background="@drawable/login_btn"
-        android:fontFamily="@font/roboto"
+        android:background="@drawable/outline"
+        android:fontFamily="@font/raleway_bold"
         android:hint="Next"
         android:textSize="17sp"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,9 +166,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:clickable="true"
-        android:hint="Terms Of Service"
+        android:text="Terms Of Service"
         android:textAlignment="center"
-
+        android:textSize="16dp"
+        android:fontFamily="@font/raleway_light"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

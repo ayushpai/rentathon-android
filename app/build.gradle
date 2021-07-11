@@ -60,7 +60,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.3.1'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
-
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.stripe:stripeterminal:1.0.15'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "com.stripe:stripe-3ds2-android:2.7.2"
@@ -71,7 +71,7 @@ dependencies {
     implementation 'com.github.liuguangqiang.swipeback:library:1.0.2@aar'
     implementation 'gr.pantrif:easy-android-splash-screen:0.0.1'
     implementation 'com.r0adkll:slidableactivity:2.0.6'
-
+    implementation   'com.theartofdev.edmodo:android-image-cropper:2.4.+'
 
     implementation 'com.github.rtchagas:pingplacepicker:1.0.3'
     implementation "androidx.recyclerview:recyclerview:1.1.0"

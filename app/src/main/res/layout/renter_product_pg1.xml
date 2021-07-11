@@ -22,15 +22,11 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="4dp"
         android:clickable="true"
-
         android:src="@drawable/dots2"
         android:translationZ="180dp"
         android:rotation="90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-
 
 
     <TextView
@@ -170,7 +166,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_color_background"
+            android:background="#F7F7F7  "
             tools:context=".Rent.RentProductMain">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
