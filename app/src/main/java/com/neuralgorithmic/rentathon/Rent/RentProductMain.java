@@ -430,9 +430,9 @@ public class RentProductMain extends AppCompatActivity {
                     productName.setText(document.get("Product Name").toString());
                     selectedProductName = document.get("Product Name").toString();
                     productPublicName = document.get("Product Name").toString();
-                    condition.setText(document.get("Product Condition").toString());
+                    //condition.setText(document.get("Product Condition").toString());
                     int price = Integer.valueOf(document.get("Rental Fee").toString());
-                    descripton.setText(document.get("Product Description").toString());
+                    descripton.setText("The owner states that this product is in " + document.get("Product Condition").toString() + " condition." + "\n\n" + document.get("Product Description").toString());
                     price2.setText("$" + document.get("Rental Fee").toString());
                     price3.setText("From " + "$" + document.get("Rental Fee").toString() + "/Day");
                     daily.setText("$" + document.get("Rental Fee").toString());

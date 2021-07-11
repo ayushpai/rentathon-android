@@ -202,13 +202,13 @@
                         android:layout_height="wrap_content"
 
                         android:layout_marginLeft="20dp"
-                        android:fontFamily="@font/roboto_bold"
+                        android:fontFamily="@font/raleway_bold"
 
                         android:layout_marginRight="128dp"
 
                         android:textColor="@color/common_google_signin_btn_text_dark_default"
                         android:textColorHint="#00F3F3F3"
-                        android:textSize="35sp"
+                        android:textSize="35dp"
                         app:layout_constraintBottom_toBottomOf="@id/product_pic_input"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -218,7 +218,7 @@
                         android:layout_height="match_parent"
 
 
-                        android:fontFamily="@font/roboto_bold"
+                        android:fontFamily="@font/raleway_bold"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="0dp"
 
@@ -270,8 +270,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Renter Information:"
+                    android:fontFamily="@font/raleway_bold"
+                    android:background="@drawable/outline_dark"
+                    android:padding="5dp"
+                    android:text="Renter Information"
                     android:textColor="@color/accent_background"
                     android:textSize="28sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -312,7 +314,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="13dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway"
                     android:text="User Name"
                     android:textColor="@color/common_google_signin_btn_text_dark_focused"
                     android:textSize="20sp"
@@ -332,8 +334,8 @@
                     android:id="@+id/rating_amount_txt"
                     android:layout_width="83dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="### Reviews"
+                    android:fontFamily="@font/raleway_light"
+                    android:text="# Reviews"
                     android:textColor="@color/common_google_signin_btn_text_dark_focused"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@+id/rating_pic"
@@ -346,7 +348,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:clickable="true"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway"
                     android:text="City"
                     android:textColor="@color/common_google_signin_btn_text_dark_focused"
                     android:textSize="18sp"
@@ -366,8 +368,8 @@
                 android:layout_marginEnd="275dp"
 
                 android:gravity="center"
-                android:fontFamily="@font/roboto"
-                android:textColor="#000000"
+                android:fontFamily="@font/raleway"
+                android:textColor="@color/black_p50"
                 android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -378,10 +380,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:layout_marginEnd="269dp"
+                android:layout_marginEnd="273dp"
                 android:text="Day"
+
                 android:gravity="center"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/raleway_bold"
                 android:textColor="@color/accent_background"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -395,8 +398,8 @@
                 android:layout_marginTop="20dp"
 
 
-                android:fontFamily="@font/roboto"
-                android:textColor="#000000"
+                android:fontFamily="@font/raleway"
+                android:textColor="@color/black_p50"
                 android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
 
@@ -408,10 +411,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:layout_marginStart="3dp"
+                android:layout_marginEnd="10dp"
                 android:text="Week"
                 android:gravity="center"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/raleway_bold"
                 android:textColor="@color/accent_background"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -425,8 +428,8 @@
                 android:layout_marginTop="20dp"
 
 
-                android:fontFamily="@font/roboto"
-                android:textColor="#000000"
+                android:fontFamily="@font/raleway"
+                android:textColor="@color/black_p50"
                 android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="275dp"
@@ -438,10 +441,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:layout_marginStart="276dp"
+                android:layout_marginStart="268dp"
                 android:text="2 Weeks"
+
                 android:gravity="center"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/raleway_bold"
                 android:textColor="@color/accent_background"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -466,34 +470,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_photos" />
 
-            <ImageView
-                android:id="@+id/b1"
-                android:layout_width="306dp"
-                android:layout_height="230dp"
-                android:layout_marginBottom="7dp"
-                android:src="@drawable/customborder"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/rent_button" />
-
-            <TextView
-                android:id="@+id/condition_title"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="60dp"
-                android:background="@drawable/condition_title_background"
-                android:fontFamily="@font/roboto_medium"
-
-                android:hint="Condition:"
-                android:padding="11dp"
-
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@id/condition_txt_view"
-                app:layout_constraintEnd_toStartOf="@id/condition_txt_view"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/condition_txt_view" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -544,13 +520,13 @@
                 android:id="@+id/productTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:background="@drawable/outline_dark"
                 android:layout_marginTop="25dp"
-                android:fontFamily="@font/roboto_bold"
-                android:padding="3dp"
+                android:fontFamily="@font/raleway_bold"
+                android:padding="5dp"
                 android:gravity="center"
 
-                android:text="Product Information:"
+                android:text="Product Information"
                 android:textColor="@color/accent_background"
                 android:textSize="30sp"
 
@@ -560,42 +536,24 @@
 
 
             <TextView
-                android:id="@+id/condition_txt_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="90dp"
-                android:layout_marginRight="60dp"
-                android:background="@drawable/condition_spinner_background"
-                android:fontFamily="@font/roboto"
-                android:gravity="center"
-                android:hint="None"
-                android:padding="11dp"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/condition_title"
-                app:layout_constraintTop_toBottomOf="@id/productTitle" />
-
-            <TextView
                 android:id="@+id/product_description_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="52dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/seekbar_txt_top_background"
-                android:fontFamily="@font/roboto_medium"
-                android:hint="Product Description"
+                android:background="@color/accent_background"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Product Description"
                 android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textAlignment="center"
-                android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="17sp"
+                android:textColor="@color/white"
+                android:textSize="23dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/condition_txt_view" />
+                app:layout_constraintTop_toTopOf="@+id/weekly_title" />
 
             <TextView
                 android:id="@+id/product_description_input"
@@ -603,18 +561,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/description_bottom_background"
-                android:fontFamily="@font/roboto"
+                android:background="@drawable/outline_dark"
+                android:fontFamily="@font/raleway"
 
                 android:inputType="textMultiLine"
                 android:minLines="1"
                 android:nestedScrollingEnabled="true"
                 android:padding="16dp"
                 android:scrollbarAlwaysDrawVerticalTrack="true"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
-                android:textSize="15sp"
+                android:textAlignment="textStart"
+                android:textColor="@color/black_p50"
+                android:textColorHint="@color/accent_background"
+                android:textSize="17dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/product_description_title" />
@@ -686,7 +644,7 @@
             android:gravity="center"
 
             android:textSize="17dp"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/raleway_bold"
             android:layout_marginRight="150dp"
             android:layout_marginBottom="14dp"
             android:clickable="true"
@@ -702,14 +660,14 @@
 
             android:clickable="true"
             android:gravity="center"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/raleway_medium"
             android:layout_marginLeft="150dp"
             android:layout_marginTop="0dp"
 
             android:textSize="17dp"
 
 
-            android:textColor="@color/accent_background"
+            android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/distance"
             app:layout_constraintEnd_toEndOf="parent"
@@ -722,7 +680,7 @@
 
             android:clickable="true"
             android:gravity="center"
-            android:fontFamily="@font/roboto"
+            android:fontFamily="@font/raleway"
             android:layout_marginLeft="150dp"
 
 
@@ -732,7 +690,7 @@
 
             android:layout_marginBottom="13dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:textColor="@color/accent_background"
+            android:textColor="@color/white"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

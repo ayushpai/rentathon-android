@@ -9,7 +9,7 @@
 
         />
 
-    <solid android:color="#f2fdf5ea"/>
+    <solid android:color="#B3323131"/>
     <stroke android:width="2.2dp" android:color="@color/accent_background"/>
 
 
