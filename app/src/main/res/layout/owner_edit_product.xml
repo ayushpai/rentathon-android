@@ -186,7 +186,7 @@
                 android:layout_marginTop="28sp"
                 android:fontFamily="@font/roboto_bold"
 
-                android:text="Edit Product Details:"
+                android:text="Edit Product Details"
                 android:textColor="@color/accent_background"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"

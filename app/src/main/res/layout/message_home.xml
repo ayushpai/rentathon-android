@@ -6,4 +6,173 @@
     android:layout_height="match_parent"
     tools:context=".MessagingHome">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="465dp"
+        android:background="#00ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"
+        >
+
+        <ImageView
+            android:id="@+id/home_bar2"
+            android:layout_width="330dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="1"
+
+            android:src="@drawable/background_left_solid"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/home_bar2"
+            app:layout_constraintStart_toStartOf="@+id/home_bar2" />
+
+        <Button
+            android:id="@+id/rent2"
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/background_right"
+
+            android:clickable="true"
+            android:fontFamily="@font/raleway_bold"
+            android:gravity="center"
+            android:text="Rent Now"
+            android:textAllCaps="false"
+            android:textColor="#393939"
+            android:textSize="17dp"
+
+            app:layout_constraintEnd_toEndOf="@+id/home_bar2"
+            app:layout_constraintHorizontal_bias="0.069"
+            app:layout_constraintStart_toStartOf="@+id/home_bar2"
+            app:layout_constraintTop_toBottomOf="@+id/proximity_seekbar"
+
+            android:layout_marginTop="12dp"
+            />
+
+        <TextView
+            android:id="@+id/price32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:clickable="true"
+            android:fontFamily="@font/raleway_medium"
+            android:gravity="center"
+            android:text="$234.00"
+
+            android:textColor="@color/white"
+
+            android:layout_marginTop="2dp"
+
+            android:textSize="17dp"
+            app:layout_constraintEnd_toEndOf="@+id/home_bar2"
+            app:layout_constraintStart_toEndOf="@+id/rent2"
+            app:layout_constraintTop_toTopOf="@+id/rent2" />
+
+        <TextView
+            android:id="@+id/distance2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:clickable="true"
+            android:fontFamily="@font/raleway"
+            android:gravity="center"
+
+            android:layout_marginBottom="2dp"
+
+            android:text="Return 07/24/2021"
+            android:textColor="@color/white"
+
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rent2"
+
+            app:layout_constraintEnd_toEndOf="@+id/home_bar2"
+            app:layout_constraintStart_toEndOf="@+id/rent2" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rent2"
+            app:layout_constraintEnd_toEndOf="@+id/rent2"
+            app:layout_constraintStart_toStartOf="@+id/rent2"
+            app:layout_constraintTop_toTopOf="@+id/rent2" />
+
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/calendar_background"
+            android:contextClickable="true"
+
+            android:maxDate="12/31/2021"
+            android:minDate="1/1/2021"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calendartitle" />
+
+        <SeekBar
+            android:id="@+id/proximity_seekbar"
+            android:theme="@style/SeekbarTheme"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+
+            android:thumbTint="#d5d5d5"
+            app:layout_constraintStart_toStartOf="@+id/calendarView"
+            app:layout_constraintTop_toBottomOf="@+id/calendarView"
+            app:layout_constraintEnd_toStartOf="@id/proximity_seekbar_txt_output"/>
+
+        <TextView
+            android:id="@+id/proximity_seekbar_txt_output"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:text="11 Days"
+            android:textAlignment="center"
+            android:textSize="14dp"
+            android:textColor="#ffffff"
+
+            app:layout_constraintBottom_toBottomOf="@+id/proximity_seekbar"
+            app:layout_constraintEnd_toEndOf="@+id/calendarView"
+            app:layout_constraintStart_toEndOf="@+id/proximity_seekbar"
+            app:layout_constraintTop_toTopOf="@+id/proximity_seekbar" />
+
+        <TextView
+            android:id="@+id/calendartitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            android:clickable="true"
+            android:fontFamily="@font/raleway_bold"
+            android:gravity="center"
+            android:text="Select a Pick Up Date"
+
+            android:textColor="@color/white"
+
+
+            android:textSize="17dp"
+            app:layout_constraintEnd_toEndOf="@+id/home_bar2"
+            app:layout_constraintStart_toStartOf="@+id/home_bar2"
+            app:layout_constraintTop_toTopOf="@+id/home_bar2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

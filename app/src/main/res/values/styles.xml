@@ -27,4 +27,10 @@
     </style>
 
 
+    <style name="SeekbarTheme" parent="Theme.AppCompat.Light">
+        <item name="android:colorControlActivated">@color/accent_background</item>
+        <item name="android:colorControlNormal">#aaaaaa</item>
+    </style>
+
+
 </resources>
