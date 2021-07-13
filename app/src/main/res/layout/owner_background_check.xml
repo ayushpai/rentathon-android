@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Product.BackgroundCheck"
+    android:background="@drawable/backgroundmain">
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:isScrollContainer="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".Signin.MainActivity">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Become a Renter"
+                android:fontFamily="@font/raleway_black"
+                android:textColor="@color/white"
+                android:layout_marginTop="45dp"
+                android:textSize="34dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+            />
+
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome to the Rentathon Renter Approval Center. We are really excited that you are interested in becoming a renter!\n\nWe want to maintain a platform of trustworthy, quality, and consistent renters. In order to do this, we need to verify your identity and perform a background check. "
+                android:fontFamily="@font/raleway"
+                android:layout_marginStart="20dp"
+                android:paddingHorizontal="35dp"
+                android:textColor="@color/white"
+                android:layout_marginTop="40dp"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleText"
+                />
+
+            <ImageView
+                android:id="@+id/driverslicenseinput"
+                android:layout_width="239dp"
+                android:layout_height="109dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/outline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/desc" />
+
+            <ImageView
+                android:id="@+id/icon1"
+                android:layout_width="115dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/upload_icon"
+
+                app:layout_constraintBottom_toTopOf="@id/dltxt"
+                app:layout_constraintEnd_toEndOf="@id/driverslicenseinput"
+                app:layout_constraintStart_toStartOf="@id/driverslicenseinput"
+                app:layout_constraintTop_toTopOf="@id/driverslicenseinput" />
+
+            <ImageView
+                android:id="@+id/check1"
+                android:layout_width="115dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/check_icon"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@id/dltxt"
+                app:layout_constraintEnd_toEndOf="@id/driverslicenseinput"
+                app:layout_constraintStart_toStartOf="@id/driverslicenseinput"
+                app:layout_constraintTop_toTopOf="@id/driverslicenseinput" />
+
+            <TextView
+                android:id="@+id/dltxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Drivers License"
+                android:fontFamily="@font/raleway"
+                android:paddingHorizontal="35dp"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="@id/driverslicenseinput"
+                app:layout_constraintEnd_toEndOf="@id/driverslicenseinput"
+                app:layout_constraintTop_toTopOf="@id/driverslicenseinput"
+                android:layout_marginTop="30dp"
+                app:layout_constraintBottom_toBottomOf="@id/driverslicenseinput"
+                />
+
+
+            <ImageView
+                android:id="@+id/pictureinput"
+                android:layout_width="239dp"
+                android:layout_height="109dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/outline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/driverslicenseinput" />
+
+            <TextView
+                android:id="@+id/pctxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Picture of You \nWith Drivers License"
+                android:fontFamily="@font/raleway"
+                android:paddingHorizontal="35dp"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@id/pictureinput"
+                app:layout_constraintEnd_toEndOf="@id/pictureinput"
+                app:layout_constraintTop_toTopOf="@id/pictureinput"
+                app:layout_constraintBottom_toBottomOf="@id/pictureinput"
+                />
+
+            <ImageView
+                android:id="@+id/icon2"
+                android:layout_width="115dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/upload_icon"
+                app:layout_constraintStart_toStartOf="@id/pictureinput"
+                app:layout_constraintEnd_toEndOf="@id/pictureinput"
+                app:layout_constraintTop_toTopOf="@id/pictureinput"
+                app:layout_constraintBottom_toTopOf="@id/pctxt"/>
+
+
+            <Button
+                android:id="@+id/submit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="47dp"
+                android:background="@drawable/background_right"
+                android:paddingHorizontal="20dp"
+                android:textAllCaps="false"
+                android:gravity="center"
+                android:text="Submit Verification"
+                android:textSize="17dp"
+                android:fontFamily="@font/raleway_bold"
+                android:layout_marginTop="45dp"
+                android:clickable="true"
+                app:layout_constraintTop_toBottomOf="@id/pictureinput"
+                android:textColor="@color/accent_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="35dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/check2"
+                android:layout_width="115dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/check_icon"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@id/pctxt"
+                app:layout_constraintStart_toStartOf="@id/pictureinput"
+                app:layout_constraintEnd_toEndOf="@id/pictureinput"
+                app:layout_constraintTop_toTopOf="@id/pictureinput" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

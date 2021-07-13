@@ -242,8 +242,7 @@ public class ProductMain extends AppCompatActivity {
                 ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
                         PackageManager.PERMISSION_GRANTED) {
             Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            longitudeRenter = location.getLongitude();
-            latitudeRenter = location.getLatitude();
+
             showMessage("true");
         }
         else {

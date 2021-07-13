@@ -1,9 +1,11 @@
 package com.neuralgorithmic.rentathon.Product;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -36,6 +38,9 @@ import com.neuralgorithmic.rentathon.Profile.ProfileMain;
 import com.neuralgorithmic.rentathon.Profile.UserHomeMain;
 import com.neuralgorithmic.rentathon.R;
 import com.neuralgorithmic.rentathon.Rent.RentProductMain;
+import com.theartofdev.edmodo.cropper.CropImage;
+
+import org.jetbrains.annotations.NotNull;
 
 public class ProductOverLord extends AppCompatActivity {
     ConstraintLayout a, b, c, d, e, f, g, h, i1, j, addProduct;
@@ -52,6 +57,7 @@ public class ProductOverLord extends AppCompatActivity {
     public static boolean fromOverLord;
     public boolean verified;
     Button homeNav, chatNav, profileNav;
+    boolean PendingOVerification, OVerified;
     public TextView ProductName1, ProductViews1, ProductPrice1, ProductName2, ProductViews2, ProductPrice2, ProductName3, ProductViews3, ProductPrice3, ProductName4, ProductViews4, ProductPrice4, ProductName5, ProductViews5, ProductPrice5, ProductName6, ProductViews6, ProductPrice6, ProductName7, ProductViews7, ProductPrice7, ProductName8, ProductViews8, ProductPrice8, ProductName9, ProductViews9, ProductPrice9, ProductName10, ProductViews10, ProductPrice10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,38 +181,54 @@ public class ProductOverLord extends AppCompatActivity {
             currentUserID = mFirebaseUser.getUid(); //Do what you need to do with the id
         }
 
+
         docRef = mFirestore.collection("users").document(currentUserID);
+
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot document = task.getResult();
+                if(document.exists()) {
+                    PendingOVerification = document.getBoolean("PendingOVerified");
+                    OVerified = document.getBoolean("OVerified");
+                }
+            }
+        });
+
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
                 DocumentSnapshot document = task.getResult();
                 if (document.exists()) {
-                    verified = Boolean.parseBoolean(document.get("Filled Out").toString());
+
                     addProduct.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
-                            if(verified && mFirebaseUser.isEmailVerified()) {
+                            if(OVerified) {
                                 startActivity(new Intent(getApplicationContext(), ProductMain.class));
                                 overridePendingTransition(0, 0);
                             }
-                            else if(verified && !mFirebaseUser.isEmailVerified()){
-                                startActivity(new Intent(getApplicationContext(), WelcomeProdcutMain.class));
-                                overridePendingTransition(0, 0);
-                                showMessage("Please Verify Your Email Address");
-                            }
-                            else if(!verified && mFirebaseUser.isEmailVerified()){
-                                startActivity(new Intent(getApplicationContext(), WelcomeProdcutMain.class));
-                                overridePendingTransition(0, 0);
-                                showMessage("Please Fill Out Your Available Times");
-                            }
-                            else if(!verified && !mFirebaseUser.isEmailVerified()){
-                                startActivity(new Intent(getApplicationContext(), WelcomeProdcutMain.class));
-                                overridePendingTransition(0, 0);
+                            else if(PendingOVerification) {
+                                AlertDialog.Builder dialogBox = new AlertDialog.Builder(ProductOverLord.this);
+                                dialogBox.setCancelable(true);
+                                dialogBox.setTitle("Information Being Processed");
+                                dialogBox.setMessage("Your renter information is being processed. You will be notified within 24-48 hours of your application.");
 
+                                dialogBox.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
 
+                                dialogBox.show();
                             }
+                            else{
+                                startActivity(new Intent(ProductOverLord.this, BackgroundCheck.class));
+                                overridePendingTransition(0, 0);
+                            }
+
 
                         }
                     });

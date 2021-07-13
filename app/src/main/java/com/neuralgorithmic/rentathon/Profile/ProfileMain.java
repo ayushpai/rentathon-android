@@ -118,20 +118,11 @@ public class ProfileMain extends AppCompatActivity {
                     userNameText.setText(document.get("Name").toString());
                     localName = document.get("Name").toString();
                     userEmailText.setText(document.get("Email").toString());
-                    travelDistance.setText(document.get("Preffered Travel Distance(m)").toString() + " Miles");
+                    travelDistance.setText(document.get("MPTD").toString() + " Miles");
                     address.setText(document.get("Address").toString());
                     city.setText(document.get("City").toString());
                     state.setText(document.get("State").toString());
-                    filledOut = Boolean.parseBoolean(document.get("Filled Out").toString());
-                    if (filledOut) {
-                        sunday.setText(document.get("Sunday").toString());
-                        monday.setText(document.get("Monday").toString());
-                        tuesday.setText(document.get("Tuesday").toString());
-                        wednesday.setText(document.get("Wednesday").toString());
-                        thursday.setText(document.get("Thursday").toString());
-                        friday.setText(document.get("Friday").toString());
-                        saturday.setText(document.get("Saturday").toString());
-                    }
+
 
 
 

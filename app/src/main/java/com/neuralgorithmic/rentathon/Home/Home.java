@@ -8748,7 +8748,7 @@ public class Home extends AppCompatActivity {
 
                 if (document.exists()) {
 
-                    if(Boolean.parseBoolean(document.get("Viewed Announcement").toString())){
+                    if(Boolean.parseBoolean(document.get("VAnn").toString())){
                         userSaw = true;
                     }
 
@@ -8789,7 +8789,7 @@ public class Home extends AppCompatActivity {
 
 
                                 WriteBatch announcementBatch = mFirestore.batch();
-                                announcementBatch.update(aUserRef, "Viewed Announcement", true);
+                                announcementBatch.update(aUserRef, "VAnn", true);
                                 announcementBatch.commit();
 
                                 builder2.setTitle(announcementTitle);
@@ -8818,7 +8818,7 @@ public class Home extends AppCompatActivity {
 
                             else if(showAnnouncement == false){
                                 WriteBatch userBatch = mFirestore.batch();
-                                userBatch.update(aUserRef, "Viewed Announcement", false);
+                                userBatch.update(aUserRef, "VAnn", false);
                                 userBatch.commit();
                             }
 
