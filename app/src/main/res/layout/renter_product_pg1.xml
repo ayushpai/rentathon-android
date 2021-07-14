@@ -525,14 +525,66 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/verified_layout" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/condition_box"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weekly_title"
+
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" >
+
+                <TextView
+                    android:id="@+id/condition_title"
+                    android:layout_width="0dp"
+                    app:layout_constraintWidth_percent=".37"
+                    android:layout_height="0dp"
+                    android:background="@drawable/condition_title_background"
+                    android:fontFamily="@font/roboto_medium"
+
+                    android:hint="Condition:"
+                    android:padding="11dp"
+
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="15sp"
+                    android:textAlignment="center"
+
+                    app:layout_constraintBottom_toBottomOf="@id/condition_txt_view"
+                    app:layout_constraintEnd_toStartOf="@id/condition_txt_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/condition_txt_view" />
+
+                <TextView
+                    android:id="@+id/condition_txt_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/condition_spinner_background"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:hint="None"
+                    android:padding="11dp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/condition_title"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             <TextView
                 android:id="@+id/product_description_title"
                 android:layout_width="0dp"
-
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="42dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginTop="12dp"
                 android:background="@color/accent_background"
                 android:fontFamily="@font/raleway_bold"
                 android:inputType="textPersonName"
@@ -542,9 +594,8 @@
                 android:textColor="@color/white"
                 android:textSize="23dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/weekly_title" />
+                app:layout_constraintTop_toBottomOf="@+id/condition_box" />
 
             <TextView
                 android:id="@+id/product_description_input"
