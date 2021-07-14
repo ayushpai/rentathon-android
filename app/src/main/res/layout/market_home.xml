@@ -132,7 +132,7 @@
             android:layout_width="220dp"
             android:layout_height="40dp"
             android:clickable="true"
-            android:background="@drawable/background_right"
+            android:background="@drawable/background_right_orange"
             tools:context=".Home.Home"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

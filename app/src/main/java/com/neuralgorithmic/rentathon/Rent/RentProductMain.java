@@ -5,6 +5,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
@@ -12,11 +15,21 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Transformation;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -38,6 +51,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.neuralgorithmic.rentathon.ResizeAnimation;
 import com.r0adkll.slidr.Slidr;
 import com.neuralgorithmic.rentathon.Home.Home;
 
@@ -51,10 +65,14 @@ import com.rtchagas.pingplacepicker.PingPlacePicker;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import timber.log.Timber;
 
 
 public class RentProductMain extends AppCompatActivity {
@@ -69,7 +87,6 @@ public class RentProductMain extends AppCompatActivity {
     ViewFlipper imageSlideShow;
     TextView moreProducts;
     TextView nxtBtn;
-
     int random;
     ImageView image1, image2, image3;
     Uri uri1, uri2, uri;
@@ -110,6 +127,7 @@ public class RentProductMain extends AppCompatActivity {
     public String currentUserID;
     public double intelligentRating;
 
+    public static double productPrice = 0;
     public int numOfReviews;
 
     public static Uri imageUri;
@@ -125,6 +143,21 @@ public class RentProductMain extends AppCompatActivity {
     public double distance;
     public boolean verified;
 
+    ConstraintLayout continueConstraint, barConstraint;
+    ImageView darkenBackground, downArrow;
+    Button newButton;
+    SeekBar proximitySeekbar;
+    TextView pSBarText, calendarTitle, returnDate, newPrice;
+    CalendarView calendarView;
+    ProgressBar progressBar;
+
+    static int numDays = 0;
+    static String selectedDate;
+    static double totalPrice = 0;
+    static String returnDateString;
+
+    DecimalFormat df;
+    String maltRequiredString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,9 +174,21 @@ public class RentProductMain extends AppCompatActivity {
 
         UserHomeMain.fromUserHomeMain = false;
 
+        barConstraint = findViewById(R.id.barConstraint);
 
         menu = findViewById(R.id.menu_btn);
         searchBackground = findViewById(R.id.search_background);
+
+        newButton = findViewById(R.id.rent2);
+        proximitySeekbar = findViewById(R.id.proximity_seekbar);
+        pSBarText = findViewById(R.id.proximity_seekbar_txt_output);
+        calendarTitle = findViewById(R.id.calendartitle);
+        calendarView = findViewById(R.id.calendarView);
+        returnDate = findViewById(R.id.distance2);
+        newPrice = findViewById(R.id.price32);
+        progressBar = findViewById(R.id.progress_bar2);
+        downArrow = findViewById(R.id.imageView);
+
 
 
         daily = findViewById(R.id.daily);
@@ -193,13 +238,75 @@ public class RentProductMain extends AppCompatActivity {
         report.setTranslationY(-share.getHeight());
         distanceTxt = findViewById(R.id.distance);
 
+        continueConstraint = findViewById(R.id.continueConstraint);
+        darkenBackground = findViewById(R.id.darkenBackground);
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyy");
+
+                selectedDate = String.valueOf(month + 1) + "/" + String.valueOf(dayOfMonth) + "/" + year;
+                Calendar c = Calendar.getInstance();
+
+                try {
+                    c.setTime(sdf.parse(selectedDate));
+                }
+                catch (Exception e) {
+                    //The handling for the code
+                }
+                c.add(Calendar.DATE, numDays);  // number of days to add
+                returnDate.setText(sdf.format(c.getTime()));  // dt is now the new date
+                returnDateString = sdf.format(c.getTime());
+
+            }
+        });
 
 
+        df = new DecimalFormat("#.##");
+        proximitySeekbar.setMax(30);
+        proximitySeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressValue;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
+                numDays = seekBar.getProgress();
+                progressValue = progress;
+                pSBarText.setText(progress + " Days");
+                totalPrice = (progress * productPrice);
 
+                maltRequiredString = df.format(totalPrice);
+                newPrice.setText("Total Price: $" + maltRequiredString);
 
+                SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyy");
 
+                Calendar c = Calendar.getInstance();
 
+                try {
+                    c.setTime(sdf.parse(selectedDate));
+                }
+                catch (Exception e) {
+                    //The handling for the code
+                }
+                c.add(Calendar.DATE, numDays);  // number of days to add
+                returnDate.setText(sdf.format(c.getTime()));  // dt is now the new date
+                returnDateString = sdf.format(c.getTime());
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+                newPrice.setText("Total Price: $" + maltRequiredString);
+                pSBarText.setText(progressValue + " Days");
+
+            }
+        });
 
 
         morePhotos.setOnClickListener(new View.OnClickListener() {
@@ -217,30 +324,23 @@ public class RentProductMain extends AppCompatActivity {
                 // Got the download URL for 'users/me/profile.png'
                 Glide.with(RentProductMain.this).load(uri).into(productPrimaryImage);
                 imageUri = uri;
-
-
-
                 mainScrollView.getViewTreeObserver()
-                        .addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
-                            @Override
-                            public void onScrollChanged() {
-                                if (mainScrollView.getScrollY() > productPrimaryImage.getHeight()- searchBackground.getHeight()) {
-                                    report.setVisibility(View.INVISIBLE);
-                                    share.setVisibility(View.INVISIBLE);
-                                    searchBackground.setBackgroundResource(R.color.accent_background);
-                                    searchBackground.setText(productPublicName);
+                    .addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+                        @Override
+                        public void onScrollChanged() {
+                            if (mainScrollView.getScrollY() > productPrimaryImage.getHeight()- searchBackground.getHeight()) {
+                                report.setVisibility(View.INVISIBLE);
+                                share.setVisibility(View.INVISIBLE);
+                                searchBackground.setBackgroundResource(R.color.accent_background);
+                                searchBackground.setText(productPublicName);
 
-                                }
-                                else{
-                                    searchBackground.setBackgroundResource(R.color.transparent);
-                                    searchBackground.setText("");
-                                }
                             }
-                        });
-
-
-
-
+                            else{
+                                searchBackground.setBackgroundResource(R.color.transparent);
+                                searchBackground.setText("");
+                            }
+                        }
+                    });
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -251,49 +351,88 @@ public class RentProductMain extends AppCompatActivity {
             }
         });
 
+        downArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ResizeAnimation animationObject = new ResizeAnimation(continueConstraint, Home.dpToPx(70), Home.dpToPx(435), false);
+                    animationObject.setDuration(200);
+                    continueConstraint.startAnimation(animationObject);
+
+                    animationObject.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+
+
+                            calendarTitle.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    calendarTitle.setVisibility(View.INVISIBLE);
+                                }
+                            });
+                            calendarView.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    calendarView.setVisibility(View.INVISIBLE);
+                                }
+                            });
+                            proximitySeekbar.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    proximitySeekbar.setVisibility(View.INVISIBLE);
+                                }
+                            });
+                            pSBarText.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    pSBarText.setVisibility(View.INVISIBLE);
+                                }
+                            });
+                            downArrow.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    downArrow.setVisibility(View.INVISIBLE);
+                                }
+                            });
 
 
 
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            barConstraint.setVisibility(View.VISIBLE);
+                            continueConstraint.setVisibility(View.GONE);
+                            darkenBackground.setVisibility(View.INVISIBLE);
+
+
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+
+                        }
+                    });
+
+
+
+            }
+        });
 
 
         imageSlideShow.setFlipInterval(3500);
         imageSlideShow.setAutoStart(true);
 
-
-
-
-
         imageSlideShow.setInAnimation(RentProductMain.this, android.R.anim.slide_in_left);
         imageSlideShow.setOutAnimation(RentProductMain.this, android.R.anim.slide_out_right);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-
-
-
-
                 DocumentSnapshot document = task.getResult();
                 if(document.exists()){
 
-//                    productPrimaryImage.setImageURI(Uri.parse(document.get("Primary Image").toString()));
-
-
-
+//                    productPrimaryImage.setImageURI(Uri.parse(document.get("Primary Image").toString()))
                     report.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -306,10 +445,6 @@ public class RentProductMain extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     reportSeletion = listItems[which];
-
-
-
-
 
                                 }
                             });
@@ -339,7 +474,6 @@ public class RentProductMain extends AppCompatActivity {
                                         reportData.put("Punishment Amount", 0);
                                         reportData.put("Intelligent Rating", document.get("Intelligent Rating").toString());
 
-
                                         mFirestore.collection("reports").document(String.valueOf(Home.userProductSelection)).set(reportData);
 
                                         AlertDialog.Builder builder2 = new AlertDialog.Builder(RentProductMain.this);
@@ -347,8 +481,6 @@ public class RentProductMain extends AppCompatActivity {
                                         builder2.setTitle("Product Reported");
                                         builder2.setIcon(R.drawable.thanks);
                                         builder2.setMessage("Thank you for helping us make the Rentathon community a safe, fair, and pleasing environment!");
-
-
 
                                         builder2.setNeutralButton("Continue RENTING", new DialogInterface.OnClickListener() {
                                             @Override
@@ -358,16 +490,12 @@ public class RentProductMain extends AppCompatActivity {
                                                 overridePendingTransition(0, 0);
                                                 Home.scrollY = 0;
 
-
                                             }
                                         });
 
                                         builder2.show();
 
-
-
                                     }
-
 
                                 }
                             });
@@ -375,74 +503,31 @@ public class RentProductMain extends AppCompatActivity {
                             android.app.AlertDialog dialog = builder.create();
                             dialog.show();
 
-
-
                         }
                     });
 
-/*
-                    /* GET USER LOCATION *
-                    LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-                    if (ContextCompat.checkSelfPermission(RentProductMain.this, android.Manifest.permission.ACCESS_FINE_LOCATION) ==
-                            PackageManager.PERMISSION_GRANTED &&
-                            ContextCompat.checkSelfPermission(RentProductMain.this, android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
-                                    PackageManager.PERMISSION_GRANTED) {
-                        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                        longitudeRenter = location.getLongitude();
-                        latitudeRenter = location.getLatitude();
-                        //showMessage("true");
-                    }
-                    else {
-                        ActivityCompat.requestPermissions(RentProductMain.this, new String[] {
-                                        Manifest.permission.ACCESS_FINE_LOCATION,
-                                        Manifest.permission.ACCESS_COARSE_LOCATION },
-                                200);
-                        //showMessage("false");
-                    }
-                    */
-
-                    longitudeRentee = document.getDouble("ProductLong");
-                    latitudeRentee = document.getDouble("ProductLang");
-                    /*distance = calculateDistance(latitudeRenter, longitudeRenter, latitudeRentee, longitudeRentee);
-
-                    DecimalFormat numberFormat = new DecimalFormat("#0.00");
-
-                    distanceTxt.setText(numberFormat.format((distance))+ " Miles Away");*/
-
-                    Location locationA = new Location("point A");
-
-                    locationA.setLatitude(latitudeRenter);
-                    locationA.setLongitude(longitudeRenter);
-
-                    Location locationB = new Location("point B");
-
-                    locationB.setLatitude(latitudeRentee);
-                    locationB.setLongitude(longitudeRentee);
-                    DecimalFormat numberFormat = new DecimalFormat("#0.00");
-                    float distance1 = locationA.distanceTo(locationB);
-                    //distanceTxt.setText(numberFormat.format((distance1 / 1609.34) * 1.60934)+ " Miles Away");
                     distanceTxt.setText("3.85 Miles Away");
-
-
 
 
                     productName.setText(document.get("Product Name").toString());
                     selectedProductName = document.get("Product Name").toString();
                     productPublicName = document.get("Product Name").toString();
                     //condition.setText(document.get("Product Condition").toString());
-                    int price = Integer.valueOf(document.get("Rental Fee").toString());
+                    double price = Integer.valueOf(document.get("Rental Fee").toString());
                     descripton.setText("The owner states that this product is in " + document.get("Product Condition").toString() + " condition." + "\n\n" + document.get("Product Description").toString());
                     price2.setText("$" + document.get("Rental Fee").toString());
                     price3.setText("From " + "$" + document.get("Rental Fee").toString() + "/Day");
                     daily.setText("$" + document.get("Rental Fee").toString());
                     weekly.setText("$" + (price * 7));
+                    productPrice = price;
                     monthly.setText("$" + (price * 14));
                     selectedPrice = document.get("Rental Fee").toString();
                     totalViews = Integer.parseInt(document.get("Views").toString());
                     uniqueVisitors = Integer.parseInt(document.get("Unique Visitors").toString());
 
                     renterUID = document.get("User ID").toString();
+
 
                     storageRef.child("images/" + String.valueOf(Home.userProductSelection)).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
@@ -455,361 +540,376 @@ public class RentProductMain extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
                                     Intent sendIntent = new Intent();
-
-
                                     sendIntent.setAction(Intent.ACTION_SEND);
                                     sendIntent.putExtra(Intent.EXTRA_TEXT, "Rent this " + selectedProductName + " for " + "$" + selectedPrice + "/day. Download Rentathon Today: https://play.google.com/store/apps/details?id=com.rentathon.rentathon3_6_20&hl=en_GB");
                                     sendIntent.setData(imageUri);
                                     sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                                     sendIntent.setType("text/plain");
                                     sendIntent.setType("image/*");
-
                                     Intent shareIntent = Intent.createChooser(sendIntent, null);
                                     startActivity(shareIntent);
-
-
                                 }
                             });
                         }
+        });
+
+        mFirebaseUser = mAuth.getCurrentUser();
+        if(mFirebaseUser != null) {
+            renteeUID = mFirebaseUser.getUid(); //Do what you need to do with the id
+        }
+
+        if(renterUID.equals(renteeUID) && uniqueVisitors == 0){
+
+            uniqueVisitors++;
+            WriteBatch batch = mFirestore.batch();
+            docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
+            batch.update(docRef, "Unique Visitors", String.valueOf(uniqueVisitors));
+            batch.commit();
+
+
+        }
+
+        else if(!renterUID.equals(renteeUID)){
+
+            uniqueVisitors++;
+            WriteBatch batch = mFirestore.batch();
+            docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
+            batch.update(docRef, "Unique Visitors", String.valueOf(uniqueVisitors));
+            batch.commit();
+
+
+        }
+
+
+        if(fromHome) {
+            totalViews++;
+            WriteBatch batch = mFirestore.batch();
+            docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
+            batch.update(docRef, "Views", totalViews);
+            batch.commit();
+        }
+
+        UID = document.get("User ID").toString();
+        //renterName.setText(document.get("User Name").toString());
+        //renterCity.setText(document.get("User City").toString());
+        docRef2 = mFirestore.collection("users").document(renteeUID);
+
+
+        docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()) {
+                    Timber.e("Inside Docref");
+                    renterName.setText(document.get("Name").toString());
+                    renterNameString = (document.get("Name").toString());
+                    renterCity.setText(document.get("City").toString());
+                    selectedName = document.get("Name").toString();
+                    moreProducts.setHint("More Products From " + selectedName );
+                    ratingAmntTxt.setText(document.get("RCount").toString() + " Reviews");
+
+                   /* verifiedUser = Boolean.parseBoolean(document.get("Verified User").toString());
+                    if(verifiedUser){
+                        verfiedLayout.setVisibility(View.VISIBLE);
+                        verfiedLayout.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String url = "http://www.rentathonapp.com/verified-renters";
+                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                i.setData(Uri.parse(url));
+                                startActivity(i);
+                            }
                         });
+                    }
+
+                    */
+
+                    userRating = Double.parseDouble(document.get("RAverage").toString());
+                    setUserRating(Double.parseDouble(document.get("RAverage").toString()));
+                    if(userRating == 0){
+                        ratingPic.setImageResource(R.drawable.star5);
+                    }
+
+                    else if (userRating <= 0.5){
+                        ratingPic.setImageResource(R.drawable.star05);
+                    }
+                    else if (userRating <= 1){
+                        ratingPic.setImageResource(R.drawable.star1);
+                    }
+                    else if (userRating <= 1.5){
+                        ratingPic.setImageResource(R.drawable.star15);
+                    }
+                    else if (userRating <= 2){
+                        ratingPic.setImageResource(R.drawable.star2);
+                    }
+                    else if (userRating <= 2.5){
+                        ratingPic.setImageResource(R.drawable.star25);
+                    }
+                    else if (userRating <= 3){
+                        ratingPic.setImageResource(R.drawable.star3);
+                    }
+                    else if (userRating <= 3.5){
+                        ratingPic.setImageResource(R.drawable.star35);
+                    }
+                    else if (userRating <= 4){
+                        ratingPic.setImageResource(R.drawable.star4);
+                    }
+                    else if (userRating <= 4.5){
+                        ratingPic.setImageResource(R.drawable.star45);
+                    }
+                    else if (userRating <= 5){
+                        ratingPic.setImageResource(R.drawable.star5);
+                    }
 
                     mFirebaseUser = mAuth.getCurrentUser();
                     if(mFirebaseUser != null) {
-                        renteeUID = mFirebaseUser.getUid(); //Do what you need to do with the id
-                    }
-
-                    if(renterUID.equals(renteeUID) && uniqueVisitors == 0){
-
-                        uniqueVisitors++;
-                        WriteBatch batch = mFirestore.batch();
-                        docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
-                        batch.update(docRef, "Unique Visitors", String.valueOf(uniqueVisitors));
-                        batch.commit();
-
-
-                    }
-
-                    else if(!renterUID.equals(renteeUID)){
-
-                        uniqueVisitors++;
-                        WriteBatch batch = mFirestore.batch();
-                        docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
-                        batch.update(docRef, "Unique Visitors", String.valueOf(uniqueVisitors));
-                        batch.commit();
-
-
+                        currentName = mFirebaseUser.getDisplayName();
                     }
 
 
+                    if(renterUID.equals(renteeUID)){
+                        nxtBtn.setText("Edit Product");
+                        price3.setText("View Insights");
 
 
+                        nxtBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
 
-                    if(fromHome) {
-                        totalViews++;
-                        WriteBatch batch = mFirestore.batch();
-                        docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
-                        batch.update(docRef, "Views", totalViews);
-                        batch.commit();
+                                startActivity(new Intent(RentProductMain.this, EditProduct.class));
+                                overridePendingTransition(0,0);
+                            }
+                        });
+
+                        price3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(new Intent(RentProductMain.this, ProductInsights.class));
+                                overridePendingTransition(0,0);
+
+                            }
+                        });
+
                     }
+                    else{
+                        Timber.e("Got to Else");
+                        nxtBtn.setText("Continue");
+                        distanceTxt.setVisibility(View.VISIBLE);
 
+                                docRef2 = mFirestore.collection("users").document(mAuth.getUid());
+                                docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-                    UID = document.get("User ID").toString();
-                    //renterName.setText(document.get("User Name").toString());
-                    //renterCity.setText(document.get("User City").toString());
-                    docRef2 = mFirestore.collection("users").document(renterUID);
+                                        DocumentSnapshot document = task.getResult();
 
-
-
-
-                    docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-
-
-                                renterName.setText(document.get("Name").toString());
-                                renterNameString = (document.get("Name").toString());
-                                renterCity.setText(document.get("City").toString());
-                                selectedName = document.get("Name").toString();
-                                moreProducts.setHint("More Products From " + selectedName );
-                                ratingAmntTxt.setText(document.get("Num Reviews").toString() + " Reviews");
-                                verifiedUser = Boolean.parseBoolean(document.get("Verified User").toString());
-                                if(verifiedUser){
-                                    verfiedLayout.setVisibility(View.VISIBLE);
-                                    verfiedLayout.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            String url = "http://www.rentathonapp.com/verified-renters";
-                                            Intent i = new Intent(Intent.ACTION_VIEW);
-                                            i.setData(Uri.parse(url));
-                                            startActivity(i);
-                                        }
-                                    });
-                                }
-
-
-                                userRating = Double.parseDouble(document.get("Rating").toString());
-                                setUserRating(Double.parseDouble(document.get("Rating").toString()));
-                                if(userRating == 0){
-                                    ratingPic.setImageResource(R.drawable.star5);
-                                }
-
-                                else if (userRating <= 0.5){
-                                    ratingPic.setImageResource(R.drawable.star05);
-                                }
-                                else if (userRating <= 1){
-                                    ratingPic.setImageResource(R.drawable.star1);
-                                }
-                                else if (userRating <= 1.5){
-                                    ratingPic.setImageResource(R.drawable.star15);
-                                }
-                                else if (userRating <= 2){
-                                    ratingPic.setImageResource(R.drawable.star2);
-                                }
-                                else if (userRating <= 2.5){
-                                    ratingPic.setImageResource(R.drawable.star25);
-                                }
-                                else if (userRating <= 3){
-                                    ratingPic.setImageResource(R.drawable.star3);
-                                }
-                                else if (userRating <= 3.5){
-                                    ratingPic.setImageResource(R.drawable.star35);
-                                }
-                                else if (userRating <= 4){
-                                    ratingPic.setImageResource(R.drawable.star4);
-                                }
-                                else if (userRating <= 4.5){
-                                    ratingPic.setImageResource(R.drawable.star45);
-                                }
-                                else if (userRating <= 5){
-                                    ratingPic.setImageResource(R.drawable.star5);
-                                }
-
-
-
-
-                                mFirebaseUser = mAuth.getCurrentUser();
-                                if(mFirebaseUser != null) {
-                                    currentName = mFirebaseUser.getDisplayName();
-                                }
-                                if(renterUID.equals(renteeUID)){
-                                    nxtBtn.setText("Edit Product");
-                                    price3.setText("View Insights");
-
-
-                                    nxtBtn.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            startActivity(new Intent(RentProductMain.this, EditProduct.class));
-                                            overridePendingTransition(0,0);
-
-
-                                        }
-                                    });
-
-                                    price3.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            startActivity(new Intent(RentProductMain.this, ProductInsights.class));
-                                            overridePendingTransition(0,0);
-
-                                        }
-                                    });
-
-                                    menu.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            if(menuClicked) {
-
-                                                share.setVisibility(View.VISIBLE);
-                                                report.setVisibility(View.VISIBLE);
-
-
-                                                menuClicked = false;
-
-                                            }
-                                            else if(!menuClicked){
-                                                share.setVisibility(View.INVISIBLE);
-                                                report.setVisibility(View.INVISIBLE);
-
-                                                menuClicked = true;
-
-                                            }
-
-                                        }
-                                    });
-
-
-                                }
-                                else{
-
-                                    nxtBtn.setText("Rent Now");
-                                    distanceTxt.setVisibility(View.VISIBLE);
-
-                                            docRef2 = mFirestore.collection("users").document(mAuth.getUid());
-                                            docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                            verified = Boolean.parseBoolean(document.get("Payment").toString());
+                                            nxtBtn.setOnClickListener(new View.OnClickListener() {
                                                 @Override
-                                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                public void onClick(View v) {
 
-                                                    DocumentSnapshot document = task.getResult();
-                                                    if (document.exists()) {
-                                                        verified = Boolean.parseBoolean(document.get("Filled Out").toString());
-                                                        nxtBtn.setOnClickListener(new View.OnClickListener() {
-                                                            @Override
-                                                            public void onClick(View v) {
+                                                    if (verified) {
+                                                        continueConstraint.setVisibility(View.VISIBLE);
+                                                        darkenBackground.setVisibility(View.VISIBLE);
+                                                        barConstraint.setVisibility(View.GONE); //comment dis
+                                                        newButton.setVisibility(View.VISIBLE);
+                                                        newPrice.setVisibility(View.VISIBLE);
+                                                        returnDate.setVisibility(View.VISIBLE);
 
-                                                                if(verified && mFirebaseUser.isEmailVerified()) {
-                                                                    PingPlacePicker.IntentBuilder builder = new PingPlacePicker.IntentBuilder();
-                                                                    builder.setAndroidApiKey("AIzaSyCHBd7NQPWdOUor_B18mGpbrvBSkHo8gZc").setMapsApiKey("AIzaSyCHBd7NQPWdOUor_B18mGpbrvBSkHo8gZc");
+                                                        calendarTitle.setVisibility(View.INVISIBLE);
+                                                        proximitySeekbar.setVisibility(View.INVISIBLE);
+                                                        pSBarText.setVisibility(View.INVISIBLE);
+                                                        //downArrow.setVisibility(View.INVISIBLE);
 
 
-                                                                    try {
-                                                                        startActivityForResult(builder.build(RentProductMain.this), PPR);
-                                                                        overridePendingTransition(0,0);
 
-                                                                    } catch (GooglePlayServicesNotAvailableException e) {
-                                                                        e.printStackTrace();
-                                                                    }
+
+
+                                                            ResizeAnimation animationObject = new ResizeAnimation(continueConstraint, dpToPx(435),dpToPx(70), true);
+                                                            animationObject.setDuration(200);
+                                                            continueConstraint.startAnimation(animationObject);
+
+
+
+
+                                                            animationObject.setAnimationListener(new Animation.AnimationListener() {
+                                                                @Override
+                                                                public void onAnimationStart(Animation animation) {
+
+
+                                                                    calendarTitle.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                                                        @Override
+                                                                        public void onAnimationEnd(Animator animation) {
+                                                                            calendarTitle.setVisibility(View.VISIBLE);
+                                                                        }
+                                                                    });
+                                                                    calendarView.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                                                        @Override
+                                                                        public void onAnimationEnd(Animator animation) {
+                                                                            calendarView.setVisibility(View.VISIBLE);
+                                                                        }
+                                                                    });
+                                                                    proximitySeekbar.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                                                        @Override
+                                                                        public void onAnimationEnd(Animator animation) {
+                                                                            proximitySeekbar.setVisibility(View.VISIBLE);
+                                                                        }
+                                                                    });
+                                                                    pSBarText.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                                                        @Override
+                                                                        public void onAnimationEnd(Animator animation) {
+                                                                            pSBarText.setVisibility(View.VISIBLE);
+                                                                        }
+                                                                    });
+                                                                    downArrow.animate().setDuration(200).alpha(1).setListener(new AnimatorListenerAdapter() {
+                                                                        @Override
+                                                                        public void onAnimationEnd(Animator animation) {
+                                                                            downArrow.setVisibility(View.VISIBLE);
+                                                                        }
+                                                                    });
+
+
+
                                                                 }
-                                                                else if(verified && !mFirebaseUser.isEmailVerified()){
-                                                                    startActivity(new Intent(getApplicationContext(), WelcomeProdcutMain.class));
-                                                                    overridePendingTransition(0, 0);
-                                                                    showMessage("Please Verify Your Email Address");
-                                                                }
-                                                                else if(!verified && mFirebaseUser.isEmailVerified()){
-                                                                    startActivity(new Intent(getApplicationContext(), WelcomeProdcutMain.class));
-                                                                    overridePendingTransition(0, 0);
-                                                                    showMessage("Please Fill Out Your Available Times");
-                                                                }
-                                                                else if(!verified && !mFirebaseUser.isEmailVerified()){
-                                                                    startActivity(new Intent(getApplicationContext(), WelcomeProdcutMain.class));
-                                                                    overridePendingTransition(0, 0);
+
+                                                                @Override
+                                                                public void onAnimationEnd(Animation animation) {
+                                                                    /*barConstraint.setVisibility(View.INVISIBLE);
+
+                                                                    Animation animUpDown;
+
+                                                                    // load the animation
+                                                                    animUpDown = AnimationUtils.loadAnimation(getApplicationContext(),
+                                                                            R.anim.up_down);
+                                                                    // start the animation
+                                                                    continueConstraint.startAnimation(animUpDown);
+
+
+                                                                     */
 
 
                                                                 }
 
-                                                            }
-                                                        });
+                                                                @Override
+                                                                public void onAnimationRepeat(Animation animation) {
+
+                                                                }
+                                                            });
+
+
+
+                                                        } else {
+                                                            showMessage("Please Verify Your Payment");
+                                                        }
+
 
                                                     }
-
-
-
-
-
-
-
-
-                                        }
-                                    });
-                                    menu.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            if(menuClicked) {
-
-                                                share.setVisibility(View.VISIBLE);
-                                                report.setVisibility(View.VISIBLE);
-
-
-                                                menuClicked = false;
-
-                                            }
-                                            else if(!menuClicked){
-                                                share.setVisibility(View.INVISIBLE);
-                                                report.setVisibility(View.INVISIBLE);
-
-                                                menuClicked = true;
-
-                                            }
-
-                                        }
-                                    });
+                                                });
 
                                 }
+                            });
 
+                    }
+                    menu.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if(menuClicked) {
+
+                                share.setVisibility(View.VISIBLE);
+                                report.setVisibility(View.VISIBLE);
+                                menuClicked = false;
+
+                            }
+                            else if(!menuClicked){
+                                share.setVisibility(View.INVISIBLE);
+                                report.setVisibility(View.INVISIBLE);
+                                menuClicked = true;
 
                             }
                         }
                     });
 
 
-                                reportRef = mFirestore.collection("reports").document(String.valueOf(Home.userProductSelection));
-
-                                reportRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                }
+            }
+        });
 
 
-                                        DocumentSnapshot document2 = task.getResult();
-                                        if(document2.exists()) {
-                                            punishmentActive = Boolean.parseBoolean(document2.get("Punishment Active").toString());
-                                            adminConfirmed = Boolean.parseBoolean(document2.get("Admin Confirmed").toString());
-                                            punishmentAmount = Integer.parseInt(document2.get("Punishment Amount").toString());
+        reportRef = mFirestore.collection("reports").document(String.valueOf(Home.userProductSelection));
+
+                reportRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
 
-                                        }
+                DocumentSnapshot document2 = task.getResult();
+                if(document2.exists()) {
+                    punishmentActive = Boolean.parseBoolean(document2.get("Punishment Active").toString());
+                    adminConfirmed = Boolean.parseBoolean(document2.get("Admin Confirmed").toString());
+                    punishmentAmount = Integer.parseInt(document2.get("Punishment Amount").toString());
 
 
-
-                                        docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-                                                DocumentSnapshot document = task.getResult();
-
-
-                                                //userRating = Double.parseDouble(document.get("Rating").toString());
-                                                //numOfReviews = Integer.parseInt(document.get("Num Reviews").toString());
-
-
-                                                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-
-
-                                                        DocumentSnapshot document = task.getResult();
-                                                        if (document.exists()) {
-                                                            //intelligentRatingMAIN = (((double) Integer.parseInt(document.get("Unique Visitors").toString()) / Integer.parseInt(document.get("Views").toString())) * 250) + (Integer.parseInt(document.get("Unique Visitors").toString()) * 10) + (userRating * 110) + ((35 - Integer.parseInt(document.get("Rental Fee").toString())) * 6) - ((5 - 10) * 100);
-                                                            //intelligentRating = (((double)Integer.parseInt(document.get("Views").toString()) / Integer.parseInt(document.get("Unique Visitors").toString())) * 192) + (Integer.parseInt(document.get("Unique Visitors").toString())) + (Math.pow(userRating, 1.2) * 110) + Math.pow(numOfReviews, 1.8) - (Math.pow( Integer.parseInt(document.get("Rental Fee").toString()), 1.5) * 6) - (Math.pow(5, 2.35) * 10);
-                                                            WriteBatch intelligenceBatch = mFirestore.batch();
-                                                            WriteBatch reportBatch = mFirestore.batch();
-                                                            if(punishmentActive && adminConfirmed){
-                                                                intelligentRating = ((((double)Integer.parseInt(document.get("Views").toString()) / Integer.parseInt(document.get("Unique Visitors").toString())) * 250) + (Integer.parseInt(document.get("Unique Visitors").toString()) * 10) + ((userRating - 3) * numOfReviews * 55) + ((35 - Integer.parseInt(document.get("Rental Fee").toString())) * 6) + ((10 - 5) * 100)) - punishmentAmount;
-                                                                punishmentActive = false;
-                                                                reportBatch.update(reportRef, "Punishment Active", punishmentActive);
-                                                                reportBatch.update(reportRef, "Intelligent Rating", intelligentRating);
-                                                                reportBatch.commit();
-
-
-                                                            }
-                                                            else{
-                                                                intelligentRating = (((double)Integer.parseInt(document.get("Views").toString()) / Integer.parseInt(document.get("Unique Visitors").toString())) * 250) + (Integer.parseInt(document.get("Unique Visitors").toString()) * 10) + ((userRating - 3) * numOfReviews * 55) + ((35 - Integer.parseInt(document.get("Rental Fee").toString())) * 6) + ((10 - 5) * 100)-punishmentAmount;
-
-                                                            }
-
-                                                            //showMessage("\t$" + Integer.parseInt(document.get("Rental Fee").toString()) + "/day\t" + String.valueOf(userRating) + "/5.0 Stars\t" + "5" + " mi away\t" + "Unique Views: " + Integer.parseInt(document.get("Unique Visitors").toString()) + "\tViews: " + Integer.parseInt(document.get("Views").toString()) + "\tIntelligence Rating: " + String.format("%6.2f", intelligentRating));
-
-                                                            //showMessageFast(String.format("%6.2f", intelligentRating));
-
-                                                            intelligenceBatch.update(docRef, "Intelligent Rating", intelligentRating);
-                                                            intelligenceBatch.commit();
-                                                        }
-                                                    }
-                                                });
-
-                                            }
-
-                                        });
+                }
 
 
 
+                docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                        DocumentSnapshot document = task.getResult();
+
+
+                        //userRating = Double.parseDouble(document.get("Rating").toString());
+                        //numOfReviews = Integer.parseInt(document.get("Num Reviews").toString());
+
+
+                        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+
+                                DocumentSnapshot document = task.getResult();
+                                if (document.exists()) {
+                                    //intelligentRatingMAIN = (((double) Integer.parseInt(document.get("Unique Visitors").toString()) / Integer.parseInt(document.get("Views").toString())) * 250) + (Integer.parseInt(document.get("Unique Visitors").toString()) * 10) + (userRating * 110) + ((35 - Integer.parseInt(document.get("Rental Fee").toString())) * 6) - ((5 - 10) * 100);
+                                    //intelligentRating = (((double)Integer.parseInt(document.get("Views").toString()) / Integer.parseInt(document.get("Unique Visitors").toString())) * 192) + (Integer.parseInt(document.get("Unique Visitors").toString())) + (Math.pow(userRating, 1.2) * 110) + Math.pow(numOfReviews, 1.8) - (Math.pow( Integer.parseInt(document.get("Rental Fee").toString()), 1.5) * 6) - (Math.pow(5, 2.35) * 10);
+                                    WriteBatch intelligenceBatch = mFirestore.batch();
+                                    WriteBatch reportBatch = mFirestore.batch();
+                                    if(punishmentActive && adminConfirmed){
+                                        intelligentRating = ((((double)Integer.parseInt(document.get("Views").toString()) / Integer.parseInt(document.get("Unique Visitors").toString())) * 250) + (Integer.parseInt(document.get("Unique Visitors").toString()) * 10) + ((userRating - 3) * numOfReviews * 55) + ((35 - Integer.parseInt(document.get("Rental Fee").toString())) * 6) + ((10 - 5) * 100)) - punishmentAmount;
+                                        punishmentActive = false;
+                                        reportBatch.update(reportRef, "Punishment Active", punishmentActive);
+                                        reportBatch.update(reportRef, "Intelligent Rating", intelligentRating);
+                                        reportBatch.commit();
 
 
                                     }
-                                });
+                                    else{
+                                        intelligentRating = (((double)Integer.parseInt(document.get("Views").toString()) / Integer.parseInt(document.get("Unique Visitors").toString())) * 250) + (Integer.parseInt(document.get("Unique Visitors").toString()) * 10) + ((userRating - 3) * numOfReviews * 55) + ((35 - Integer.parseInt(document.get("Rental Fee").toString())) * 6) + ((10 - 5) * 100)-punishmentAmount;
+
+                                    }
+
+                                    //showMessage("\t$" + Integer.parseInt(document.get("Rental Fee").toString()) + "/day\t" + String.valueOf(userRating) + "/5.0 Stars\t" + "5" + " mi away\t" + "Unique Views: " + Integer.parseInt(document.get("Unique Visitors").toString()) + "\tViews: " + Integer.parseInt(document.get("Views").toString()) + "\tIntelligence Rating: " + String.format("%6.2f", intelligentRating));
+
+                                    //showMessageFast(String.format("%6.2f", intelligentRating));
+
+                                    intelligenceBatch.update(docRef, "Intelligent Rating", intelligentRating);
+                                    intelligenceBatch.commit();
+                                }
+                            }
+                        });
+
+                    }
+
+                });
+
+
+
+
+
+            }
+        });
 
 
 
@@ -818,26 +918,26 @@ public class RentProductMain extends AppCompatActivity {
 
 
 
-                    rentersImage.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(RentProductMain.this, UserHomeMain.class));
-                            //overridePendingTransition(0,0);
+        rentersImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RentProductMain.this, UserHomeMain.class));
+                //overridePendingTransition(0,0);
 
-                        }
-                    });
-
-
-
-                    storageRef.child("users/" + UID).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            // Got the download URL for 'users/me/profile.png'
-                            Glide.with(RentProductMain.this).load(uri).into(rentersImage);
+            }
+        });
 
 
 
-                        }
+        storageRef.child("users/" + UID).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                // Got the download URL for 'users/me/profile.png'
+                Glide.with(RentProductMain.this).load(uri).into(rentersImage);
+
+
+
+            }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception exception) {
@@ -845,19 +945,9 @@ public class RentProductMain extends AppCompatActivity {
                             //showMessage("Please connect to the internet to view the products");
                         }
                     });
-
-
-
-
-
-
                 }
-
-
-
             }
         });
-
 
 
 
@@ -1135,6 +1225,10 @@ public class RentProductMain extends AppCompatActivity {
     }
 
 
+    public int dpToPx(int dp) {
+        DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
+        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+    }
 
 
 

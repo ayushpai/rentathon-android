@@ -450,7 +450,7 @@
                 android:layout_height="38dp"
                 android:layout_marginTop="20dp"
 
-                android:background="@drawable/background_right"
+                android:background="@drawable/background_right_orange"
                 android:fontFamily="@font/roboto_medium"
                 android:padding="3dp"
                 android:text="View More Photos"
@@ -528,6 +528,7 @@
             <TextView
                 android:id="@+id/product_description_title"
                 android:layout_width="0dp"
+
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="42dp"
@@ -608,8 +609,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
+        android:id="@+id/barConstraint"
         android:visibility="visible"
+        android:translationZ="90dp"
 
         >
 
@@ -695,21 +697,22 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
+        android:id="@+id/darkenBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#99000000"
-
         android:visibility="gone"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/continueConstraint"
         android:layout_width="match_parent"
-        android:layout_height="465dp"
+        android:layout_height="70dp"
         android:background="#00ffffff"
+        android:layout_marginBottom="24dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
         >
 
@@ -719,7 +722,7 @@
             android:layout_height="0dp"
             app:layout_constraintHeight_percent="1"
 
-            android:src="@drawable/background_left_solid"
+            android:src="@drawable/background_left"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -728,6 +731,7 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="70dp"
+            android:visibility="gone"
             android:layout_height="30dp"
             android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -753,7 +757,7 @@
             app:layout_constraintHorizontal_bias="0.069"
             app:layout_constraintStart_toStartOf="@+id/home_bar2"
             app:layout_constraintTop_toBottomOf="@+id/proximity_seekbar"
-
+            android:visibility="gone"
             android:layout_marginTop="12dp"
             />
 
@@ -765,12 +769,12 @@
             android:clickable="true"
             android:fontFamily="@font/raleway_medium"
             android:gravity="center"
-            android:text="Total Price"
+            android:text="Total Price: $0"
 
             android:textColor="@color/white"
 
             android:layout_marginTop="2dp"
-
+            android:visibility="gone"
             android:textSize="17dp"
             app:layout_constraintEnd_toEndOf="@+id/home_bar2"
             app:layout_constraintStart_toEndOf="@+id/rent2"
@@ -789,7 +793,7 @@
 
             android:text="Return MM/DD/YYYY"
             android:textColor="@color/white"
-
+            android:visibility="gone"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="@+id/rent2"
 
@@ -800,6 +804,7 @@
             android:id="@+id/progress_bar2"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/rent2"
             app:layout_constraintEnd_toEndOf="@+id/rent2"
             app:layout_constraintStart_toStartOf="@+id/rent2"
@@ -813,7 +818,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/calendar_background"
             android:contextClickable="true"
-
+            android:visibility="visible"
             android:maxDate="12/31/2021"
             android:minDate="1/1/2021"
 
@@ -827,7 +832,7 @@
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-
+            android:visibility="gone"
             android:thumbTint="#d5d5d5"
             app:layout_constraintStart_toStartOf="@+id/calendarView"
             app:layout_constraintTop_toBottomOf="@+id/calendarView"
@@ -838,8 +843,9 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/raleway_bold"
-            android:text="## Days"
+            android:text="0 Days"
             android:textAlignment="center"
+            android:visibility="gone"
             android:textSize="14dp"
             android:textColor="#ffffff"
 
@@ -853,7 +859,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-
+            android:visibility="gone"
             android:clickable="true"
             android:fontFamily="@font/raleway_bold"
             android:gravity="center"
