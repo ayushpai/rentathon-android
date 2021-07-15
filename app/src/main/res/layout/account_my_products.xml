@@ -124,10 +124,9 @@
                     android:id="@+id/back0"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    android:background="@drawable/products_background_for_my_products"
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                      android:visibility="visible"
+                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -155,7 +154,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="23dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="Add New Product"
                     android:textColor="#FFFFFF"
@@ -187,9 +186,9 @@
                     android:id="@+id/back1"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -217,7 +216,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -236,7 +235,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -254,7 +253,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -283,9 +282,9 @@
                     android:id="@+id/back2"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -313,7 +312,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -332,7 +331,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -350,7 +349,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -379,9 +378,9 @@
                     android:id="@+id/back3"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -409,7 +408,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -428,7 +427,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -446,7 +445,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -475,9 +474,9 @@
                     android:id="@+id/back4"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -505,7 +504,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -524,7 +523,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -542,7 +541,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -571,9 +570,9 @@
                     android:id="@+id/back5"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -601,7 +600,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -620,7 +619,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -638,7 +637,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -668,9 +667,9 @@
                     android:id="@+id/back6"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -698,7 +697,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -717,7 +716,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -735,7 +734,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -764,9 +763,9 @@
                     android:id="@+id/back7"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -794,7 +793,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -813,7 +812,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -831,7 +830,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -860,9 +859,9 @@
                     android:id="@+id/back8"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -890,7 +889,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -909,7 +908,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -927,7 +926,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -957,9 +956,9 @@
                     android:id="@+id/back9"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -987,7 +986,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -1006,7 +1005,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1024,7 +1023,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1054,9 +1053,9 @@
                     android:id="@+id/back10"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
+                    android:background="@drawable/products_background_for_my_products"
                       android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1084,7 +1083,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                       
                     android:textColor="#FFFFFF"
@@ -1103,7 +1102,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1121,7 +1120,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1205,10 +1204,10 @@
                     android:id="@+id/rback1"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1235,7 +1234,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -1254,7 +1253,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1272,7 +1271,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1301,10 +1300,10 @@
                     android:id="@+id/rback2"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1331,7 +1330,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -1350,7 +1349,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1368,7 +1367,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1397,10 +1396,10 @@
                     android:id="@+id/rback3"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1427,7 +1426,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -1446,7 +1445,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1464,7 +1463,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1493,10 +1492,10 @@
                     android:id="@+id/rback4"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1523,7 +1522,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -1542,7 +1541,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1560,7 +1559,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1589,10 +1588,10 @@
                     android:id="@+id/rback5"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1619,7 +1618,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -1638,7 +1637,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1656,7 +1655,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1686,10 +1685,10 @@
                     android:id="@+id/rback6"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1716,7 +1715,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -1735,7 +1734,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1753,7 +1752,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1782,10 +1781,10 @@
                     android:id="@+id/rback7"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1812,7 +1811,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -1831,7 +1830,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1849,7 +1848,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1878,10 +1877,10 @@
                     android:id="@+id/rback8"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1908,7 +1907,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -1927,7 +1926,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -1945,7 +1944,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -1975,10 +1974,10 @@
                     android:id="@+id/rback9"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -2005,7 +2004,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -2024,7 +2023,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -2042,7 +2041,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
@@ -2072,10 +2071,10 @@
                     android:id="@+id/rback10"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    android:background="#000000"
+                    
                     android:padding="2dp"
-                    android:src="@color/accent_background"
-                    android:visibility="invisible"
+                    android:background="@drawable/products_background_for_my_products"
+                      android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -2102,7 +2101,7 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="12dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
 
                     android:textColor="#FFFFFF"
@@ -2121,7 +2120,7 @@
                     android:layout_marginTop="45dp"
 
                     android:layout_marginRight="80dp"
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
@@ -2139,7 +2138,7 @@
                     android:layout_marginLeft="110dp"
                     android:layout_marginTop="45dp"
 
-                    android:fontFamily="@font/roboto"
+                    android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
