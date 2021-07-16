@@ -228,7 +228,6 @@ public class ProductOverLord extends AppCompatActivity {
                             back1.setVisibility(View.VISIBLE);
                             a.setVisibility(View.VISIBLE);
                             ProductPrice1.setText("Pending");
-
                             ProductName1.setText(document.get("ProductName").toString());
                             ProductViews1.setText(document.get("OwnerCity").toString());
 
@@ -252,7 +251,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
 
-                                    Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                    Home.userProductSelection = Integer.parseInt(document.get("ID").toString());
                                     startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                     overridePendingTransition(0, 0);
 
@@ -268,11 +267,11 @@ public class ProductOverLord extends AppCompatActivity {
                             back2.setVisibility(View.VISIBLE);
                             b.setVisibility(View.VISIBLE);
 
-                            ProductPrice2.setText("$" + document.get("Rental Fee").toString() + "/day");
-                            ProductName2.setText(document.get("Product Name").toString());
-                            ProductViews2.setText(document.get("Views").toString() + " Views");
+                            ProductPrice2.setText("Pending");
+                            ProductName2.setText(document.get("ProductName").toString());
+                            ProductViews2.setText(document.get("OwnerCity").toString());
 
-                            storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     // Got the download URL for 'users/me/profile.png'
@@ -292,7 +291,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
 
-                                    Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                     startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                     overridePendingTransition(0, 0);
 
@@ -308,11 +307,12 @@ public class ProductOverLord extends AppCompatActivity {
                             back3.setVisibility(View.VISIBLE);
                             c.setVisibility(View.VISIBLE);
 
-                            ProductPrice3.setText("$" + document.get("Rental Fee").toString() + "/day");
-                            ProductName3.setText(document.get("Product Name").toString());
-                            ProductViews3.setText(document.get("Views").toString() + " Views");
+                            ProductPrice3.setText("Pending");
 
-                            storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            ProductName3.setText(document.get("ProductName").toString());
+                            ProductViews3.setText(document.get("OwnerCity").toString());
+
+                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     // Got the download URL for 'users/me/profile.png'
@@ -332,7 +332,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
 
-                                    Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                     startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                     overridePendingTransition(0, 0);
 
@@ -348,11 +348,12 @@ public class ProductOverLord extends AppCompatActivity {
                             back4.setVisibility(View.VISIBLE);
                             d.setVisibility(View.VISIBLE);
 
-                            ProductPrice4.setText("$" + document.get("Rental Fee").toString() + "/day");
-                            ProductName4.setText(document.get("Product Name").toString());
-                            ProductViews4.setText(document.get("Views").toString() + " Views");
+                            ProductPrice4.setText("Pending");
 
-                            storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            ProductName4.setText(document.get("ProductName").toString());
+                            ProductViews4.setText(document.get("OwnerCity").toString());
+
+                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     // Got the download URL for 'users/me/profile.png'
@@ -366,13 +367,15 @@ public class ProductOverLord extends AppCompatActivity {
 
 
                         }
+
+
                         if (loopMaster == 4) {
 
                             e.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
 
-                                    Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                     startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                     overridePendingTransition(0, 0);
 
@@ -388,11 +391,12 @@ public class ProductOverLord extends AppCompatActivity {
                             back5.setVisibility(View.VISIBLE);
                             e.setVisibility(View.VISIBLE);
 
-                            ProductPrice5.setText("$" + document.get("Rental Fee").toString() + "/day");
-                            ProductName5.setText(document.get("Product Name").toString());
-                            ProductViews5.setText(document.get("Views").toString() + " Views");
+                            ProductPrice5.setText("Pending");
 
-                            storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            ProductName5.setText(document.get("ProductName").toString());
+                            ProductViews5.setText(document.get("OwnerCity").toString());
+
+                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     // Got the download URL for 'users/me/profile.png'
@@ -406,13 +410,14 @@ public class ProductOverLord extends AppCompatActivity {
 
 
                         }
+
                         if (loopMaster == 5) {
 
                             f.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
 
-                                    Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                     startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                     overridePendingTransition(0, 0);
 
@@ -428,11 +433,12 @@ public class ProductOverLord extends AppCompatActivity {
                             back6.setVisibility(View.VISIBLE);
                             f.setVisibility(View.VISIBLE);
 
-                            ProductPrice6.setText("$" + document.get("Rental Fee").toString() + "/day");
-                            ProductName6.setText(document.get("Product Name").toString());
-                            ProductViews6.setText(document.get("Views").toString() + " Views");
+                            ProductPrice6.setText("Pending");
 
-                            storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            ProductName6.setText(document.get("ProductName").toString());
+                            ProductViews6.setText(document.get("OwnerCity").toString());
+
+                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     // Got the download URL for 'users/me/profile.png'
@@ -443,8 +449,6 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onFailure(@NonNull Exception exception) {
                                 }
                             });
-
-
                         }
                         if (loopMaster == 6) {
 
@@ -468,11 +472,11 @@ public class ProductOverLord extends AppCompatActivity {
                             back7.setVisibility(View.VISIBLE);
                             g.setVisibility(View.VISIBLE);
 
-                            ProductPrice7.setText("$" + document.get("Rental Fee").toString() + "/day");
-                            ProductName7.setText(document.get("Product Name").toString());
-                            ProductViews7.setText(document.get("Views").toString() + " Views");
+                            ProductPrice7.setText("Pending");
+                            ProductName7.setText(document.get("ProductName").toString());
+                            ProductViews7.setText(document.get("OwnerCity").toString());
 
-                            storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     // Got the download URL for 'users/me/profile.png'
@@ -484,7 +488,6 @@ public class ProductOverLord extends AppCompatActivity {
                                 }
                             });
 
-
                         }
                         if (loopMaster == 7) {
 
@@ -492,11 +495,9 @@ public class ProductOverLord extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
 
-                                    Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                     startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                     overridePendingTransition(0, 0);
-
-
 
                                 }
                             });
@@ -508,11 +509,12 @@ public class ProductOverLord extends AppCompatActivity {
                             back8.setVisibility(View.VISIBLE);
                             h.setVisibility(View.VISIBLE);
 
-                            ProductPrice8.setText("$" + document.get("Rental Fee").toString() + "/day");
-                            ProductName8.setText(document.get("Product Name").toString());
-                            ProductViews8.setText(document.get("Views").toString() + " Views");
+                            ProductPrice8.setText("Pending");
 
-                            storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            ProductName8.setText(document.get("ProductName").toString());
+                            ProductViews8.setText(document.get("OwnerCity").toString());
+
+                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     // Got the download URL for 'users/me/profile.png'
@@ -524,7 +526,6 @@ public class ProductOverLord extends AppCompatActivity {
                                 }
                             });
 
-
                         }
                         if (loopMaster == 8) {
 
@@ -532,11 +533,9 @@ public class ProductOverLord extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
 
-                                    Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                     startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                     overridePendingTransition(0, 0);
-
-
 
                                 }
                             });
@@ -548,9 +547,10 @@ public class ProductOverLord extends AppCompatActivity {
                             back9.setVisibility(View.VISIBLE);
                             i1.setVisibility(View.VISIBLE);
 
-                            ProductPrice9.setText("$" + document.get("Rental Fee").toString() + "/day");
-                            ProductName9.setText(document.get("Product Name").toString());
-                            ProductViews9.setText(document.get("Views").toString() + " Views");
+                            ProductPrice9.setText("Pending");
+
+                            ProductName9.setText(document.get("ProductName").toString());
+                            ProductViews9.setText(document.get("OwnerCity").toString());
 
                             storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
@@ -572,10 +572,9 @@ public class ProductOverLord extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
 
-                                    Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                     startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                     overridePendingTransition(0, 0);
-
 
 
                                 }
@@ -588,11 +587,13 @@ public class ProductOverLord extends AppCompatActivity {
                             back10.setVisibility(View.VISIBLE);
                             j.setVisibility(View.VISIBLE);
 
-                            ProductPrice10.setText("$" + document.get("Rental Fee").toString() + "/day");
-                            ProductName10.setText(document.get("Product Name").toString());
-                            ProductViews10.setText(document.get("Views").toString() + " Views");
+                            ProductPrice10.setText("Pending");
 
-                            storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            ProductName10.setText(document.get("ProductName").toString());
+                            ProductViews10.setText(document.get("OwnerCity").toString());
+
+
+                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     // Got the download URL for 'users/me/profile.png'
@@ -688,7 +689,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
 
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
 
@@ -704,11 +705,11 @@ public class ProductOverLord extends AppCompatActivity {
                                     back2.setVisibility(View.VISIBLE);
                                     b.setVisibility(View.VISIBLE);
 
-                                    ProductPrice2.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName2.setText(document.get("Product Name").toString());
-                                    ProductViews2.setText(document.get("Views").toString() + " Views");
+                                    ProductPrice2.setText("Pending");
+                                    ProductName2.setText(document.get("ProductName").toString());
+                                    ProductViews2.setText(document.get("OwnerCity").toString());
 
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             // Got the download URL for 'users/me/profile.png'
@@ -728,7 +729,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
 
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
 
@@ -744,11 +745,12 @@ public class ProductOverLord extends AppCompatActivity {
                                     back3.setVisibility(View.VISIBLE);
                                     c.setVisibility(View.VISIBLE);
 
-                                    ProductPrice3.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName3.setText(document.get("Product Name").toString());
-                                    ProductViews3.setText(document.get("Views").toString() + " Views");
+                                    ProductPrice3.setText("Pending");
 
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    ProductName3.setText(document.get("ProductName").toString());
+                                    ProductViews3.setText(document.get("OwnerCity").toString());
+
+                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             // Got the download URL for 'users/me/profile.png'
@@ -768,7 +770,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
 
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
 
@@ -784,11 +786,12 @@ public class ProductOverLord extends AppCompatActivity {
                                     back4.setVisibility(View.VISIBLE);
                                     d.setVisibility(View.VISIBLE);
 
-                                    ProductPrice4.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName4.setText(document.get("Product Name").toString());
-                                    ProductViews4.setText(document.get("Views").toString() + " Views");
+                                    ProductPrice4.setText("Pending");
 
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    ProductName4.setText(document.get("ProductName").toString());
+                                    ProductViews4.setText(document.get("OwnerCity").toString());
+
+                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             // Got the download URL for 'users/me/profile.png'
@@ -802,13 +805,15 @@ public class ProductOverLord extends AppCompatActivity {
 
 
                                 }
+
+
                                 if (loopMaster == 4) {
 
                                     e.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
 
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
 
@@ -824,11 +829,12 @@ public class ProductOverLord extends AppCompatActivity {
                                     back5.setVisibility(View.VISIBLE);
                                     e.setVisibility(View.VISIBLE);
 
-                                    ProductPrice5.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName5.setText(document.get("Product Name").toString());
-                                    ProductViews5.setText(document.get("Views").toString() + " Views");
+                                    ProductPrice5.setText("Pending");
 
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    ProductName5.setText(document.get("ProductName").toString());
+                                    ProductViews5.setText(document.get("OwnerCity").toString());
+
+                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             // Got the download URL for 'users/me/profile.png'
@@ -842,13 +848,14 @@ public class ProductOverLord extends AppCompatActivity {
 
 
                                 }
+
                                 if (loopMaster == 5) {
 
                                     f.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
 
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
 
@@ -864,11 +871,12 @@ public class ProductOverLord extends AppCompatActivity {
                                     back6.setVisibility(View.VISIBLE);
                                     f.setVisibility(View.VISIBLE);
 
-                                    ProductPrice6.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName6.setText(document.get("Product Name").toString());
-                                    ProductViews6.setText(document.get("Views").toString() + " Views");
+                                    ProductPrice6.setText("Pending");
 
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    ProductName6.setText(document.get("ProductName").toString());
+                                    ProductViews6.setText(document.get("OwnerCity").toString());
+
+                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             // Got the download URL for 'users/me/profile.png'
@@ -879,8 +887,6 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onFailure(@NonNull Exception exception) {
                                         }
                                     });
-
-
                                 }
                                 if (loopMaster == 6) {
 
@@ -888,7 +894,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
 
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
 
@@ -904,11 +910,11 @@ public class ProductOverLord extends AppCompatActivity {
                                     back7.setVisibility(View.VISIBLE);
                                     g.setVisibility(View.VISIBLE);
 
-                                    ProductPrice7.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName7.setText(document.get("Product Name").toString());
-                                    ProductViews7.setText(document.get("Views").toString() + " Views");
+                                    ProductPrice7.setText("Pending");
+                                    ProductName7.setText(document.get("ProductName").toString());
+                                    ProductViews7.setText(document.get("OwnerCity").toString());
 
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             // Got the download URL for 'users/me/profile.png'
@@ -920,7 +926,6 @@ public class ProductOverLord extends AppCompatActivity {
                                         }
                                     });
 
-
                                 }
                                 if (loopMaster == 7) {
 
@@ -928,11 +933,9 @@ public class ProductOverLord extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
 
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
-
-
 
                                         }
                                     });
@@ -944,11 +947,12 @@ public class ProductOverLord extends AppCompatActivity {
                                     back8.setVisibility(View.VISIBLE);
                                     h.setVisibility(View.VISIBLE);
 
-                                    ProductPrice8.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName8.setText(document.get("Product Name").toString());
-                                    ProductViews8.setText(document.get("Views").toString() + " Views");
+                                    ProductPrice8.setText("Pending");
 
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    ProductName8.setText(document.get("ProductName").toString());
+                                    ProductViews8.setText(document.get("OwnerCity").toString());
+
+                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             // Got the download URL for 'users/me/profile.png'
@@ -960,7 +964,6 @@ public class ProductOverLord extends AppCompatActivity {
                                         }
                                     });
 
-
                                 }
                                 if (loopMaster == 8) {
 
@@ -968,11 +971,9 @@ public class ProductOverLord extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
 
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
-
-
 
                                         }
                                     });
@@ -984,9 +985,10 @@ public class ProductOverLord extends AppCompatActivity {
                                     back9.setVisibility(View.VISIBLE);
                                     i1.setVisibility(View.VISIBLE);
 
-                                    ProductPrice9.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName9.setText(document.get("Product Name").toString());
-                                    ProductViews9.setText(document.get("Views").toString() + " Views");
+                                    ProductPrice9.setText("Pending");
+
+                                    ProductName9.setText(document.get("ProductName").toString());
+                                    ProductViews9.setText(document.get("OwnerCity").toString());
 
                                     storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
@@ -1008,10 +1010,9 @@ public class ProductOverLord extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
 
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
+                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
-
 
 
                                         }
@@ -1024,8 +1025,13 @@ public class ProductOverLord extends AppCompatActivity {
                                     back10.setVisibility(View.VISIBLE);
                                     j.setVisibility(View.VISIBLE);
 
+                                    ProductPrice10.setText("Pending");
 
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    ProductName10.setText(document.get("ProductName").toString());
+                                    ProductViews10.setText(document.get("OwnerCity").toString());
+
+
+                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             // Got the download URL for 'users/me/profile.png'
@@ -1058,6 +1064,23 @@ public class ProductOverLord extends AppCompatActivity {
 
                     }
                 });
+
+
+
+
+        myListingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loopMaster = 0;
+                myListingsBtn.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.rental_product_selection_button_pressed, null));
+                myListingsBtn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.raleway_bold));
+
+                myRentalsBtn.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.rental_product_selection_button_not_pressed, null));
+                myRentalsBtn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.raleway_medium));
+                scrollView.setVisibility(View.VISIBLE);
+                addProduct.setVisibility(View.VISIBLE);
+                noProductsTxt.setVisibility(View.INVISIBLE);
+
 
                 mFirestore.collection("products").whereEqualTo("User ID", currentUserID).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -1317,8 +1340,6 @@ public class ProductOverLord extends AppCompatActivity {
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
 
-
-
                                         }
                                     });
 
@@ -1397,8 +1418,6 @@ public class ProductOverLord extends AppCompatActivity {
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
 
-
-
                                         }
                                     });
 
@@ -1425,7 +1444,6 @@ public class ProductOverLord extends AppCompatActivity {
                                         }
                                     });
 
-
                                 }
                                 if (loopMaster == 9) {
 
@@ -1436,8 +1454,6 @@ public class ProductOverLord extends AppCompatActivity {
                                             Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
                                             startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
                                             overridePendingTransition(0, 0);
-
-
 
                                         }
                                     });
@@ -1475,21 +1491,8 @@ public class ProductOverLord extends AppCompatActivity {
 
                         }
 
-            }
-        });
-
-        myListingsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loopMaster = 0;
-                myListingsBtn.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.rental_product_selection_button_pressed, null));
-                myListingsBtn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.raleway_bold));
-
-                myRentalsBtn.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.rental_product_selection_button_not_pressed, null));
-                myRentalsBtn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.raleway_medium));
-                scrollView.setVisibility(View.VISIBLE);
-                addProduct.setVisibility(View.VISIBLE);
-                noProductsTxt.setVisibility(View.INVISIBLE);
+                    }
+                });
 
 
 

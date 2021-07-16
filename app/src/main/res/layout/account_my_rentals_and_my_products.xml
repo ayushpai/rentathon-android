@@ -67,7 +67,7 @@
             android:background="@drawable/rental_product_selection_button_not_pressed"
             android:fontFamily="@font/raleway_medium"
             android:gravity="center"
-            android:text="My Products"
+            android:text="My Listings"
             android:textSize="17dp"
 
             android:padding="15dp"
@@ -87,11 +87,8 @@
         android:id="@+id/scrollView_MY_PRODUCTS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
 
         android:visibility="invisible"
-
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rental_product_button_box">
@@ -110,9 +107,9 @@
                 android:id="@+id/addProduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
+                android:visibility="gone"
+                android:layout_marginTop="35dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="120dp"
 
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -1156,6 +1153,7 @@
 
         android:visibility="visible"
 
+
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -1168,7 +1166,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="70dp"
 
-        android:visibility="visible"
+        android:visibility="gone"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
