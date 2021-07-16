@@ -644,7 +644,7 @@ public class Home extends AppCompatActivity {
         //cartNavBtn = findViewById(R.id.rent_button_nav);
         //chatNavBtn = findViewById(R.id.chat_button_nav);
         //profileNavBtn = findViewById(R.id.user_button_nav);
-        refreshbtn = findViewById(R.id.refresh_btn);
+       // refreshbtn = findViewById(R.id.refresh_btn);
             a = findViewById(R.id.a);
             b = findViewById(R.id.b);
             c = findViewById(R.id.c);
@@ -8713,21 +8713,6 @@ public class Home extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-        refreshbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(Home.this, Home.class));
-                overridePendingTransition(0, 0);
-                scrollY = 0;
-            }
-        });
 
 
         //Product Page Buttons
