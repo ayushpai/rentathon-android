@@ -84,7 +84,7 @@ public class Home extends AppCompatActivity {
 
     Button  cartNavBtn, chatNavBtn, profileNavBtn, productBtn;
     GoogleSignInClient mGoogleSignInClient;
-    public ImageView refreshbtn, productImage1, productImage2, productImage3, productImage4, productImage5, productImage6, productImage7, productImage8, productImage9, productImage10, productImage11, productImage12, productImage13, productImage14, productImage15, productImage16, productImage17, productImage18, productImage19, productImage20, productImage21, productImage22, productImage23, productImage24;
+    public ImageView productImage1, productImage2, productImage3, productImage4, productImage5, productImage6, productImage7, productImage8, productImage9, productImage10, productImage11, productImage12, productImage13, productImage14, productImage15, productImage16, productImage17, productImage18, productImage19, productImage20, productImage21, productImage22, productImage23, productImage24;
     private DocumentReference docRef;
     SharedPreferences sp;
     FirebaseFirestore mFirestore;
@@ -320,7 +320,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
 
-                if (mainScrollView.getScrollY() > logoHome.getHeight()) {
+                if (mainScrollView.getScrollY() > searchBackground.getHeight()) { //I CHANGED from logoback to searchBackground 7/16/2021 3:54 PM
                     if (scrollY <= oldScrollY) {
                         // Prepare the View for the animation
                         addProduct.setVisibility(View.VISIBLE);
@@ -364,7 +364,6 @@ public class Home extends AppCompatActivity {
 
             }
             });
-
 
 
 
@@ -449,19 +448,17 @@ public class Home extends AppCompatActivity {
 
 
                 sortBtn.setImageResource(R.drawable.back_btn);
-                refreshbtn.setImageResource(R.drawable.re2);
                 sortBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(Home.this, Home.class));
-                        
+
                     }
                 });
 
                 if (searchInput.getText().toString().isEmpty()) {
                     searchList.setVisibility(View.INVISIBLE);
                     sortBtn.setImageResource(R.drawable.filter_black);
-                    refreshbtn.setImageResource(R.drawable.re);
                     sortBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -498,7 +495,7 @@ public class Home extends AppCompatActivity {
 
                                         showMessage("Filtered By " + filterSelection);
                                         startActivity(new Intent(Home.this, Home.class));
-                                        
+
                                         currentPageNumber = 1;
 
 
@@ -525,7 +522,7 @@ public class Home extends AppCompatActivity {
                         public void requestCompleted(JSONObject content, AlgoliaException error) {
                             // [...]
                             try {
-                                JSONArray hits = content.getJSONArray("hits");
+                                JSONArray hits = content.getJSONArray("hits");//GENERATES AN ERROR CAUSE "content" is null
                                 List<String> list = new ArrayList<>();
                                 ArrayList<Integer> productNumList = new ArrayList<>();
                                 for (int i = 0; i < hits.length(); i++) {
@@ -644,7 +641,6 @@ public class Home extends AppCompatActivity {
         //cartNavBtn = findViewById(R.id.rent_button_nav);
         //chatNavBtn = findViewById(R.id.chat_button_nav);
         //profileNavBtn = findViewById(R.id.user_button_nav);
-       // refreshbtn = findViewById(R.id.refresh_btn);
             a = findViewById(R.id.a);
             b = findViewById(R.id.b);
             c = findViewById(R.id.c);

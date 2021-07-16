@@ -38,45 +38,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/sort_btn"
         android:layout_width="42dp"
         android:layout_height="36dp"
-        android:layout_marginTop="12dp"
 
+        android:scaleX="1.1"
+        android:scaleY="1.1"
 
+        android:layout_marginEnd="5dp"
         android:clickable="true"
         android:src="@drawable/filter_black"
         android:translationZ="180dp"
-        app:layout_constraintBottom_toBottomOf="@+id/search_input"
+        app:layout_constraintBottom_toBottomOf="@+id/search_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/search_input"/>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/cart_logo"
-        android:layout_width="60dp"
+        android:layout_width="42dp"
         android:layout_height="45dp"
 
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="6dp"
 
-        android:scaleX="1.5"
-        android:scaleY="1.5"
+        android:scaleX="1.7"
+        android:scaleY="1.7"
 
         android:src="@drawable/rentathon_logo_cart"
         android:translationZ="180dp"
         app:layout_constraintBottom_toBottomOf="@+id/search_background"
-        app:layout_constraintEnd_toStartOf="@+id/search_input"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/search_background"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/search_input"
-        android:layout_width="240dp"
+
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+
         android:background="@drawable/market_product_info_background"
         android:clickable="true"
         android:fontFamily="@font/roboto"
@@ -99,13 +102,14 @@
         android:layout_width="30dp"
         android:layout_height="32dp"
 
-        android:layout_marginTop="12dp"
-        android:layout_marginRight="183dp"
+        android:layout_marginLeft="5dp"
+
         android:clickable="true"
         android:src="@drawable/s_icon"
+        android:translationZ="180dp"
+        app:layout_constraintBottom_toBottomOf="@+id/search_input"
         app:layout_constraintStart_toStartOf="@id/search_input"
-        app:layout_constraintEnd_toEndOf="@id/search_input"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/search_input" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
