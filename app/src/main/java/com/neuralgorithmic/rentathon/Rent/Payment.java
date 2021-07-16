@@ -75,7 +75,7 @@ public class Payment extends AppCompatActivity  {
         returnTxt = findViewById(R.id.return_txt);
         pickUpTxt = findViewById(R.id.pick_up_txt);
         RentProductMain.fromHome = false;
-
+/*
         dt = RentProductTime.selectedDate;
         SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyy");
 
@@ -197,7 +197,7 @@ public class Payment extends AppCompatActivity  {
 
 
 
-
+*/
 
 
 

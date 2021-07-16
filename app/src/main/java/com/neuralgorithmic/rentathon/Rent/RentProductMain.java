@@ -1208,7 +1208,7 @@ public class RentProductMain extends AppCompatActivity {
 
 
 
-                startActivity(new Intent(RentProductMain.this, RentProductTime.class));
+//                startActivity(new Intent(RentProductMain.this, RentProductTime.class));
             }
         }
     }

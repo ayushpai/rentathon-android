@@ -671,52 +671,35 @@
             android:clickable="true"
             android:fontFamily="@font/raleway_bold"
             android:gravity="center"
-            android:text="Continue"
+            android:text="Chat Now"
             android:textAllCaps="false"
             android:textColor="#393939"
             android:textSize="17dp"
             app:layout_constraintBottom_toBottomOf="@+id/home_bar"
             app:layout_constraintEnd_toEndOf="@+id/home_bar"
-            app:layout_constraintHorizontal_bias="0.069"
+            app:layout_constraintHorizontal_bias="0.125"
             app:layout_constraintStart_toStartOf="@+id/home_bar"
             app:layout_constraintTop_toTopOf="@+id/home_bar" />
 
-        <TextView
-            android:id="@+id/price3"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="129dp"
             android:layout_height="wrap_content"
 
+            android:background="@drawable/background_right_cancel"
+
             android:clickable="true"
-            android:fontFamily="@font/raleway_medium"
+            android:fontFamily="@font/raleway_bold"
             android:gravity="center"
-            android:text="Price"
-
-            android:textColor="@color/white"
-
-
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="#F2F2F2"
             android:textSize="17dp"
+            app:layout_constraintBottom_toBottomOf="@+id/home_bar"
             app:layout_constraintEnd_toEndOf="@+id/home_bar"
-            app:layout_constraintStart_toEndOf="@+id/rent"
-            app:layout_constraintTop_toTopOf="@+id/rent" />
-
-        <TextView
-            android:id="@+id/distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:clickable="true"
-            android:fontFamily="@font/raleway"
-            android:gravity="center"
-
-
-            android:text="Distance"
-            android:textColor="@color/white"
-
-            android:textSize="14dp"
-            app:layout_constraintBottom_toBottomOf="@+id/rent"
-
-            app:layout_constraintEnd_toEndOf="@+id/home_bar"
-            app:layout_constraintStart_toEndOf="@+id/rent" />
+            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintStart_toStartOf="@+id/home_bar"
+            app:layout_constraintTop_toTopOf="@+id/home_bar" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
