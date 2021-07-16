@@ -87,9 +87,11 @@
         android:id="@+id/scrollView_MY_PRODUCTS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
 
         android:visibility="invisible"
 
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rental_product_button_box">
@@ -139,7 +141,7 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_add_circle"
 
-                      android:visibility="visible"
+                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +159,7 @@
                     android:text="Add New Product"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="visible"
+                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -184,10 +186,10 @@
                     android:id="@+id/back1"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -200,8 +202,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -216,10 +218,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -238,7 +240,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -256,7 +258,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -270,7 +272,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                  android:visibility="invisible"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/a"
 
                 tools:visibility="visible">
@@ -280,10 +282,10 @@
                     android:id="@+id/back2"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -296,8 +298,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -312,10 +314,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -334,7 +336,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -352,7 +354,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -366,7 +368,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                  android:visibility="invisible"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/b"
 
                 tools:visibility="visible">
@@ -376,10 +378,10 @@
                     android:id="@+id/back3"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -392,8 +394,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -408,10 +410,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -430,7 +432,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -448,7 +450,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -462,7 +464,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                  android:visibility="invisible"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/c"
 
                 tools:visibility="visible">
@@ -472,10 +474,10 @@
                     android:id="@+id/back4"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -488,8 +490,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -504,10 +506,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -526,7 +528,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -544,7 +546,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -558,7 +560,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                  android:visibility="invisible"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/d"
 
                 tools:visibility="visible">
@@ -568,10 +570,10 @@
                     android:id="@+id/back5"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -584,8 +586,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -600,10 +602,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -622,7 +624,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -640,7 +642,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -655,7 +657,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                  android:visibility="invisible"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/e"
 
                 tools:visibility="visible">
@@ -665,10 +667,10 @@
                     android:id="@+id/back6"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -681,8 +683,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -697,10 +699,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -719,7 +721,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -737,7 +739,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -751,7 +753,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                  android:visibility="invisible"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/f"
 
                 tools:visibility="visible">
@@ -761,10 +763,10 @@
                     android:id="@+id/back7"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -777,8 +779,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -793,10 +795,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -815,7 +817,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -833,7 +835,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -847,7 +849,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                  android:visibility="invisible"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/g"
 
                 tools:visibility="visible">
@@ -857,10 +859,10 @@
                     android:id="@+id/back8"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -873,8 +875,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -889,10 +891,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -911,7 +913,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -929,7 +931,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -944,7 +946,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                  android:visibility="invisible"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@id/h"
 
                 tools:visibility="visible">
@@ -954,10 +956,10 @@
                     android:id="@+id/back9"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -970,8 +972,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -986,10 +988,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1008,7 +1010,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1026,7 +1028,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1041,7 +1043,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="80dp"
-                  android:visibility="invisible"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/i"
                 tools:visibility="visible">
@@ -1051,10 +1053,10 @@
                     android:id="@+id/back10"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1067,8 +1069,8 @@
                     android:layout_marginRight="226dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
-                     
-                      android:visibility="invisible"
+
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1083,10 +1085,10 @@
 
                     android:fontFamily="@font/raleway_medium"
                     android:gravity="center"
-                      
+
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1105,7 +1107,7 @@
                     android:text="$20/day"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1123,7 +1125,7 @@
                     android:text="100 Views"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
 
                     app:layout_constraintHorizontal_bias="0.498"
@@ -1164,9 +1166,11 @@
         android:id="@+id/scrollView_MY_RENTALS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
 
-        android:visibility="invisible"
+        android:visibility="visible"
 
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rental_product_button_box">
@@ -1200,10 +1204,10 @@
                     android:id="@+id/rback1"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1296,10 +1300,10 @@
                     android:id="@+id/rback2"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1392,10 +1396,10 @@
                     android:id="@+id/rback3"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1488,10 +1492,10 @@
                     android:id="@+id/rback4"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1584,10 +1588,10 @@
                     android:id="@+id/rback5"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1681,10 +1685,10 @@
                     android:id="@+id/rback6"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1777,10 +1781,10 @@
                     android:id="@+id/rback7"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1873,10 +1877,10 @@
                     android:id="@+id/rback8"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -1970,10 +1974,10 @@
                     android:id="@+id/rback9"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -2067,10 +2071,10 @@
                     android:id="@+id/rback10"
                     android:layout_width="300dp"
                     android:layout_height="72dp"
-                    
+
                     android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                      android:visibility="invisible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
