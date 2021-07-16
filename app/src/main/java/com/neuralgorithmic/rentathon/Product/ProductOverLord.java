@@ -33,12 +33,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.neuralgorithmic.rentathon.Home.Home;
 import com.neuralgorithmic.rentathon.MessagingHome;
-import com.neuralgorithmic.rentathon.Misc.WelcomeProdcutMain;
 import com.neuralgorithmic.rentathon.Profile.ProfileMain;
 import com.neuralgorithmic.rentathon.Profile.UserHomeMain;
 import com.neuralgorithmic.rentathon.R;
 import com.neuralgorithmic.rentathon.Rent.RentProductMain;
-import com.theartofdev.edmodo.cropper.CropImage;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -62,7 +60,7 @@ public class ProductOverLord extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.account_my_products);
+        setContentView(R.layout.account_my_rentals_and_my_products);
         RentProductMain.fromHome = false;
         fromOverLord = true;
         UserHomeMain.fromUserHomeMain = false;

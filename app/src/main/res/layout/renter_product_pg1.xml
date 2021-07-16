@@ -279,6 +279,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="36dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="110dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:padding="5dp"
@@ -286,6 +287,7 @@
                     android:text="More Products From This User"
                     android:textColor="@color/accent_background"
                     android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/city_user_txt" />
@@ -619,22 +621,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/product_description_title" />
 
-            <Button
-                android:id="@+id/rent_button"
-                android:layout_width="100dp"
-                android:layout_height="50sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="75dp"
-                android:background="@drawable/login_btn"
-                android:fontFamily="sans-serif-black"
-                android:hint="Next"
-                android:textSize="16sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
 
-                app:layout_constraintTop_toBottomOf="@+id/renter_rating_layout" />
 
             <ViewFlipper
                 android:id="@+id/product_photos"
