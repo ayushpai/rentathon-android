@@ -52,6 +52,7 @@ import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.neuralgorithmic.rentathon.ResizeAnimation;
+import com.neuralgorithmic.rentathon.Signin.SignUpPage1;
 import com.r0adkll.slidr.Slidr;
 import com.neuralgorithmic.rentathon.Home.Home;
 
@@ -62,6 +63,8 @@ import com.neuralgorithmic.rentathon.Profile.ProfileMain;
 import com.neuralgorithmic.rentathon.R;
 import com.neuralgorithmic.rentathon.Profile.UserHomeMain;
 import com.rtchagas.pingplacepicker.PingPlacePicker;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -156,8 +159,13 @@ public class RentProductMain extends AppCompatActivity {
     static double totalPrice = 0;
     static String returnDateString;
 
+    Map<String, Object> transactions;
+    CollectionReference tInfo;
+
     DecimalFormat df;
     String maltRequiredString;
+
+    DocumentReference ownerFile, renterFile, productFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -188,6 +196,7 @@ public class RentProductMain extends AppCompatActivity {
         newPrice = findViewById(R.id.price32);
         progressBar = findViewById(R.id.progress_bar2);
         downArrow = findViewById(R.id.imageView);
+
 
 
 
@@ -240,6 +249,79 @@ public class RentProductMain extends AppCompatActivity {
 
         continueConstraint = findViewById(R.id.continueConstraint);
         darkenBackground = findViewById(R.id.darkenBackground);
+        transactions = new HashMap<>();
+        tInfo = mFirestore.collection("transactions");
+
+
+        newButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Renter = Owner, Rentee == Renter
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+
+                ownerFile = mFirestore.collection("users").document(renteeUID);
+                renterFile = mFirestore.collection("users").document(renteeUID);
+                productFile = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
+
+
+                ownerFile.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot document = task.getResult();
+                        if(document.exists()){
+                            transactions.put("OwnerName", document.getString("Name"));
+                            transactions.put("OwnerCity", document.getString("City"));
+                            transactions.put("OwnerRating", document.getDouble("RAverage"));
+                            transactions.put("OwnerName", document.getString("Name"));
+                        }
+                    }
+                });
+
+                renterFile.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            transactions.put("RenterName", document.getString("Name"));
+                            transactions.put("RenterCity", document.getString("City"));
+
+                        }
+                    }
+                });
+
+                productFile.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            df = new DecimalFormat("0.00");
+                            transactions.put("ProductName", document.getString("Product Name"));
+                            transactions.put("ProductID", Home.userProductSelection);
+                            transactions.put("ProductValue", document.getDouble("Product Value"));
+                            SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyy");
+                            transactions.put("TransactionAmnt", totalPrice);
+                            transactions.put("RentathonEarnings", df.format(totalPrice * 0.12));
+                            transactions.put("ReturnDate", returnDateString);
+                            transactions.put("PickupDate", sdf.format(calendarView.getDate()));
+                            transactions.put("RenterUID", renteeUID);
+                            transactions.put("OwnerUID", renterUID);
+                            transactions.put("PaymentComplete", false);
+                            transactions.put("QRCodeVerifiedPickup", false);
+                            transactions.put("QRCodeVerifiedDropoff", false);
+                            transactions.put("OwnerAccepted", false);
+                            transactions.put("RentDuration", numDays);
+
+
+                            tInfo.document(renterCity.getText().toString() + " - "+String.valueOf(Home.userProductSelection) + " - $" + String.valueOf(totalPrice)).set(transactions);
+                        }
+                    }
+                });
+
+
+            }
+        });
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -263,7 +345,7 @@ public class RentProductMain extends AppCompatActivity {
         });
 
 
-        df = new DecimalFormat("#.##");
+        df = new DecimalFormat("0.00");
         proximitySeekbar.setMax(30);
         proximitySeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressValue;
@@ -1229,6 +1311,7 @@ public class RentProductMain extends AppCompatActivity {
         DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
         return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
     }
+
 
 
 

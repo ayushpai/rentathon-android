@@ -228,6 +228,7 @@ public class SignUpPage2 extends AppCompatActivity {
                 userInformation.put("PendingOVerified", false);
                 userInformation.put("VAnn", false);
                 userInformation.put("Blackout Days", blackoutDays);
+                userInformation.put("NProducts", 0);
 
 
                 blackoutDays.put("Sunday", sunday);

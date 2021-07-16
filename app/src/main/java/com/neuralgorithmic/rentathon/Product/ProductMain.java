@@ -453,21 +453,11 @@ public class ProductMain extends AppCompatActivity {
                         if (document.exists()) {
                             //picID = Uri.parse(document.get("Profile Picture").toString());
                             //profliePic.setImageURI(picID);
-                            filledOut = Boolean.parseBoolean(document.get("Filled Out").toString());
-                            rating = Double.parseDouble(document.get("Rating").toString());
+                            rating = Double.parseDouble(document.get("RAverage").toString());
 
                             mAuth.getCurrentUser().reload();
-                            if(!mFirebaseUser.isEmailVerified()){
-                                showMessage("Please verify your email by clicking the link that you signed up with.");
 
-                            }
-                            else if (!filledOut){
-
-                                showMessage("Please fill in your available times. Profile > Edit Profile > Available Times");
-
-                            }
-
-                            else if(product.isEmpty()){
+                            if(product.isEmpty()){
 
                                 showMessage("Please enter a product name.");
                             }
@@ -605,12 +595,12 @@ public class ProductMain extends AppCompatActivity {
                 if (document.exists()) {
                     city = document.get("City").toString();
                     //showMessage("City Uploaded");
-                    int current = Integer.parseInt(document.get("Current Product Num").toString());
+                    int current = Integer.parseInt(document.get("NProducts").toString());
 
                     current++;
                     WriteBatch batch = mFirestore.batch();
                     docRef = mFirestore.collection("users").document(String.valueOf(mAuth.getUid()));
-                    batch.update(docRef, "Current Product Num", String.valueOf(current));
+                    batch.update(docRef, "NProducts", current);
                     batch.commit();
 
 
@@ -639,19 +629,19 @@ public class ProductMain extends AppCompatActivity {
                 String randomCode = String.valueOf(generateProductCode());
 
                 rentalMap.put("Product Name", product);
-                rentalMap.put("Product Value", value);
+                rentalMap.put("Product Value", Double.valueOf(value));
                 rentalMap.put("User Name", mAuth.getCurrentUser().getDisplayName());
                 rentalMap.put("Rental Fee", Integer.parseInt(fee));
 
                 rentalMap.put("Product Description", description);
                 rentalMap.put("Product Condition", condition);
-                rentalMap.put("User Products Number", String.valueOf(productsBeingRented));
+                rentalMap.put("User Products Number", productsBeingRented);
                 rentalMap.put("User City", city);
                 rentalMap.put("User ID", mAuth.getUid());
-                rentalMap.put("Product Code", randomCode );
+                //rentalMap.put("Product Code", randomCode );
                 rentalMap.put("Views", 0);
-                rentalMap.put("Unique Visitors", "0");
-                rentalMap.put("Product Num", String.valueOf(productNum));
+                rentalMap.put("Unique Visitors", 0);
+                rentalMap.put("Product Num", productNum);
                 rentalMap.put("ProductLong", longitudeRenter);
                 rentalMap.put("ProductLang", latitudeRenter);
 
