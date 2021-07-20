@@ -15,7 +15,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.zxing.WriterException;
+import com.neuralgorithmic.rentathon.Home.Home;
 import com.neuralgorithmic.rentathon.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -32,7 +35,7 @@ public class GenerateQRCode extends AppCompatActivity {
     FirebaseFirestore mFirestore;
     DocumentReference docRef;
 
-    static String transactionID;
+    static String uniqueTransactionID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,21 +44,21 @@ public class GenerateQRCode extends AppCompatActivity {
 
         mFirestore = FirebaseFirestore.getInstance();
 
-        docRef = mFirestore.collection("transactions").document(transactionID);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-               @Override
-               public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
-                   DocumentSnapshot document = task.getResult();
-                   if (document.exists()) {
-
-                   }
-               }
-           });
+        //docRef = mFirestore.collection("transactions").document(transactionID);
+        mFirestore.collection("transactions").whereEqualTo("ProductID", Home.userProductSelection).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    uniqueTransactionID = document.getString("OwnerUID") + "_" + document.getId() + "_" + document.getString("RenterUID");
+                }
+            }
+        });
 
                 // initializing all variables.
-                qrCodeIV = findViewById(R.id.idIVQrcode);
+        qrCodeIV = findViewById(R.id.idIVQrcode);
 
         // below line is for getting
+
         // the windowmanager service.
         WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
@@ -77,7 +80,7 @@ public class GenerateQRCode extends AppCompatActivity {
 
         // setting this dimensions inside our qr code
         // encoder to generate our qr code.
-        qrgEncoder = new QRGEncoder(transactionID, null, QRGContents.Type.TEXT, dimen);
+        qrgEncoder = new QRGEncoder(uniqueTransactionID, null, QRGContents.Type.TEXT, dimen);
         try {
             // getting our qrcode in the form of bitmap.
             bitmap = qrgEncoder.encodeAsBitmap();
