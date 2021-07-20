@@ -83,44 +83,39 @@
 
 
     <!-- MY PRODUCTS -->
+
+    <!-- Below is the message that should appear when the user is renting no products -->
     <ScrollView
         android:id="@+id/scrollView_MY_PRODUCTS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rental_product_button_box">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-
-
-            tools:context=".Product.ProductOverLord">
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/addProduct"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_marginTop="35dp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
-
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
 
-                >
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back0"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
                     android:background="@drawable/products_background_for_my_products"
                     android:padding="2dp"
                     android:visibility="visible"
@@ -132,36 +127,32 @@
                     android:id="@+id/addImage"
                     android:layout_width="43dp"
                     android:layout_height="48dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginRight="226dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@color/accent_background"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_add_circle"
 
                     android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/back0"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/add_text"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="23dp"
 
-                    android:fontFamily="@font/raleway_medium"
+                    android:fontFamily="@font/raleway_bold"
                     android:gravity="center"
                     android:text="Add New Product"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
+                    android:textSize="24dp"
                     android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/back0"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/addImage"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -169,96 +160,124 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/a"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
+
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
                 app:layout_constraintTop_toBottomOf="@id/addProduct"
-
-
-                >
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back1"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_1"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView1"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_1_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_1_name"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_1_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_1_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_1_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_1_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_1_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_1_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
+                    android:maxLines="1"
+
+                    android:text="$275/day"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_1_status"
+                    app:layout_constraintStart_toEndOf="@+id/cardView1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_1_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -266,880 +285,1127 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/b"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/a"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/a"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back2"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_2"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_2_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_2_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_2_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_2_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_2_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_2_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_2_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_2_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$275/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_2_status"
+                    app:layout_constraintStart_toEndOf="@+id/cardView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_2_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_scanner_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/c"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/b"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/b"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back3"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_3"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView3"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_3_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_3_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_3_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_3_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_3_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_3_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_3_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_3_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_3_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_3_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/icons_shopping_cart"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/d"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/c"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/c"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back4"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_4"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView4"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_4_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_4_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_4_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_4_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_4_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_4_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_4_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_4_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_4_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_4_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/e"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/d"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/d"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back5"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_5"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView5"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_5_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_5_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_5_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_5_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_5_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_5_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_5_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_5_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_5_status"
+                    app:layout_constraintStart_toEndOf="@+id/cardView5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_5_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_access_time_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/f"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/e"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/e"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back6"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_6"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView6"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_6_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_6_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_6_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_6_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_6_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_6_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_6_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_6_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_6_status"
+                    app:layout_constraintStart_toEndOf="@+id/cardView6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_6_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/g"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/f"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/f"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back7"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_7"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView7"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_7_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_7_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_7_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_7_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_7_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_7_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_7_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_7_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_7_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_7_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:src="@drawable/ic_baseline_qr_code_24"
+
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/h"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/g"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/g"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back8"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_8"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView8"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_8_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_8_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_8_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView8"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_8_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_8_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_8_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView8"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_8_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_8_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_8_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView8"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_8_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:src="@drawable/ic_baseline_qr_code_24"
+
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/i"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/h"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/h"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back9"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_9"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView9"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_9_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_9_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_9_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_9_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_9_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_9_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_9_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_9_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_9_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_9_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/j"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="80dp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="230dp"
+
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
                 app:layout_constraintTop_toBottomOf="@id/i"
-                tools:visibility="visible">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/back10"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/product_10"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView10"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/product_10_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/product_10_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/product_10_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/cardView10"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/product_10_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_10_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_10_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView10"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/product_10_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/product_10_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
+                    android:maxLines="1"
+
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/product_10_name"
+                    app:layout_constraintStart_toEndOf="@+id/cardView10"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/product_10_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
-    <!-- Below is the message that should appear when the user is renting no products -->
     <TextView
-        android:id="@+id/not_renting_any_products_message"
+        android:id="@+id/something_special"
         android:layout_width="0dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -1151,7 +1417,7 @@
         android:textSize="36dp"
         android:fontFamily="@font/raleway"
 
-        android:visibility="visible"
+        android:visibility="invisible"
 
 
         app:layout_constraintBottom_toTopOf="@+id/navigation"
@@ -1164,11 +1430,8 @@
         android:id="@+id/scrollView_MY_RENTALS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
 
-        android:visibility="gone"
-
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rental_product_button_box">
@@ -1183,101 +1446,124 @@
 
             tools:context=".Product.ProductOverLord">
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ra"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:layout_marginTop="120dp"
+                android:layout_marginTop="35dp"
 
-                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="visible"
                 app:layout_constraintTop_toTopOf="parent"
-
-
-                >
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback1"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_1"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView1"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_1_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_1_name"
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_1_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_1_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_1_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_1_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_1_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_1_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
+                    android:maxLines="1"
+
+                    android:text="$275/day"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_1_status"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_1_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -1285,872 +1571,1120 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rb"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/ra"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/ra"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback2"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_2"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView2"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_2_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_2_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_2_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_2_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_2_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_2_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_2_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_2_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$275/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_2_status"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_2_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_scanner_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rc"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/rb"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/rb"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback3"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_3"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView3"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_3_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_3_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_3_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_3_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_3_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_3_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_3_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_3_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_3_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_3_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/icons_shopping_cart"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rd"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/rc"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/rc"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback4"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_4"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView4"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_4_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_4_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_4_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_4_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_4_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_4_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_4_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_4_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_4_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_4_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/re"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/rd"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/rd"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback5"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_5"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView5"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_5_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_5_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_5_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_5_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_5_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_5_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_5_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_5_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_5_status"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_5_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_access_time_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rf"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/re"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/re"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback6"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_6"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView6"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_6_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_6_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_6_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_6_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_6_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_6_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_6_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_6_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_6_status"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_6_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rg"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/rf"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/rf"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback7"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_7"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView7"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_7_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_7_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_7_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_7_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_7_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_7_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_7_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_7_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_7_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_7_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:src="@drawable/ic_baseline_qr_code_24"
+
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rh"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/rg"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/rg"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback8"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_8"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView8"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_8_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_8_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_8_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView8"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_8_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_8_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_8_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView8"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_8_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_8_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_8_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView8"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_8_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:src="@drawable/ic_baseline_qr_code_24"
+
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ri"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@id/rh"
 
-                tools:visibility="visible">
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                app:layout_constraintTop_toBottomOf="@id/rh"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback9"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_9"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView9"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_9_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_9_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_9_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_9_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_9_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_9_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_9_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_9_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:maxLines="1"
 
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_9_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_9_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/rj"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="80dp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="230dp"
+
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
                 app:layout_constraintTop_toBottomOf="@id/ri"
-                tools:visibility="visible">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintWidth_percent=".85">
 
 
                 <ImageView
                     android:id="@+id/rback10"
-                    android:layout_width="300dp"
-                    android:layout_height="72dp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/my_product_my_rental_height"
 
-                    android:padding="2dp"
                     android:background="@drawable/products_background_for_my_products"
-                    android:visibility="invisible"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/rproduct_10"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/rcardView10"
                     android:layout_width="70dp"
-                    android:layout_height="68dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="226dp"
-                    android:background="@color/accent_background"
-                    android:scaleType="centerCrop"
 
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/rproduct_10_image"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/products_background_for_my_products"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        app:layout_constraintHeight_percent=".9" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/rproduct_10_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/raleway_bold"
 
-                    android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-
+                    android:maxLines="1"
+                    android:text="Canon 50mm F/1.8 AF"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="18dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rproduct_10_status_icon"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView10"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15" />
 
                 <TextView
-                    android:id="@+id/rproduct_10_price"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_10_status"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="45dp"
-
-                    android:layout_marginRight="80dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="$20/day"
+                    android:maxLines="1"
+
+                    android:text="Awaiting Transaction"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_10_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView10"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.55" />
 
                 <TextView
-                    android:id="@+id/rproduct_10_views"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/rproduct_10_revenue"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="45dp"
-
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center"
-                    android:text="100 Views"
+                    android:maxLines="1"
+
+                    android:text="$375/day"
+                    android:textAlignment="viewStart"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:visibility="invisible"
+                    android:textSize="13dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rproduct_10_name"
+                    app:layout_constraintStart_toEndOf="@+id/rcardView10"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.85" />
+
+                <ImageView
+                    android:id="@+id/rproduct_10_status_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_baseline_qr_code_24"
+                    android:background="@drawable/outline_dark_fill"
+
+                    android:visibility="visible"
+
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-
-                    app:layout_constraintHorizontal_bias="0.498"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
