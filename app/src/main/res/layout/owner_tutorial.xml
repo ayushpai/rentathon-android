@@ -29,12 +29,13 @@
         android:fontFamily="@font/raleway_bold"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="30dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
+        android:textSize="35dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
         />
     
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/header_text"
@@ -44,7 +45,35 @@
         app:showFullScreenButton="false"
         app:autoPlay="false"
         app:videoId="_e2NO2HAtds"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         />
 
+    <TextView
+        android:id="@+id/video_caption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/youtube_player"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
+        android:text="This video will ensure that you are aware of every step of the rental process"
+        android:textColor="@color/white"
+        android:fontFamily="@font/raleway"
+        android:textSize="20dp"
+        />
+
+    <Button
+        android:id="@+id/continue_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline"
+        android:text="Continue"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/video_caption"
+        android:layout_marginTop="40dp"
 
 </androidx.constraintlayout.widget.ConstraintLayout>
