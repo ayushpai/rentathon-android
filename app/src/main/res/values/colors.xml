@@ -18,5 +18,7 @@
     <color name="dark_red">#ac2222</color>
     <color name="white">#FFFFFF</color>
     
+    <color name="chat_notification_number_bckgrnd">#DF5252</color>
+    
     <color name="transparent">#2e303030</color>
 </resources>

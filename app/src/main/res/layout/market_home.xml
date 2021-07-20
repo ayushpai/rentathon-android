@@ -1894,13 +1894,13 @@
         android:id="@+id/navigation"
         app:layout_constraintBottom_toBottomOf="parent"
 
-        android:background="#E6000000"
+        android:background="#000000"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_navigation"
-
-
         />
+
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

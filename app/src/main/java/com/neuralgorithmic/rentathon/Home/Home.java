@@ -21,6 +21,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -57,10 +58,12 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.WriteBatch;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import com.neuralgorithmic.rentathon.CloudMessaging.MyFirebaseMessagingService;
 import com.neuralgorithmic.rentathon.MessagingHome;
 import com.neuralgorithmic.rentathon.Product.ProductMain;
 import com.neuralgorithmic.rentathon.Product.ProductOverLord;
@@ -77,6 +80,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.droidsonroids.gif.GifImageView;
+
+import static android.content.ContentValues.TAG;
 
 //testing github
 //test github part two
@@ -152,6 +157,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ProductOverLord.fromOverLord = false;
         setContentView(R.layout.market_home);
 

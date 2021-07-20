@@ -130,7 +130,7 @@ public class ProductOverLord extends AppCompatActivity {
 
         addProduct = findViewById(R.id.addProduct);
 
-        noProductsTxt = findViewById(R.id.not_renting_any_products_message);
+        noProductsTxt = findViewById(R.id.something_special);
 
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
@@ -160,36 +160,37 @@ public class ProductOverLord extends AppCompatActivity {
         productImage9 = findViewById(R.id.product_9);
         productImage10 = findViewById(R.id.product_10);
 
+        //Just changed the names so it was runnable
         ProductName1 = findViewById(R.id.product_1_name);
-        ProductPrice1 = findViewById(R.id.product_1_price);
-        ProductViews1 = findViewById(R.id.product_1_views);
+        ProductPrice1 = findViewById(R.id.product_1_revenue);
+        ProductViews1 = findViewById(R.id.product_1_status);
         ProductName2 = findViewById(R.id.product_2_name);
-        ProductPrice2 = findViewById(R.id.product_2_price);
-        ProductViews2 = findViewById(R.id.product_2_views);
+        ProductPrice2 = findViewById(R.id.product_2_revenue);
+        ProductViews2 = findViewById(R.id.product_2_status);
         ProductName3 = findViewById(R.id.product_3_name);
-        ProductPrice3 = findViewById(R.id.product_3_price);
-        ProductViews3 = findViewById(R.id.product_3_views);
+        ProductPrice3 = findViewById(R.id.product_3_revenue);
+        ProductViews3 = findViewById(R.id.product_3_status);
         ProductName4 = findViewById(R.id.product_4_name);
-        ProductPrice4 = findViewById(R.id.product_4_price);
-        ProductViews4 = findViewById(R.id.product_4_views);
+        ProductPrice4 = findViewById(R.id.product_4_revenue);
+        ProductViews4 = findViewById(R.id.product_4_status);
         ProductName5 = findViewById(R.id.product_5_name);
-        ProductPrice5 = findViewById(R.id.product_5_price);
-        ProductViews5 = findViewById(R.id.product_5_views);
+        ProductPrice5 = findViewById(R.id.product_5_revenue);
+        ProductViews5 = findViewById(R.id.product_5_status);
         ProductName6 = findViewById(R.id.product_6_name);
-        ProductPrice6 = findViewById(R.id.product_6_price);
-        ProductViews6 = findViewById(R.id.product_6_views);
+        ProductPrice6 = findViewById(R.id.product_6_revenue);
+        ProductViews6 = findViewById(R.id.product_6_status);
         ProductName7 = findViewById(R.id.product_7_name);
-        ProductPrice7 = findViewById(R.id.product_7_price);
-        ProductViews7 = findViewById(R.id.product_7_views);
+        ProductPrice7 = findViewById(R.id.product_7_revenue);
+        ProductViews7 = findViewById(R.id.product_7_status);
         ProductName8 = findViewById(R.id.product_8_name);
-        ProductPrice8 = findViewById(R.id.product_8_price);
-        ProductViews8 = findViewById(R.id.product_8_views);
+        ProductPrice8 = findViewById(R.id.product_8_revenue);
+        ProductViews8 = findViewById(R.id.product_8_status);
         ProductName9 = findViewById(R.id.product_9_name);
-        ProductPrice9 = findViewById(R.id.product_9_price);
-        ProductViews9 = findViewById(R.id.product_9_views);
+        ProductPrice9 = findViewById(R.id.product_9_revenue);
+        ProductViews9 = findViewById(R.id.product_9_status);
         ProductName10 = findViewById(R.id.product_10_name);
-        ProductPrice10 = findViewById(R.id.product_10_price);
-        ProductViews10 = findViewById(R.id.product_10_views);
+        ProductPrice10 = findViewById(R.id.product_10_revenue);
+        ProductViews10 = findViewById(R.id.product_10_status);
         mFirebaseUser = mAuth.getCurrentUser();
 
 

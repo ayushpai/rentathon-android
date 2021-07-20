@@ -2,6 +2,7 @@
     <string name="app_name">Rentathon</string>
 
     <dimen name="my_product_my_rental_height">70dp</dimen>
+    <dimen name="chat_user_bar_height">120dp</dimen>
 
     <string-array name="Conditions">
         <item>Like-New</item>
