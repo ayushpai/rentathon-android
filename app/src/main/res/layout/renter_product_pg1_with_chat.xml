@@ -9,24 +9,11 @@
     android:background="@color/light_color_background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context=".Rent.RentProductMain">
+    tools:context=".Rent.RentalDetails">
 
 
 
 
-
-    <ImageView
-        android:id="@+id/menu_btn"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="4dp"
-        android:clickable="true"
-        android:src="@drawable/dots2"
-        android:translationZ="180dp"
-        android:rotation="90"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -355,174 +342,27 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/daily"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
 
-                android:fontFamily="@font/raleway"
-                android:gravity="center"
-                android:textColor="@color/black_p50"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toStartOf="@+id/productTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/productTitle" />
-
-            <TextView
-                android:id="@+id/daily_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/raleway_bold"
-
-                android:gravity="center"
-                android:text="Day"
-                android:textColor="@color/accent_background"
-                android:textSize="20dp"
-                app:layout_constraintEnd_toStartOf="@+id/productTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/productTitle" />
-
-            <TextView
-                android:id="@+id/weekly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-
-
-                android:fontFamily="@font/raleway"
-                android:textColor="@color/black_p50"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toEndOf="@+id/productTitle"
-
-                app:layout_constraintStart_toStartOf="@+id/productTitle"
-                app:layout_constraintTop_toBottomOf="@id/productTitle" />
-
-            <TextView
-                android:id="@+id/weekly_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/raleway_bold"
-                android:gravity="center"
-                android:text="Week"
-                android:textColor="@color/accent_background"
-                android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="@+id/productTitle"
-                app:layout_constraintStart_toStartOf="@+id/productTitle"
-                app:layout_constraintTop_toBottomOf="@id/productTitle" />
-
-            <TextView
-                android:id="@+id/monthly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/raleway"
-                android:textColor="@color/black_p50"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/productTitle"
-                app:layout_constraintTop_toBottomOf="@id/productTitle" />
-
-            <TextView
-                android:id="@+id/monthly_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/raleway_bold"
-
-                android:gravity="center"
-                android:text="2 Weeks"
-                android:textColor="@color/accent_background"
-                android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toEndOf="@+id/productTitle"
-                app:layout_constraintTop_toBottomOf="@id/productTitle" />
 
             <Button
-                android:id="@+id/more_photos_btn"
-                android:layout_width="202dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="20dp"
-
-                android:background="@drawable/background_right_orange"
-                android:fontFamily="@font/roboto_medium"
-                android:padding="3dp"
-                android:text="View More Photos"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/product_photos" />
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/verified_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/more_photos_btn">
-
-                <ImageView
-                    android:id="@+id/verified_logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="100dp"
-                    android:src="@drawable/verified_icon"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-
-                    />
-
-                <TextView
-                    android:id="@+id/verified_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="2dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:gravity="center"
-                    android:text="Verified Renter"
-                    android:textColor="@color/accent_background"
-                    android:textSize="15dp"
-
-
-                    app:layout_constraintStart_toEndOf="@id/verified_logo"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <TextView
-                android:id="@+id/productTitle"
+                android:id="@+id/completeTransactionBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/raleway_black"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/raleway_bold"
                 android:gravity="center"
-                android:padding="5dp"
 
-
-                android:text="Pricing"
-                android:textColor="@color/accent_background"
-                android:textSize="30sp"
+                android:background="@drawable/background_right_orange"
+                android:text="Complete Transaction"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:paddingHorizontal="20dp"
+                android:textSize="25sp"
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/verified_layout" />
+                app:layout_constraintTop_toBottomOf="@id/black_background_bar_bottom" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/condition_box"
@@ -531,9 +371,9 @@
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/weekly_title"
+                app:layout_constraintTop_toBottomOf="@+id/completeTransactionBtn"
 
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp" >
 
@@ -588,7 +428,7 @@
                 android:fontFamily="@font/raleway_bold"
                 android:inputType="textPersonName"
                 android:padding="8dp"
-                android:text="Product Description"
+                android:text="Rental Details"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="23dp"

@@ -40,6 +40,7 @@ import com.neuralgorithmic.rentathon.Profile.ProfileMain;
 import com.neuralgorithmic.rentathon.Profile.UserHomeMain;
 import com.neuralgorithmic.rentathon.R;
 import com.neuralgorithmic.rentathon.Rent.RentProductMain;
+import com.neuralgorithmic.rentathon.Rent.RentalDetails;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -62,6 +63,9 @@ public class ProductOverLord extends AppCompatActivity {
     boolean PendingOVerification, OVerified;
     ScrollView scrollView;
     Button myRentalsBtn, myListingsBtn;
+
+    public static String transactionID;
+
     public TextView ProductName1, ProductViews1, ProductPrice1, ProductName2, ProductViews2, ProductPrice2, ProductName3, ProductViews3, ProductPrice3, ProductName4, ProductViews4, ProductPrice4, ProductName5, ProductViews5, ProductPrice5, ProductName6, ProductViews6, ProductPrice6, ProductName7, ProductViews7, ProductPrice7, ProductName8, ProductViews8, ProductPrice8, ProductName9, ProductViews9, ProductPrice9, ProductName10, ProductViews10, ProductPrice10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,7 +217,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
 
@@ -228,6 +232,7 @@ public class ProductOverLord extends AppCompatActivity {
                             back1.setVisibility(View.VISIBLE);
                             a.setVisibility(View.VISIBLE);
                             ProductPrice1.setText("Pending");
+                            transactionID = document.getId();
                             ProductName1.setText(document.get("ProductName").toString());
                             ProductViews1.setText(document.get("OwnerCity").toString());
 
@@ -251,8 +256,8 @@ public class ProductOverLord extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
 
-                                    Home.userProductSelection = Integer.parseInt(document.get("ID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
 
@@ -266,6 +271,7 @@ public class ProductOverLord extends AppCompatActivity {
                             productImage2.setVisibility(View.VISIBLE);
                             back2.setVisibility(View.VISIBLE);
                             b.setVisibility(View.VISIBLE);
+                            transactionID = document.getId();
 
                             ProductPrice2.setText("Pending");
                             ProductName2.setText(document.get("ProductName").toString());
@@ -292,7 +298,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
 
@@ -306,6 +312,7 @@ public class ProductOverLord extends AppCompatActivity {
                             productImage3.setVisibility(View.VISIBLE);
                             back3.setVisibility(View.VISIBLE);
                             c.setVisibility(View.VISIBLE);
+                            transactionID = document.getId();
 
                             ProductPrice3.setText("Pending");
 
@@ -333,7 +340,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
 
@@ -347,6 +354,7 @@ public class ProductOverLord extends AppCompatActivity {
                             productImage4.setVisibility(View.VISIBLE);
                             back4.setVisibility(View.VISIBLE);
                             d.setVisibility(View.VISIBLE);
+                            transactionID = document.getId();
 
                             ProductPrice4.setText("Pending");
 
@@ -376,7 +384,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
 
@@ -390,7 +398,7 @@ public class ProductOverLord extends AppCompatActivity {
                             productImage5.setVisibility(View.VISIBLE);
                             back5.setVisibility(View.VISIBLE);
                             e.setVisibility(View.VISIBLE);
-
+                            transactionID = document.getId();
                             ProductPrice5.setText("Pending");
 
                             ProductName5.setText(document.get("ProductName").toString());
@@ -418,7 +426,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
 
@@ -432,6 +440,7 @@ public class ProductOverLord extends AppCompatActivity {
                             productImage6.setVisibility(View.VISIBLE);
                             back6.setVisibility(View.VISIBLE);
                             f.setVisibility(View.VISIBLE);
+                            transactionID = document.getId();
 
                             ProductPrice6.setText("Pending");
 
@@ -457,7 +466,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
 
@@ -471,6 +480,7 @@ public class ProductOverLord extends AppCompatActivity {
                             productImage7.setVisibility(View.VISIBLE);
                             back7.setVisibility(View.VISIBLE);
                             g.setVisibility(View.VISIBLE);
+                            transactionID = document.getId();
 
                             ProductPrice7.setText("Pending");
                             ProductName7.setText(document.get("ProductName").toString());
@@ -496,7 +506,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
                                 }
@@ -508,6 +518,7 @@ public class ProductOverLord extends AppCompatActivity {
                             productImage8.setVisibility(View.VISIBLE);
                             back8.setVisibility(View.VISIBLE);
                             h.setVisibility(View.VISIBLE);
+                            transactionID = document.getId();
 
                             ProductPrice8.setText("Pending");
 
@@ -534,7 +545,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
                                 }
@@ -546,6 +557,7 @@ public class ProductOverLord extends AppCompatActivity {
                             productImage9.setVisibility(View.VISIBLE);
                             back9.setVisibility(View.VISIBLE);
                             i1.setVisibility(View.VISIBLE);
+                            transactionID = document.getId();
 
                             ProductPrice9.setText("Pending");
 
@@ -573,7 +585,7 @@ public class ProductOverLord extends AppCompatActivity {
                                 public void onClick(View v) {
 
                                     Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                     overridePendingTransition(0, 0);
 
 
@@ -586,6 +598,7 @@ public class ProductOverLord extends AppCompatActivity {
                             productImage10.setVisibility(View.VISIBLE);
                             back10.setVisibility(View.VISIBLE);
                             j.setVisibility(View.VISIBLE);
+                            transactionID = document.getId();
 
                             ProductPrice10.setText("Pending");
 
@@ -651,7 +664,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
 
@@ -665,6 +678,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     productImage1.setVisibility(View.VISIBLE);
                                     back1.setVisibility(View.VISIBLE);
                                     a.setVisibility(View.VISIBLE);
+                                    transactionID = document.getId();
                                     ProductPrice1.setText("Pending");
                                     ProductName1.setText(document.get("ProductName").toString());
                                     ProductViews1.setText(document.get("OwnerCity").toString());
@@ -690,7 +704,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
 
@@ -705,6 +719,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     back2.setVisibility(View.VISIBLE);
                                     b.setVisibility(View.VISIBLE);
 
+                                    transactionID = document.getId();
                                     ProductPrice2.setText("Pending");
                                     ProductName2.setText(document.get("ProductName").toString());
                                     ProductViews2.setText(document.get("OwnerCity").toString());
@@ -730,7 +745,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
 
@@ -744,7 +759,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     productImage3.setVisibility(View.VISIBLE);
                                     back3.setVisibility(View.VISIBLE);
                                     c.setVisibility(View.VISIBLE);
-
+                                    transactionID = document.getId();
                                     ProductPrice3.setText("Pending");
 
                                     ProductName3.setText(document.get("ProductName").toString());
@@ -771,7 +786,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
 
@@ -785,7 +800,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     productImage4.setVisibility(View.VISIBLE);
                                     back4.setVisibility(View.VISIBLE);
                                     d.setVisibility(View.VISIBLE);
-
+                                    transactionID = document.getId();
                                     ProductPrice4.setText("Pending");
 
                                     ProductName4.setText(document.get("ProductName").toString());
@@ -814,7 +829,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
 
@@ -828,7 +843,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     productImage5.setVisibility(View.VISIBLE);
                                     back5.setVisibility(View.VISIBLE);
                                     e.setVisibility(View.VISIBLE);
-
+                                    transactionID = document.getId();
                                     ProductPrice5.setText("Pending");
 
                                     ProductName5.setText(document.get("ProductName").toString());
@@ -856,7 +871,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
 
@@ -870,7 +885,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     productImage6.setVisibility(View.VISIBLE);
                                     back6.setVisibility(View.VISIBLE);
                                     f.setVisibility(View.VISIBLE);
-
+                                    transactionID = document.getId();
                                     ProductPrice6.setText("Pending");
 
                                     ProductName6.setText(document.get("ProductName").toString());
@@ -895,7 +910,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
 
@@ -909,7 +924,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     productImage7.setVisibility(View.VISIBLE);
                                     back7.setVisibility(View.VISIBLE);
                                     g.setVisibility(View.VISIBLE);
-
+                                    transactionID = document.getId();
                                     ProductPrice7.setText("Pending");
                                     ProductName7.setText(document.get("ProductName").toString());
                                     ProductViews7.setText(document.get("OwnerCity").toString());
@@ -934,7 +949,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
                                         }
@@ -946,7 +961,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     productImage8.setVisibility(View.VISIBLE);
                                     back8.setVisibility(View.VISIBLE);
                                     h.setVisibility(View.VISIBLE);
-
+                                    transactionID = document.getId();
                                     ProductPrice8.setText("Pending");
 
                                     ProductName8.setText(document.get("ProductName").toString());
@@ -972,7 +987,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
                                         }
@@ -984,7 +999,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     productImage9.setVisibility(View.VISIBLE);
                                     back9.setVisibility(View.VISIBLE);
                                     i1.setVisibility(View.VISIBLE);
-
+                                    transactionID = document.getId();
                                     ProductPrice9.setText("Pending");
 
                                     ProductName9.setText(document.get("ProductName").toString());
@@ -1011,7 +1026,7 @@ public class ProductOverLord extends AppCompatActivity {
                                         public void onClick(View v) {
 
                                             Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
                                             overridePendingTransition(0, 0);
 
 
@@ -1024,7 +1039,7 @@ public class ProductOverLord extends AppCompatActivity {
                                     productImage10.setVisibility(View.VISIBLE);
                                     back10.setVisibility(View.VISIBLE);
                                     j.setVisibility(View.VISIBLE);
-
+                                    transactionID = document.getId();
                                     ProductPrice10.setText("Pending");
 
                                     ProductName10.setText(document.get("ProductName").toString());

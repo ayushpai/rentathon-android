@@ -51,6 +51,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.neuralgorithmic.rentathon.Product.GenerateQRCode;
 import com.neuralgorithmic.rentathon.ResizeAnimation;
 import com.neuralgorithmic.rentathon.Signin.SignUpPage1;
 import com.r0adkll.slidr.Slidr;
@@ -751,25 +752,33 @@ public class RentProductMain extends AppCompatActivity {
 
 
                     if(renterUID.equals(renteeUID)){
-                        nxtBtn.setText("Edit Product");
-                        price3.setText("View Insights");
+                        nxtBtn.setText("Action");
+                        price3.setText("Edit Product");
+                        distanceTxt.setText("View Insights");
 
 
                         nxtBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
-                                startActivity(new Intent(RentProductMain.this, EditProduct.class));
+                                startActivity(new Intent(RentProductMain.this, GenerateQRCode.class));
                                 overridePendingTransition(0,0);
+
                             }
                         });
 
                         price3.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                startActivity(new Intent(RentProductMain.this, ProductInsights.class));
+                                startActivity(new Intent(RentProductMain.this, EditProduct.class));
                                 overridePendingTransition(0,0);
 
+                            }
+                        });
+                        distanceTxt.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(new Intent(RentProductMain.this, ProductInsights.class));
+                                overridePendingTransition(0,0);
                             }
                         });
 
