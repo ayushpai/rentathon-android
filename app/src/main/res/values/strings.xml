@@ -9,7 +9,9 @@
         <item>Damaged but Functional</item>
     </string-array>
 
-    w
+    <string name="tos">
+        Thank you for using Rentathon!\n\nThese Terms constitute a legally binding agreement ("Agreement") between you and Rentathon (as defined below) governing your access to and use of the Rentathon app, including any subdomains thereof, and any other websites through which Rentathon makes its services available. The Site and Application together are hereinafter collectively referred to as the “Rentathon Platform”. Our Lost Product Guarantee and other Policies applicable to your use of the Rentathon Platform are incorporated by reference into this Agreement.
+    </string>
 
     <string-array name="Available_Times">
         <item>Unavailable</item>
