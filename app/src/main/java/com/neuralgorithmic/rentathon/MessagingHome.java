@@ -17,14 +17,5 @@ public class MessagingHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message_home);
-
-        qrScannerBtn = findViewById(R.id.scanner);
-        qrScannerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MessagingHome.this, QRScan.class));
-            }
-        });
-
     }
 }
