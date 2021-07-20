@@ -39,6 +39,8 @@ public class QRScan extends AppCompatActivity {
     DocumentReference docRef;
     String transactionID;
 
+    String ownerID, renterID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,13 @@ public class QRScan extends AppCompatActivity {
                         @Override
                         public void run() {
                             transactionID = result.getText().trim();
+
                             Toast.makeText(QRScan.this, result.getText(), Toast.LENGTH_SHORT).show();
+                            ownerID = transactionID.substring(0, transactionID.indexOf("/"));
+                            renterID = transactionID.substring(transactionID.indexOf("_") + 1, transactionID.length());
+                            transactionID = transactionID.substring(transactionID.indexOf("/") + 1, transactionID.indexOf("_"));
+
+
 
                             docRef = mFirestore.collection("transactions").document(transactionID);
                             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -76,21 +84,40 @@ public class QRScan extends AppCompatActivity {
                                 public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
                                     DocumentSnapshot document = task.getResult();
                                     if (document.exists()) {
-                                        AlertDialog.Builder dialogBox = new AlertDialog.Builder(QRScan.this);
-                                        dialogBox.setCancelable(false);
-                                        dialogBox.setIcon(R.drawable.check_icon_orange);
-                                        dialogBox.setTitle("Your Rental Has Been Confirmed");
-                                        dialogBox.setMessage("You will be charged for $" + document.getDouble("TransactionAmnt") + " and your rental will be due back to " + document.getString("OwnerName") +  " in " + document.getDouble("RentDuration") +  " days (" + document.getString("ReturnDate") + ")");
 
-                                        dialogBox.setNegativeButton("Close", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                dialog.dismiss();
-                                                startActivity(new Intent(QRScan.this, ProductOverLord.class));
-                                            }
-                                        });
+                                        if(ownerID.equals(document.getString("OwnerUID")) && renterID.equals(document.getString("RenterUID"))){
+                                            AlertDialog.Builder dialogBox = new AlertDialog.Builder(QRScan.this);
+                                            dialogBox.setCancelable(false);
+                                            dialogBox.setIcon(R.drawable.check_icon_orange);
+                                            dialogBox.setTitle("Your Rental Has Been Confirmed");
+                                            dialogBox.setMessage("You will be charged for $" + document.getDouble("TransactionAmnt") + " and your rental will be due back to " + document.getString("OwnerName") +  " in " + document.getDouble("RentDuration") +  " days (" + document.getString("ReturnDate") + ")");
 
-                                        dialogBox.show();
+                                            dialogBox.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                    startActivity(new Intent(QRScan.this, ProductOverLord.class));
+                                                }
+                                            });
+
+                                            dialogBox.show();
+                                        }
+                                        else {
+                                            AlertDialog.Builder dialogBox = new AlertDialog.Builder(QRScan.this);
+                                            dialogBox.setCancelable(true);
+                                            dialogBox.setTitle("Invalid QR Code");
+                                            dialogBox.setMessage("Rescan by tapping anywhere on the page.");
+
+                                            dialogBox.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+
+                                            dialogBox.show();
+                                        }
+
                                     }
                                     else{
                                         AlertDialog.Builder dialogBox = new AlertDialog.Builder(QRScan.this);

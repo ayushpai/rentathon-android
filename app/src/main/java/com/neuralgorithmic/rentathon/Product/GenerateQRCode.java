@@ -49,7 +49,7 @@ public class GenerateQRCode extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
                 for (QueryDocumentSnapshot document : task.getResult()) {
-                    uniqueTransactionID = document.getString("OwnerUID") + "_" + document.getId() + "_" + document.getString("RenterUID");
+                    uniqueTransactionID = document.getString("OwnerUID") + "/" + document.getId() + "_" + document.getString("RenterUID");
                 }
             }
         });
