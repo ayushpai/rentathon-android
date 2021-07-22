@@ -313,7 +313,12 @@ public class RentProductMain extends AppCompatActivity {
                             transactions.put("QRCodeVerifiedDropoff", false);
                             transactions.put("OwnerAccepted", false);
                             transactions.put("RentDuration", numDays);
+                            transactions.put("ProductStatus", "Pending Transaction");
 
+                            WriteBatch batch = mFirestore.batch();
+                            docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
+                            batch.update(docRef, "Product Status", "Pending Transaction");
+                            batch.commit();
 
                             tInfo.document(renterCity.getText().toString() + " - "+String.valueOf(Home.userProductSelection) + " - $" + String.valueOf(totalPrice)).set(transactions);
                         }

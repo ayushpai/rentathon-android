@@ -22,8 +22,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.WriteBatch;
 import com.google.zxing.Result;
 import com.google.zxing.qrcode.encoder.QRCode;
+import com.neuralgorithmic.rentathon.Home.Home;
 import com.neuralgorithmic.rentathon.Product.ProductOverLord;
 import com.neuralgorithmic.rentathon.R;
 import com.neuralgorithmic.rentathon.Signin.SignUpPage1;
@@ -86,6 +88,12 @@ public class QRScan extends AppCompatActivity {
                                     if (document.exists()) {
 
                                         if(ownerID.equals(document.getString("OwnerUID")) && renterID.equals(document.getString("RenterUID"))){
+
+                                            WriteBatch batch = mFirestore.batch();
+                                            docRef = mFirestore.collection("transactions").document(transactionID);
+                                            batch.update(docRef, "QRCodeVerifiedDropoff", true);
+                                            batch.commit();
+
                                             AlertDialog.Builder dialogBox = new AlertDialog.Builder(QRScan.this);
                                             dialogBox.setCancelable(false);
                                             dialogBox.setIcon(R.drawable.check_icon_orange);

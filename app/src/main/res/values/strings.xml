@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Rentathon</string>
 
+    <string name="qr_code">Generate QR Code</string>
+
     <dimen name="my_product_my_rental_height">70dp</dimen>
     <dimen name="chat_user_bar_height">120dp</dimen>
 

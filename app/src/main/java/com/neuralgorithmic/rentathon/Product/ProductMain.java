@@ -644,6 +644,7 @@ public class ProductMain extends AppCompatActivity {
                 rentalMap.put("Product Num", productNum);
                 rentalMap.put("ProductLong", longitudeRenter);
                 rentalMap.put("ProductLang", latitudeRenter);
+                rentalMap.put("Product Status", "Live On Market");
 
 
                 intelligentRating = ((((double) numberOfViews / numberOfUniqueViews) * 250) + (numberOfUniqueViews * 10) + (rating * 110) + ((35 - Double.parseDouble(fee)) * 6)) - ((distance - 10) * 100);

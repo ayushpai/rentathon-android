@@ -190,7 +190,7 @@ public class ProfileMain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ProfileMain.this, UserStatsMain.class));
+                startActivity(new Intent(ProfileMain.this, ProductMain.class));
                 overridePendingTransition(0,0);
 
             }

@@ -9,6 +9,7 @@ import androidx.core.content.res.ResourcesCompat;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -43,30 +44,57 @@ import com.neuralgorithmic.rentathon.Rent.RentProductMain;
 import com.neuralgorithmic.rentathon.Rent.RentalDetails;
 
 import org.jetbrains.annotations.NotNull;
+import org.w3c.dom.Text;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 public class ProductOverLord extends AppCompatActivity {
     ConstraintLayout a, b, c, d, e, f, g, h, i1, j, addProduct;
+    ConstraintLayout ra, rb, rc, rd, re, rf, rg, rh, ri, rj;
     private FirebaseAuth mAuth;
     FirebaseFirestore mFirestore;
     StorageReference storageRef;
     FirebaseStorage storage;
     DocumentReference docRef, docRef2;
-    public ImageView refreshbtn, productImage1, productImage2, productImage3, productImage4, productImage5, productImage6, productImage7, productImage8, productImage9, productImage10;
+    public ImageView RproductImage1, RproductImage2, RproductImage3, RproductImage4, RproductImage5, RproductImage6, RproductImage7, RproductImage8, RproductImage9, RproductImage10;
+
+    public ImageView productImage1, productImage2, productImage3, productImage4, productImage5, productImage6, productImage7, productImage8, productImage9, productImage10;
+    public ImageView productIcon1, productIcon2, productIcon3, productIcon4, productIcon5, productIcon6, productIcon7, productIcon8, productIcon9, productIcon10;
+    public ImageView RproductIcon1, RproductIcon2, RproductIcon3, RproductIcon4, RproductIcon5, RproductIcon6, RproductIcon7, RproductIcon8, RproductIcon9, RproductIcon10;
+
     FirebaseUser mFirebaseUser;
     String currentUserID;
-    public int loopMaster;
+    public int loopMaster = 1;
     ImageView back1, back2, back3, back4, back5, back6, back7, back8, back9, back10;
+    ImageView Rback1, Rback2, Rback3, Rback4, Rback5, Rback6, Rback7, Rback8, Rback9, Rback10;
     public static boolean fromOverLord;
     public boolean verified;
     Button homeNav, chatNav, profileNav;
     TextView noProductsTxt;
     boolean PendingOVerification, OVerified;
-    ScrollView scrollView;
+    ScrollView scrollViewListings, scrollViewRentals;
     Button myRentalsBtn, myListingsBtn;
 
-    public static String transactionID;
+    public static ArrayList<String> rentalProductNames;
+    public static ArrayList<String> rentalProductPrices;
+    public static ArrayList<String> rentalTransactionIDs;
+    public static ArrayList<String> rentalStatuses;
+    public static ArrayList<String> rentalProductIDs;
 
-    public TextView ProductName1, ProductViews1, ProductPrice1, ProductName2, ProductViews2, ProductPrice2, ProductName3, ProductViews3, ProductPrice3, ProductName4, ProductViews4, ProductPrice4, ProductName5, ProductViews5, ProductPrice5, ProductName6, ProductViews6, ProductPrice6, ProductName7, ProductViews7, ProductPrice7, ProductName8, ProductViews8, ProductPrice8, ProductName9, ProductViews9, ProductPrice9, ProductName10, ProductViews10, ProductPrice10;
+    public static ArrayList<String> listingProductNames;
+    public static ArrayList<String> listingProductPrices;
+    public static ArrayList<String> listingTransactionIDs;
+    public static ArrayList<String> listingStatuses;
+    public static ArrayList<String> listingProductIDs;
+
+
+    public static String productIDForQRCode;
+
+    public TextView ProductName1, ProductStatus1, ProductPrice1, ProductName2, ProductStatus2, ProductPrice2, ProductName3, ProductStatus3, ProductPrice3, ProductName4, ProductStatus4, ProductPrice4, ProductName5, ProductStatus5, ProductPrice5, ProductName6, ProductStatus6, ProductPrice6, ProductName7, ProductStatus7, ProductPrice7, ProductName8, ProductStatus8, ProductPrice8, ProductName9, ProductStatus9, ProductPrice9, ProductName10, ProductStatus10, ProductPrice10;
+    public TextView RProductName1, RProductStatus1, RProductPrice1, RProductName2, RProductStatus2, RProductPrice2, RProductName3, RProductStatus3, RProductPrice3, RProductName4, RProductStatus4, RProductPrice4, RProductName5, RProductStatus5, RProductPrice5, RProductName6, RProductStatus6, RProductPrice6, RProductName7, RProductStatus7, RProductPrice7, RProductName8, RProductStatus8, RProductPrice8, RProductName9, RProductStatus9, RProductPrice9, RProductName10, RProductStatus10, RProductPrice10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +104,17 @@ public class ProductOverLord extends AppCompatActivity {
         UserHomeMain.fromUserHomeMain = false;
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
 
+        rentalProductNames = new ArrayList<String>();
+        rentalProductPrices = new ArrayList<String>();
+        rentalTransactionIDs = new ArrayList<String>();
+        rentalStatuses = new ArrayList<String>();
+        rentalProductIDs = new ArrayList<String>();
+
+        listingProductNames = new ArrayList<String>();
+        listingProductPrices = new ArrayList<String>();
+        listingTransactionIDs = new ArrayList<String>();
+        listingStatuses = new ArrayList<String>();
+        listingProductIDs = new ArrayList<String>();
 
         bottomNavigationView.setSelectedItemId(R.id.products);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -113,7 +152,9 @@ public class ProductOverLord extends AppCompatActivity {
         });
 
 
-        scrollView = findViewById(R.id.scrollView_MY_PRODUCTS);
+        scrollViewRentals = findViewById(R.id.scrollView_MY_RENTALS);
+        scrollViewListings = findViewById(R.id.scrollView_MY_PRODUCTS);
+
         a = findViewById(R.id.a);
         b = findViewById(R.id.b);
         c = findViewById(R.id.c);
@@ -124,6 +165,17 @@ public class ProductOverLord extends AppCompatActivity {
         h = findViewById(R.id.h);
         i1 = findViewById(R.id.i);
         j = findViewById(R.id.j);
+
+        ra = findViewById(R.id.ra);
+        rb = findViewById(R.id.rb);
+        rc = findViewById(R.id.rc);
+        rd = findViewById(R.id.rd);
+        re = findViewById(R.id.re);
+        rf = findViewById(R.id.rf);
+        rg = findViewById(R.id.rg);
+        rh = findViewById(R.id.rh);
+        ri = findViewById(R.id.ri);
+        rj = findViewById(R.id.rj);
 
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -149,937 +201,277 @@ public class ProductOverLord extends AppCompatActivity {
         myListingsBtn = findViewById(R.id.condition_txt_view);
         myRentalsBtn = findViewById(R.id.condition_title);
 
-        productImage1 = findViewById(R.id.product_1);
-        productImage2 = findViewById(R.id.product_2);
-        productImage3 = findViewById(R.id.product_3);
-        productImage4 = findViewById(R.id.product_4);
-        productImage5 = findViewById(R.id.product_5);
-        productImage6 = findViewById(R.id.product_6);
-        productImage7 = findViewById(R.id.product_7);
-        productImage8 = findViewById(R.id.product_8);
-        productImage9 = findViewById(R.id.product_9);
-        productImage10 = findViewById(R.id.product_10);
+        productImage1 = findViewById(R.id.product_1_image);
+        productImage2 = findViewById(R.id.product_2_image);
+        productImage3 = findViewById(R.id.product_3_image);
+        productImage4 = findViewById(R.id.product_4_image);
+        productImage5 = findViewById(R.id.product_5_image);
+        productImage6 = findViewById(R.id.product_6_image);
+        productImage7 = findViewById(R.id.product_7_image);
+        productImage8 = findViewById(R.id.product_8_image);
+        productImage9 = findViewById(R.id.product_9_image);
+        productImage10 = findViewById(R.id.product_10_image);
+
+        RproductImage1 = findViewById(R.id.rproduct_1_image);
+        RproductImage2 = findViewById(R.id.rproduct_2_image);
+        RproductImage3 = findViewById(R.id.rproduct_3_image);
+        RproductImage4 = findViewById(R.id.rproduct_4_image);
+        RproductImage5 = findViewById(R.id.rproduct_5_image);
+        RproductImage6 = findViewById(R.id.rproduct_6_image);
+        RproductImage7 = findViewById(R.id.rproduct_7_image);
+        RproductImage8 = findViewById(R.id.rproduct_8_image);
+        RproductImage9 = findViewById(R.id.rproduct_9_image);
+        RproductImage10 = findViewById(R.id.rproduct_10_image);
 
         //Just changed the names so it was runnable
         ProductName1 = findViewById(R.id.product_1_name);
         ProductPrice1 = findViewById(R.id.product_1_revenue);
-        ProductViews1 = findViewById(R.id.product_1_status);
+        ProductStatus1 = findViewById(R.id.product_1_status);
         ProductName2 = findViewById(R.id.product_2_name);
         ProductPrice2 = findViewById(R.id.product_2_revenue);
-        ProductViews2 = findViewById(R.id.product_2_status);
+        ProductStatus2 = findViewById(R.id.product_2_status);
         ProductName3 = findViewById(R.id.product_3_name);
         ProductPrice3 = findViewById(R.id.product_3_revenue);
-        ProductViews3 = findViewById(R.id.product_3_status);
+        ProductStatus3 = findViewById(R.id.product_3_status);
         ProductName4 = findViewById(R.id.product_4_name);
         ProductPrice4 = findViewById(R.id.product_4_revenue);
-        ProductViews4 = findViewById(R.id.product_4_status);
+        ProductStatus4 = findViewById(R.id.product_4_status);
         ProductName5 = findViewById(R.id.product_5_name);
         ProductPrice5 = findViewById(R.id.product_5_revenue);
-        ProductViews5 = findViewById(R.id.product_5_status);
+        ProductStatus5 = findViewById(R.id.product_5_status);
         ProductName6 = findViewById(R.id.product_6_name);
         ProductPrice6 = findViewById(R.id.product_6_revenue);
-        ProductViews6 = findViewById(R.id.product_6_status);
+        ProductStatus6 = findViewById(R.id.product_6_status);
         ProductName7 = findViewById(R.id.product_7_name);
         ProductPrice7 = findViewById(R.id.product_7_revenue);
-        ProductViews7 = findViewById(R.id.product_7_status);
+        ProductStatus7 = findViewById(R.id.product_7_status);
         ProductName8 = findViewById(R.id.product_8_name);
         ProductPrice8 = findViewById(R.id.product_8_revenue);
-        ProductViews8 = findViewById(R.id.product_8_status);
+        ProductStatus8 = findViewById(R.id.product_8_status);
         ProductName9 = findViewById(R.id.product_9_name);
         ProductPrice9 = findViewById(R.id.product_9_revenue);
-        ProductViews9 = findViewById(R.id.product_9_status);
+        ProductStatus9 = findViewById(R.id.product_9_status);
         ProductName10 = findViewById(R.id.product_10_name);
         ProductPrice10 = findViewById(R.id.product_10_revenue);
-        ProductViews10 = findViewById(R.id.product_10_status);
-        mFirebaseUser = mAuth.getCurrentUser();
+        ProductStatus10 = findViewById(R.id.product_10_status);
 
+        RProductName1 = findViewById(R.id.rproduct_1_name);
+        RProductPrice1 = findViewById(R.id.rproduct_1_revenue);
+        RProductStatus1 = findViewById(R.id.rproduct_1_status);
+        RProductName2 = findViewById(R.id.rproduct_2_name);
+        RProductPrice2 = findViewById(R.id.rproduct_2_revenue);
+        RProductStatus2 = findViewById(R.id.rproduct_2_status);
+        RProductName3 = findViewById(R.id.rproduct_3_name);
+        RProductPrice3 = findViewById(R.id.rproduct_3_revenue);
+        RProductStatus3 = findViewById(R.id.rproduct_3_status);
+        RProductName4 = findViewById(R.id.rproduct_4_name);
+        RProductPrice4 = findViewById(R.id.rproduct_4_revenue);
+        RProductStatus4 = findViewById(R.id.rproduct_4_status);
+        RProductName5 = findViewById(R.id.rproduct_5_name);
+        RProductPrice5 = findViewById(R.id.rproduct_5_revenue);
+        RProductStatus5 = findViewById(R.id.rproduct_5_status);
+        RProductName6 = findViewById(R.id.rproduct_6_name);
+        RProductPrice6 = findViewById(R.id.rproduct_6_revenue);
+        RProductStatus6 = findViewById(R.id.rproduct_6_status);
+        RProductName7 = findViewById(R.id.rproduct_7_name);
+        RProductPrice7 = findViewById(R.id.rproduct_7_revenue);
+        RProductStatus7 = findViewById(R.id.rproduct_7_status);
+        RProductName8 = findViewById(R.id.rproduct_8_name);
+        RProductPrice8 = findViewById(R.id.rproduct_8_revenue);
+        RProductStatus8 = findViewById(R.id.rproduct_8_status);
+        RProductName9 = findViewById(R.id.rproduct_9_name);
+        RProductPrice9 = findViewById(R.id.rproduct_9_revenue);
+        RProductStatus9 = findViewById(R.id.rproduct_9_status);
+        RProductName10 = findViewById(R.id.rproduct_10_name);
+        RProductPrice10 = findViewById(R.id.rproduct_10_revenue);
+        RProductStatus10 = findViewById(R.id.rproduct_10_status);
+
+        productIcon1 = findViewById(R.id.product_1_status_icon);
+        productIcon2 = findViewById(R.id.product_2_status_icon);
+        productIcon3 = findViewById(R.id.product_3_status_icon);
+        productIcon4 = findViewById(R.id.product_4_status_icon);
+        productIcon5 = findViewById(R.id.product_5_status_icon);
+        productIcon6 = findViewById(R.id.product_6_status_icon);
+        productIcon7 = findViewById(R.id.product_7_status_icon);
+        productIcon8 = findViewById(R.id.product_8_status_icon);
+        productIcon9 = findViewById(R.id.product_9_status_icon);
+        productIcon10 = findViewById(R.id.product_10_status_icon);
+
+        RproductIcon1 = findViewById(R.id.rproduct_1_status_icon);
+        RproductIcon2 = findViewById(R.id.rproduct_2_status_icon);
+        RproductIcon3 = findViewById(R.id.rproduct_3_status_icon);
+        RproductIcon4 = findViewById(R.id.rproduct_4_status_icon);
+        RproductIcon5 = findViewById(R.id.rproduct_5_status_icon);
+        RproductIcon6 = findViewById(R.id.rproduct_6_status_icon);
+        RproductIcon7 = findViewById(R.id.rproduct_7_status_icon);
+        RproductIcon8 = findViewById(R.id.rproduct_8_status_icon);
+        RproductIcon9 = findViewById(R.id.rproduct_9_status_icon);
+        RproductIcon10 = findViewById(R.id.rproduct_10_status_icon);
+
+        mFirebaseUser = mAuth.getCurrentUser();
 
 
         if(mFirebaseUser != null) {
             currentUserID = mFirebaseUser.getUid(); //Do what you need to do with the id
         }
 
-        scrollView.setVisibility(View.INVISIBLE);
+        scrollViewListings.setVisibility(View.INVISIBLE);
+
         noProductsTxt.setVisibility(View.VISIBLE);
 
         mFirestore.collection("transactions").whereEqualTo("RenterUID", currentUserID).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
+                    loopMaster = 1;
 
+                    for (QueryDocumentSnapshot transactionDocument : task.getResult()) {
+                        rentalTransactionIDs.add(transactionDocument.getId());
 
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        scrollView.setVisibility(View.VISIBLE);
-                        noProductsTxt.setVisibility(View.INVISIBLE);
+                        rentalProductIDs.add(String.valueOf(transactionDocument.get("ProductID")));
 
-                        if (loopMaster == 0) {
-                            a.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-
-
+                        docRef = mFirestore.collection("products").document(String.valueOf(transactionDocument.get("ProductID")));
+                        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                                DocumentSnapshot productDocument = task.getResult();
+                                rentalProductNames.add(productDocument.getString("Product Name"));
+                                rentalProductPrices.add(String.valueOf(productDocument.getDouble("Rental Fee")));
+                                rentalStatuses.add(productDocument.getString("Product Status"));
+                                //showMessage(String.valueOf(rentalStatuses.size()));
+                                if(rentalProductNames.size() == 1) {
+                                    noProductsTxt.setVisibility(View.INVISIBLE);
+                                    setRentalView(ra, RproductIcon1, RproductImage1, rentalProductIDs.get(0), RProductName1, RProductPrice1, RProductStatus1, rentalProductNames.get(0), rentalProductPrices.get(0), rentalStatuses.get(0));
                                 }
-                            });
-
-                            ProductPrice1.setVisibility(View.VISIBLE);
-                            ProductViews1.setVisibility(View.VISIBLE);
-                            ProductName1.setVisibility(View.VISIBLE);
-                            productImage1.setVisibility(View.VISIBLE);
-                            back1.setVisibility(View.VISIBLE);
-                            a.setVisibility(View.VISIBLE);
-                            ProductPrice1.setText("Pending");
-                            transactionID = document.getId();
-                            ProductName1.setText(document.get("ProductName").toString());
-                            ProductViews1.setText(document.get("OwnerCity").toString());
-
-                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage1);
+                                else if(rentalProductNames.size() == 2) {
+                                    setRentalView(rb, RproductIcon2, RproductImage2, rentalProductIDs.get(1), RProductName2, RProductPrice2, RProductStatus2, rentalProductNames.get(1), rentalProductPrices.get(1), rentalStatuses.get(1));
                                 }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
+                                else if(rentalProductNames.size() == 3) {
+                                    setRentalView(rc, RproductIcon3, RproductImage3, rentalProductIDs.get(2), RProductName3, RProductPrice3, RProductStatus3, rentalProductNames.get(2), rentalProductPrices.get(2), rentalStatuses.get(2));
                                 }
-                            });
-
-
-                        }
-                        if (loopMaster == 1) {
-
-                            b.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-
-
+                                else if(rentalProductNames.size() == 4) {
+                                    setRentalView(rd, RproductIcon4, RproductImage4, rentalProductIDs.get(3), RProductName4, RProductPrice4, RProductStatus4, rentalProductNames.get(3), rentalProductPrices.get(3), rentalStatuses.get(3));
                                 }
-                            });
-
-                            ProductPrice2.setVisibility(View.VISIBLE);
-                            ProductViews2.setVisibility(View.VISIBLE);
-                            ProductName2.setVisibility(View.VISIBLE);
-                            productImage2.setVisibility(View.VISIBLE);
-                            back2.setVisibility(View.VISIBLE);
-                            b.setVisibility(View.VISIBLE);
-                            transactionID = document.getId();
-
-                            ProductPrice2.setText("Pending");
-                            ProductName2.setText(document.get("ProductName").toString());
-                            ProductViews2.setText(document.get("OwnerCity").toString());
-
-                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage2);
+                                else if(rentalProductNames.size() == 5) {
+                                    setRentalView(re, RproductIcon5, RproductImage5, rentalProductIDs.get(4), RProductName5, RProductPrice5, RProductStatus5, rentalProductNames.get(4), rentalProductPrices.get(4), rentalStatuses.get(4));
                                 }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
+                                else if(rentalProductNames.size() == 6) {
+                                    setRentalView(rf, RproductIcon6, RproductImage6, rentalProductIDs.get(5), RProductName6, RProductPrice6, RProductStatus6, rentalProductNames.get(5), rentalProductPrices.get(5), rentalStatuses.get(5));
                                 }
-                            });
-
-
-                        }
-                        if (loopMaster == 2) {
-
-                            c.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-
-
+                                else if(rentalProductNames.size() == 7) {
+                                    setRentalView(rg, RproductIcon7, RproductImage7, rentalProductIDs.get(6), RProductName7, RProductPrice7, RProductStatus7, rentalProductNames.get(6), rentalProductPrices.get(6), rentalStatuses.get(6));
                                 }
-                            });
-
-                            ProductPrice3.setVisibility(View.VISIBLE);
-                            ProductViews3.setVisibility(View.VISIBLE);
-                            ProductName3.setVisibility(View.VISIBLE);
-                            productImage3.setVisibility(View.VISIBLE);
-                            back3.setVisibility(View.VISIBLE);
-                            c.setVisibility(View.VISIBLE);
-                            transactionID = document.getId();
-
-                            ProductPrice3.setText("Pending");
-
-                            ProductName3.setText(document.get("ProductName").toString());
-                            ProductViews3.setText(document.get("OwnerCity").toString());
-
-                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage3);
+                                else if(rentalProductNames.size() == 8) {
+                                    setRentalView(rh, RproductIcon8, RproductImage8, rentalProductIDs.get(7), RProductName8, RProductPrice8, RProductStatus8, rentalProductNames.get(7), rentalProductPrices.get(7), rentalStatuses.get(7));
                                 }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
+                                else if(rentalProductNames.size() == 9) {
+                                    setRentalView(ri, RproductIcon9, RproductImage9, rentalProductIDs.get(8), RProductName9, RProductPrice9, RProductStatus9, rentalProductNames.get(8), rentalProductPrices.get(8), rentalStatuses.get(8));
                                 }
-                            });
-
-
-                        }
-                        if (loopMaster == 3) {
-
-                            d.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-
-
+                                else if(rentalProductNames.size() == 10) {
+                                    setRentalView(rj, RproductIcon10, RproductImage10, rentalProductIDs.get(9), RProductName10, RProductPrice10, RProductStatus10, rentalProductNames.get(9), rentalProductPrices.get(9), rentalStatuses.get(9));
                                 }
-                            });
 
-                            ProductPrice4.setVisibility(View.VISIBLE);
-                            ProductViews4.setVisibility(View.VISIBLE);
-                            ProductName4.setVisibility(View.VISIBLE);
-                            productImage4.setVisibility(View.VISIBLE);
-                            back4.setVisibility(View.VISIBLE);
-                            d.setVisibility(View.VISIBLE);
-                            transactionID = document.getId();
-
-                            ProductPrice4.setText("Pending");
-
-                            ProductName4.setText(document.get("ProductName").toString());
-                            ProductViews4.setText(document.get("OwnerCity").toString());
-
-                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage4);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                }
-                            });
-
-
-                        }
-
-
-                        if (loopMaster == 4) {
-
-                            e.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-
-
-                                }
-                            });
-
-                            ProductPrice5.setVisibility(View.VISIBLE);
-                            ProductViews5.setVisibility(View.VISIBLE);
-                            ProductName5.setVisibility(View.VISIBLE);
-                            productImage5.setVisibility(View.VISIBLE);
-                            back5.setVisibility(View.VISIBLE);
-                            e.setVisibility(View.VISIBLE);
-                            transactionID = document.getId();
-                            ProductPrice5.setText("Pending");
-
-                            ProductName5.setText(document.get("ProductName").toString());
-                            ProductViews5.setText(document.get("OwnerCity").toString());
-
-                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage5);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                }
-                            });
-
-
-                        }
-
-                        if (loopMaster == 5) {
-
-                            f.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-
-
-                                }
-                            });
-
-                            ProductPrice6.setVisibility(View.VISIBLE);
-                            ProductViews6.setVisibility(View.VISIBLE);
-                            ProductName6.setVisibility(View.VISIBLE);
-                            productImage6.setVisibility(View.VISIBLE);
-                            back6.setVisibility(View.VISIBLE);
-                            f.setVisibility(View.VISIBLE);
-                            transactionID = document.getId();
-
-                            ProductPrice6.setText("Pending");
-
-                            ProductName6.setText(document.get("ProductName").toString());
-                            ProductViews6.setText(document.get("OwnerCity").toString());
-
-                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage6);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                }
-                            });
-                        }
-                        if (loopMaster == 6) {
-
-                            g.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-
-
-                                }
-                            });
-
-                            ProductPrice7.setVisibility(View.VISIBLE);
-                            ProductViews7.setVisibility(View.VISIBLE);
-                            ProductName7.setVisibility(View.VISIBLE);
-                            productImage7.setVisibility(View.VISIBLE);
-                            back7.setVisibility(View.VISIBLE);
-                            g.setVisibility(View.VISIBLE);
-                            transactionID = document.getId();
-
-                            ProductPrice7.setText("Pending");
-                            ProductName7.setText(document.get("ProductName").toString());
-                            ProductViews7.setText(document.get("OwnerCity").toString());
-
-                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage7);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                }
-                            });
-
-                        }
-                        if (loopMaster == 7) {
-
-                            h.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-                                }
-                            });
-
-                            ProductPrice8.setVisibility(View.VISIBLE);
-                            ProductViews8.setVisibility(View.VISIBLE);
-                            ProductName8.setVisibility(View.VISIBLE);
-                            productImage8.setVisibility(View.VISIBLE);
-                            back8.setVisibility(View.VISIBLE);
-                            h.setVisibility(View.VISIBLE);
-                            transactionID = document.getId();
-
-                            ProductPrice8.setText("Pending");
-
-                            ProductName8.setText(document.get("ProductName").toString());
-                            ProductViews8.setText(document.get("OwnerCity").toString());
-
-                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage8);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                }
-                            });
-
-                        }
-                        if (loopMaster == 8) {
-
-                            i1.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-                                }
-                            });
-
-                            ProductPrice9.setVisibility(View.VISIBLE);
-                            ProductViews9.setVisibility(View.VISIBLE);
-                            ProductName9.setVisibility(View.VISIBLE);
-                            productImage9.setVisibility(View.VISIBLE);
-                            back9.setVisibility(View.VISIBLE);
-                            i1.setVisibility(View.VISIBLE);
-                            transactionID = document.getId();
-
-                            ProductPrice9.setText("Pending");
-
-                            ProductName9.setText(document.get("ProductName").toString());
-                            ProductViews9.setText(document.get("OwnerCity").toString());
-
-                            storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage9);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                }
-                            });
-
-
-                        }
-                        if (loopMaster == 9) {
-
-                            j.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                    startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                    overridePendingTransition(0, 0);
-
-
-                                }
-                            });
-
-                            ProductPrice10.setVisibility(View.VISIBLE);
-                            ProductViews10.setVisibility(View.VISIBLE);
-                            ProductName10.setVisibility(View.VISIBLE);
-                            productImage10.setVisibility(View.VISIBLE);
-                            back10.setVisibility(View.VISIBLE);
-                            j.setVisibility(View.VISIBLE);
-                            transactionID = document.getId();
-
-                            ProductPrice10.setText("Pending");
-
-                            ProductName10.setText(document.get("ProductName").toString());
-                            ProductViews10.setText(document.get("OwnerCity").toString());
-
-
-                            storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    // Got the download URL for 'users/me/profile.png'
-                                    Glide.with(ProductOverLord.this).load(uri).into(productImage10);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                }
-                            });
-
-
-                        }
+                            }
+                        });
                         loopMaster++;
-
                     }
 
+                }
+                else{
+
+                }
+            }
+        });
+
+        mFirestore.collection("products").whereEqualTo("User ID", currentUserID).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+
+                    for (QueryDocumentSnapshot productDocument : task.getResult()) {
+
+                        listingProductNames.add(productDocument.getString("Product Name"));
+                        listingProductPrices.add(String.valueOf(productDocument.getDouble("Rental Fee")));
+                        listingStatuses.add(productDocument.getString("Product Status"));
+                        listingProductIDs.add(String.valueOf(productDocument.get("Product Num")));
+
+                        if(listingProductNames.size() == 1) {
+                            setListingView(a, productIcon1, productImage1, listingProductIDs.get(0), ProductName1, ProductPrice1, ProductStatus1, listingProductNames.get(0), listingProductPrices.get(0), listingStatuses.get(0));
+                        }
+                        else if(listingProductNames.size() == 2) {
+                            setListingView(b, productIcon2, productImage2, listingProductIDs.get(1), ProductName2, ProductPrice2, ProductStatus2, listingProductNames.get(1), listingProductPrices.get(1), listingStatuses.get(1));
+                        }
+                        else if(listingProductNames.size() == 3) {
+                            setListingView(c, productIcon3, productImage3, listingProductIDs.get(2), ProductName3, ProductPrice3, ProductStatus3, listingProductNames.get(2), listingProductPrices.get(2), listingStatuses.get(2));
+                        }
+                        else if(listingProductNames.size() == 4) {
+                            setListingView(d, productIcon4, productImage4, listingProductIDs.get(3), ProductName4, ProductPrice4, ProductStatus4, listingProductNames.get(3), listingProductPrices.get(3), listingStatuses.get(3));
+                        }
+                        else if(listingProductNames.size() == 5) {
+                            setListingView(e, productIcon5, productImage5, listingProductIDs.get(4), ProductName5, ProductPrice5, ProductStatus5, listingProductNames.get(4), listingProductPrices.get(4), listingStatuses.get(4));
+                        }
+                        else if(listingProductNames.size() == 6) {
+                            setListingView(f, productIcon6, productImage6, listingProductIDs.get(5), ProductName6, ProductPrice6, ProductStatus6, listingProductNames.get(5), listingProductPrices.get(5), listingStatuses.get(5));
+                        }
+                        else if(listingProductNames.size() == 7) {
+                            setListingView(g, productIcon7, productImage7, listingProductIDs.get(6), ProductName7, ProductPrice7, ProductStatus7, listingProductNames.get(6), listingProductPrices.get(6), listingStatuses.get(6));
+                        }
+                        else if(listingProductNames.size() == 8) {
+                            setListingView(h, productIcon8, productImage8, listingProductIDs.get(7), ProductName8, ProductPrice8, ProductStatus8, listingProductNames.get(7), listingProductPrices.get(7), listingStatuses.get(7));
+                        }
+                        else if(listingProductNames.size() == 9) {
+                            setListingView(i1, productIcon9, productImage9, listingProductIDs.get(8), ProductName9, ProductPrice9, ProductStatus9, listingProductNames.get(8), listingProductPrices.get(8), listingStatuses.get(8));
+                        }
+                        else if(listingProductNames.size() == 10) {
+                            setListingView(j, productIcon10, productImage10, listingProductIDs.get(9), ProductName10, ProductPrice10, ProductStatus10, listingProductNames.get(9), listingProductPrices.get(9), listingStatuses.get(9));
+                        }
 
 
-
+                    }
 
                 }
 
             }
         });
 
+
+
+
+
+        addProduct.setVisibility(View.INVISIBLE);
+        //for(int i = 0; i < rentalProductNames.size(); i++){
+
+            //
+        //}
+
         myRentalsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loopMaster = 0;
+                loopMaster = 1;
                 myRentalsBtn.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.rental_product_selection_button_pressed, null));
                 myRentalsBtn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.raleway_bold));
 
                 myListingsBtn.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.rental_product_selection_button_not_pressed, null));
                 myListingsBtn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.raleway_medium));
-                scrollView.setVisibility(View.INVISIBLE);
+                scrollViewListings.setVisibility(View.INVISIBLE);
+                scrollViewRentals.setVisibility(View.VISIBLE);
                 addProduct.setVisibility(View.GONE);
-
-
-
-
-                mFirestore.collection("transactions").whereEqualTo("RenterUID", currentUserID).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-
-
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                scrollView.setVisibility(View.VISIBLE);
-                                noProductsTxt.setVisibility(View.INVISIBLE);
-
-                                if (loopMaster == 0) {
-                                    a.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice1.setVisibility(View.VISIBLE);
-                                    ProductViews1.setVisibility(View.VISIBLE);
-                                    ProductName1.setVisibility(View.VISIBLE);
-                                    productImage1.setVisibility(View.VISIBLE);
-                                    back1.setVisibility(View.VISIBLE);
-                                    a.setVisibility(View.VISIBLE);
-                                    transactionID = document.getId();
-                                    ProductPrice1.setText("Pending");
-                                    ProductName1.setText(document.get("ProductName").toString());
-                                    ProductViews1.setText(document.get("OwnerCity").toString());
-
-                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage1);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 1) {
-
-                                    b.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice2.setVisibility(View.VISIBLE);
-                                    ProductViews2.setVisibility(View.VISIBLE);
-                                    ProductName2.setVisibility(View.VISIBLE);
-                                    productImage2.setVisibility(View.VISIBLE);
-                                    back2.setVisibility(View.VISIBLE);
-                                    b.setVisibility(View.VISIBLE);
-
-                                    transactionID = document.getId();
-                                    ProductPrice2.setText("Pending");
-                                    ProductName2.setText(document.get("ProductName").toString());
-                                    ProductViews2.setText(document.get("OwnerCity").toString());
-
-                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage2);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 2) {
-
-                                    c.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice3.setVisibility(View.VISIBLE);
-                                    ProductViews3.setVisibility(View.VISIBLE);
-                                    ProductName3.setVisibility(View.VISIBLE);
-                                    productImage3.setVisibility(View.VISIBLE);
-                                    back3.setVisibility(View.VISIBLE);
-                                    c.setVisibility(View.VISIBLE);
-                                    transactionID = document.getId();
-                                    ProductPrice3.setText("Pending");
-
-                                    ProductName3.setText(document.get("ProductName").toString());
-                                    ProductViews3.setText(document.get("OwnerCity").toString());
-
-                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage3);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 3) {
-
-                                    d.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice4.setVisibility(View.VISIBLE);
-                                    ProductViews4.setVisibility(View.VISIBLE);
-                                    ProductName4.setVisibility(View.VISIBLE);
-                                    productImage4.setVisibility(View.VISIBLE);
-                                    back4.setVisibility(View.VISIBLE);
-                                    d.setVisibility(View.VISIBLE);
-                                    transactionID = document.getId();
-                                    ProductPrice4.setText("Pending");
-
-                                    ProductName4.setText(document.get("ProductName").toString());
-                                    ProductViews4.setText(document.get("OwnerCity").toString());
-
-                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage4);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-
-
-                                if (loopMaster == 4) {
-
-                                    e.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice5.setVisibility(View.VISIBLE);
-                                    ProductViews5.setVisibility(View.VISIBLE);
-                                    ProductName5.setVisibility(View.VISIBLE);
-                                    productImage5.setVisibility(View.VISIBLE);
-                                    back5.setVisibility(View.VISIBLE);
-                                    e.setVisibility(View.VISIBLE);
-                                    transactionID = document.getId();
-                                    ProductPrice5.setText("Pending");
-
-                                    ProductName5.setText(document.get("ProductName").toString());
-                                    ProductViews5.setText(document.get("OwnerCity").toString());
-
-                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage5);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-
-                                if (loopMaster == 5) {
-
-                                    f.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice6.setVisibility(View.VISIBLE);
-                                    ProductViews6.setVisibility(View.VISIBLE);
-                                    ProductName6.setVisibility(View.VISIBLE);
-                                    productImage6.setVisibility(View.VISIBLE);
-                                    back6.setVisibility(View.VISIBLE);
-                                    f.setVisibility(View.VISIBLE);
-                                    transactionID = document.getId();
-                                    ProductPrice6.setText("Pending");
-
-                                    ProductName6.setText(document.get("ProductName").toString());
-                                    ProductViews6.setText(document.get("OwnerCity").toString());
-
-                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage6);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-                                }
-                                if (loopMaster == 6) {
-
-                                    g.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice7.setVisibility(View.VISIBLE);
-                                    ProductViews7.setVisibility(View.VISIBLE);
-                                    ProductName7.setVisibility(View.VISIBLE);
-                                    productImage7.setVisibility(View.VISIBLE);
-                                    back7.setVisibility(View.VISIBLE);
-                                    g.setVisibility(View.VISIBLE);
-                                    transactionID = document.getId();
-                                    ProductPrice7.setText("Pending");
-                                    ProductName7.setText(document.get("ProductName").toString());
-                                    ProductViews7.setText(document.get("OwnerCity").toString());
-
-                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage7);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-                                }
-                                if (loopMaster == 7) {
-
-                                    h.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-                                        }
-                                    });
-
-                                    ProductPrice8.setVisibility(View.VISIBLE);
-                                    ProductViews8.setVisibility(View.VISIBLE);
-                                    ProductName8.setVisibility(View.VISIBLE);
-                                    productImage8.setVisibility(View.VISIBLE);
-                                    back8.setVisibility(View.VISIBLE);
-                                    h.setVisibility(View.VISIBLE);
-                                    transactionID = document.getId();
-                                    ProductPrice8.setText("Pending");
-
-                                    ProductName8.setText(document.get("ProductName").toString());
-                                    ProductViews8.setText(document.get("OwnerCity").toString());
-
-                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage8);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-                                }
-                                if (loopMaster == 8) {
-
-                                    i1.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-                                        }
-                                    });
-
-                                    ProductPrice9.setVisibility(View.VISIBLE);
-                                    ProductViews9.setVisibility(View.VISIBLE);
-                                    ProductName9.setVisibility(View.VISIBLE);
-                                    productImage9.setVisibility(View.VISIBLE);
-                                    back9.setVisibility(View.VISIBLE);
-                                    i1.setVisibility(View.VISIBLE);
-                                    transactionID = document.getId();
-                                    ProductPrice9.setText("Pending");
-
-                                    ProductName9.setText(document.get("ProductName").toString());
-                                    ProductViews9.setText(document.get("OwnerCity").toString());
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage9);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 9) {
-
-                                    j.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("ProductID").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
-                                            overridePendingTransition(0, 0);
-
-
-                                        }
-                                    });
-
-                                    ProductPrice10.setVisibility(View.VISIBLE);
-                                    ProductViews10.setVisibility(View.VISIBLE);
-                                    ProductName10.setVisibility(View.VISIBLE);
-                                    productImage10.setVisibility(View.VISIBLE);
-                                    back10.setVisibility(View.VISIBLE);
-                                    j.setVisibility(View.VISIBLE);
-                                    transactionID = document.getId();
-                                    ProductPrice10.setText("Pending");
-
-                                    ProductName10.setText(document.get("ProductName").toString());
-                                    ProductViews10.setText(document.get("OwnerCity").toString());
-
-
-                                    storageRef.child("images/" + document.get("ProductID").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage10);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                loopMaster++;
-
-                            }
-
-
-
-
-
-                        }
-
-                    }
-                });
-
-
-
                 noProductsTxt.setVisibility(View.VISIBLE);
 
-                    }
-                });
+                if(rentalProductNames.size() == 0){
+                    noProductsTxt.setVisibility(View.VISIBLE);
+                }
+                else{
+                    noProductsTxt.setVisibility(View.INVISIBLE);
+                }
+
+
+
+
+                // Add the code for displaying my rental information
+
+            }
+        });
 
 
 
@@ -1093,422 +485,13 @@ public class ProductOverLord extends AppCompatActivity {
 
                 myRentalsBtn.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.rental_product_selection_button_not_pressed, null));
                 myRentalsBtn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.raleway_medium));
-                scrollView.setVisibility(View.VISIBLE);
+
+
+                scrollViewListings.setVisibility(View.VISIBLE);
+                scrollViewRentals.setVisibility(View.INVISIBLE);
+
                 addProduct.setVisibility(View.VISIBLE);
                 noProductsTxt.setVisibility(View.INVISIBLE);
-
-
-                mFirestore.collection("products").whereEqualTo("User ID", currentUserID).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-
-
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-
-
-                                if (loopMaster == 0) {
-                                    a.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice1.setVisibility(View.VISIBLE);
-                                    ProductViews1.setVisibility(View.VISIBLE);
-                                    ProductName1.setVisibility(View.VISIBLE);
-                                    productImage1.setVisibility(View.VISIBLE);
-                                    back1.setVisibility(View.VISIBLE);
-                                    a.setVisibility(View.VISIBLE);
-
-                                    ProductPrice1.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName1.setText(document.get("Product Name").toString());
-                                    ProductViews1.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage1);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 1) {
-
-                                    b.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice2.setVisibility(View.VISIBLE);
-                                    ProductViews2.setVisibility(View.VISIBLE);
-                                    ProductName2.setVisibility(View.VISIBLE);
-                                    productImage2.setVisibility(View.VISIBLE);
-                                    back2.setVisibility(View.VISIBLE);
-                                    b.setVisibility(View.VISIBLE);
-
-                                    ProductPrice2.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName2.setText(document.get("Product Name").toString());
-                                    ProductViews2.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage2);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 2) {
-
-                                    c.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice3.setVisibility(View.VISIBLE);
-                                    ProductViews3.setVisibility(View.VISIBLE);
-                                    ProductName3.setVisibility(View.VISIBLE);
-                                    productImage3.setVisibility(View.VISIBLE);
-                                    back3.setVisibility(View.VISIBLE);
-                                    c.setVisibility(View.VISIBLE);
-
-                                    ProductPrice3.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName3.setText(document.get("Product Name").toString());
-                                    ProductViews3.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage3);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 3) {
-
-                                    d.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice4.setVisibility(View.VISIBLE);
-                                    ProductViews4.setVisibility(View.VISIBLE);
-                                    ProductName4.setVisibility(View.VISIBLE);
-                                    productImage4.setVisibility(View.VISIBLE);
-                                    back4.setVisibility(View.VISIBLE);
-                                    d.setVisibility(View.VISIBLE);
-
-                                    ProductPrice4.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName4.setText(document.get("Product Name").toString());
-                                    ProductViews4.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage4);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 4) {
-
-                                    e.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice5.setVisibility(View.VISIBLE);
-                                    ProductViews5.setVisibility(View.VISIBLE);
-                                    ProductName5.setVisibility(View.VISIBLE);
-                                    productImage5.setVisibility(View.VISIBLE);
-                                    back5.setVisibility(View.VISIBLE);
-                                    e.setVisibility(View.VISIBLE);
-
-                                    ProductPrice5.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName5.setText(document.get("Product Name").toString());
-                                    ProductViews5.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage5);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 5) {
-
-                                    f.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice6.setVisibility(View.VISIBLE);
-                                    ProductViews6.setVisibility(View.VISIBLE);
-                                    ProductName6.setVisibility(View.VISIBLE);
-                                    productImage6.setVisibility(View.VISIBLE);
-                                    back6.setVisibility(View.VISIBLE);
-                                    f.setVisibility(View.VISIBLE);
-
-                                    ProductPrice6.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName6.setText(document.get("Product Name").toString());
-                                    ProductViews6.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage6);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 6) {
-
-                                    g.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-                                        }
-                                    });
-
-                                    ProductPrice7.setVisibility(View.VISIBLE);
-                                    ProductViews7.setVisibility(View.VISIBLE);
-                                    ProductName7.setVisibility(View.VISIBLE);
-                                    productImage7.setVisibility(View.VISIBLE);
-                                    back7.setVisibility(View.VISIBLE);
-                                    g.setVisibility(View.VISIBLE);
-
-                                    ProductPrice7.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName7.setText(document.get("Product Name").toString());
-                                    ProductViews7.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage7);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 7) {
-
-                                    h.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-
-
-                                        }
-                                    });
-
-                                    ProductPrice8.setVisibility(View.VISIBLE);
-                                    ProductViews8.setVisibility(View.VISIBLE);
-                                    ProductName8.setVisibility(View.VISIBLE);
-                                    productImage8.setVisibility(View.VISIBLE);
-                                    back8.setVisibility(View.VISIBLE);
-                                    h.setVisibility(View.VISIBLE);
-
-                                    ProductPrice8.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName8.setText(document.get("Product Name").toString());
-                                    ProductViews8.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage8);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                if (loopMaster == 8) {
-
-                                    i1.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-                                        }
-                                    });
-
-                                    ProductPrice9.setVisibility(View.VISIBLE);
-                                    ProductViews9.setVisibility(View.VISIBLE);
-                                    ProductName9.setVisibility(View.VISIBLE);
-                                    productImage9.setVisibility(View.VISIBLE);
-                                    back9.setVisibility(View.VISIBLE);
-                                    i1.setVisibility(View.VISIBLE);
-
-                                    ProductPrice9.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName9.setText(document.get("Product Name").toString());
-                                    ProductViews9.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage9);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-                                }
-                                if (loopMaster == 9) {
-
-                                    j.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            Home.userProductSelection = Integer.parseInt(document.get("Product Num").toString());
-                                            startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
-                                            overridePendingTransition(0, 0);
-
-                                        }
-                                    });
-
-                                    ProductPrice10.setVisibility(View.VISIBLE);
-                                    ProductViews10.setVisibility(View.VISIBLE);
-                                    ProductName10.setVisibility(View.VISIBLE);
-                                    productImage10.setVisibility(View.VISIBLE);
-                                    back10.setVisibility(View.VISIBLE);
-                                    j.setVisibility(View.VISIBLE);
-
-                                    ProductPrice10.setText("$" + document.get("Rental Fee").toString() + "/day");
-                                    ProductName10.setText(document.get("Product Name").toString());
-                                    ProductViews10.setText(document.get("Views").toString() + " Views");
-
-                                    storageRef.child("images/" + document.get("Product Num").toString()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            // Got the download URL for 'users/me/profile.png'
-                                            Glide.with(ProductOverLord.this).load(uri).into(productImage10);
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception exception) {
-                                        }
-                                    });
-
-
-                                }
-                                loopMaster++;
-
-                            }
-
-
-
-                        }
-
-                    }
-                });
 
 
 
@@ -1579,4 +562,91 @@ public class ProductOverLord extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
+
+    private void setRentalView(ConstraintLayout constraintLayout, ImageView productIconView, ImageView productImageView, String productID, TextView nameView, TextView priceView, TextView statusView, String name, String price, String status){
+        constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Home.userProductSelection = Integer.parseInt(productID);
+                startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
+                overridePendingTransition(0, 0);
+            }
+        });
+        constraintLayout.setVisibility(View.VISIBLE);
+
+        nameView.setText(name);
+        priceView.setText("$" + price + "/day");
+        statusView.setText(status);
+
+       if(status.equals("Pending Transaction")){
+            productIconView.setImageResource(R.drawable.ic_baseline_access_time_24);
+        }
+        else if(status.equals("Click to Complete Transaction")){
+            productIconView.setImageResource(R.drawable.ic_baseline_qr_code_scanner_24);
+        }
+
+        // ADD code for cancelled transaction
+
+        storageRef.child("images/" + productID).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                // Got the download URL for 'users/me/profile.png'
+                Glide.with(ProductOverLord.this).load(uri).into(productImageView);
+                productImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+            }
+        });
+    }
+
+    private void setListingView(ConstraintLayout constraintLayout, ImageView productIconView, ImageView productImageView, String productID, TextView nameView, TextView priceView, TextView statusView, String name, String price, String status){
+        productIDForQRCode = productID;
+        constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Home.userProductSelection = Integer.parseInt(productID);
+                startActivity(new Intent(ProductOverLord.this, GenerateQRCode.class));
+                overridePendingTransition(0, 0);
+            }
+        });
+        constraintLayout.setVisibility(View.VISIBLE);
+
+        nameView.setText(name);
+        priceView.setText("$" + price + "/day");
+        statusView.setText(status);
+
+
+
+        if(status.equals("Pending Transaction")){
+            productIconView.setImageResource(R.drawable.ic_baseline_access_time_24);
+        }
+        else if(status.equals("Click to Complete Transaction")){
+            productIconView.setImageResource(R.drawable.ic_baseline_qr_code_24);
+        }
+        else if(status.equals("Live On Market")){
+            productIconView.setImageResource(R.drawable.icons_shopping_cart);
+        }
+
+        // ADD code for cancelled transaction
+
+        storageRef.child("images/" + productID).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                // Got the download URL for 'users/me/profile.png'
+                Glide.with(ProductOverLord.this).load(uri).into(productImageView);
+                productImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+            }
+        });
+    }
+
 }
