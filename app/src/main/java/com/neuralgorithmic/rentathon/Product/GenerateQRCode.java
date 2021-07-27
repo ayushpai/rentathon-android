@@ -100,6 +100,7 @@ public class GenerateQRCode extends AppCompatActivity {
                             // the bitmap is set inside our image
                             // view using .setimagebitmap method.
                             qrCodeIV.setImageBitmap(bitmap);
+                            showMessage("set image!");
                         } catch (WriterException e) {
                             // this method is called for
                             // exception handling.

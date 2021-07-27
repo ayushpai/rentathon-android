@@ -1282,7 +1282,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="230dp"
 
-                android:visibility="gone"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
 
@@ -2568,7 +2568,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="230dp"
 
-                android:visibility="gone"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
 

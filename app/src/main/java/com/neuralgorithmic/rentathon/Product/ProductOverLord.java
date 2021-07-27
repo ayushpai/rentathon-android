@@ -38,6 +38,7 @@ import com.neuralgorithmic.rentathon.MessagingHome;
 import com.neuralgorithmic.rentathon.Profile.ProfileMain;
 import com.neuralgorithmic.rentathon.Profile.UserHomeMain;
 import com.neuralgorithmic.rentathon.R;
+import com.neuralgorithmic.rentathon.Rent.QRScan;
 import com.neuralgorithmic.rentathon.Rent.RentProductMain;
 
 import org.jetbrains.annotations.NotNull;
@@ -428,15 +429,7 @@ public class ProductOverLord extends AppCompatActivity {
             }
         });
 
-
-
-
-
         addProduct.setVisibility(View.INVISIBLE);
-        //for(int i = 0; i < rentalProductNames.size(); i++){
-
-            //
-        //}
 
         myRentalsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -458,17 +451,9 @@ public class ProductOverLord extends AppCompatActivity {
                 else{
                     noProductsTxt.setVisibility(View.INVISIBLE);
                 }
-
-
-
-
                 // Add the code for displaying my rental information
-
             }
         });
-
-
-
 
         myListingsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -480,18 +465,13 @@ public class ProductOverLord extends AppCompatActivity {
                 myRentalsBtn.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.rental_product_selection_button_not_pressed, null));
                 myRentalsBtn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.raleway_medium));
 
-
                 scrollViewListings.setVisibility(View.VISIBLE);
                 scrollViewRentals.setVisibility(View.INVISIBLE);
 
                 addProduct.setVisibility(View.VISIBLE);
                 noProductsTxt.setVisibility(View.INVISIBLE);
-
-
-
             }
         });
-
 
         docRef = mFirestore.collection("users").document(currentUserID);
 
@@ -562,7 +542,7 @@ public class ProductOverLord extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Home.userProductSelection = Integer.parseInt(productID);
-                startActivity(new Intent(ProductOverLord.this, RentalDetails.class));
+                startActivity(new Intent(ProductOverLord.this, QRScan.class));
                 overridePendingTransition(0, 0);
             }
         });
@@ -602,9 +582,20 @@ public class ProductOverLord extends AppCompatActivity {
         constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Home.userProductSelection = Integer.parseInt(productID);
-                startActivity(new Intent(ProductOverLord.this, GenerateQRCode.class));
-                overridePendingTransition(0, 0);
+
+                if(status.equals("Pending Transaction")) {
+                    Home.userProductSelection = Integer.parseInt(productID);
+                    startActivity(new Intent(ProductOverLord.this, GenerateQRCode.class));
+                    overridePendingTransition(0, 0);
+                }
+                else if(status.equals("Live On Market")){
+                    Home.userProductSelection = Integer.parseInt(productID);
+                    startActivity(new Intent(ProductOverLord.this, RentProductMain.class));
+                    overridePendingTransition(0, 0);
+                }
+                else{
+                    showMessage("error: status not valid");
+                }
             }
         });
         constraintLayout.setVisibility(View.VISIBLE);
