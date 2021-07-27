@@ -162,16 +162,17 @@
 
             <EditText
                 android:id="@+id/product_relative_price_input"
-                android:layout_width="145dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
 
                 android:fontFamily="@font/roboto"
                 android:hint="Product Value ($)"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
                 android:maxLength="8"
-                android:padding="16dp"
+                android:padding="15dp"
                 android:textAlignment="center"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/product_rent_price_input"
@@ -255,19 +256,21 @@
 
             <EditText
                 android:id="@+id/product_rent_price_input"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
 
                 android:fontFamily="@font/roboto"
                 android:hint="Rental Fee ($/day)"
                 android:inputType="textPersonName"
                 android:maxLength="8"
-                android:padding="16dp"
+                android:padding="15dp"
                 android:textAlignment="center"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/product_value_and_fee_info_button"
                 app:layout_constraintTop_toBottomOf="@+id/black_background_bar" />
 
             <TextView
@@ -277,7 +280,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
-                android:background="@drawable/background_right"
+                android:background="@drawable/background_right_orange"
                 android:clickable="true"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Upload More Photos"
@@ -325,13 +328,10 @@
                 android:id="@+id/product_value_and_fee_info_button"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:clickable="true"
                 app:layout_constraintBottom_toBottomOf="@+id/product_rent_price_input"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toRightOf="@id/product_relative_price_input"
-                app:layout_constraintRight_toLeftOf="@id/product_rent_price_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/product_rent_price_input"
                 app:srcCompat="@drawable/info_icon" />
 
@@ -380,7 +380,7 @@
             android:id="@+id/upload"
             android:layout_width="129dp"
             android:layout_height="47dp"
-            android:background="@drawable/background_right"
+            android:background="@drawable/background_right_orange"
 
             android:shadowColor="#000000"
 

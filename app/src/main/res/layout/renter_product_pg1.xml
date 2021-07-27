@@ -252,7 +252,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_description_input">
@@ -262,7 +262,6 @@
                     android:id="@+id/user_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/raleway_bold"
                     android:padding="5dp"
@@ -270,7 +269,6 @@
                     android:textColor="@color/accent_background"
                     android:textSize="28sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -280,7 +278,7 @@
                     android:layout_height="36dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="110dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/raleway_bold"
                     android:gravity="center"
                     android:padding="5dp"
                     android:shadowColor="@color/white"
@@ -317,10 +315,25 @@
                     app:layout_constraintTop_toTopOf="@+id/profile_pic_output" />
 
                 <ImageView
+                    android:id="@+id/product_chat_icon"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/product_chat_icon"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_chat_white"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_pic_output"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/renter_name"
+                    app:layout_constraintTop_toTopOf="@+id/profile_pic_output" />
+
+                <ImageView
                     android:id="@+id/rating_pic"
                     android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:src="@drawable/star0"
+                    app:layout_constraintEnd_toEndOf="@+id/renter_name"
                     app:layout_constraintStart_toStartOf="@+id/renter_name"
                     app:layout_constraintTop_toBottomOf="@+id/renter_name" />
 
@@ -331,6 +344,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_light"
                     android:text="# Reviews"
+                    android:textAlignment="center"
                     android:textColor="@color/common_google_signin_btn_text_dark_focused"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@+id/rating_pic"
@@ -341,7 +355,6 @@
                     android:id="@+id/city_user_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="75dp"
                     android:layout_marginTop="10dp"
                     android:clickable="true"
                     android:fontFamily="@font/raleway"
@@ -349,11 +362,92 @@
                     android:textColor="@color/common_google_signin_btn_text_dark_focused"
 
                     android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/renter_name"
+                    app:layout_constraintStart_toStartOf="@+id/renter_name"
                     app:layout_constraintTop_toBottomOf="@+id/rating_amount_txt" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/more_photos_btn"
+                android:layout_width="202dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+
+                android:background="@drawable/background_right_orange"
+                android:fontFamily="@font/roboto_medium"
+                android:padding="3dp"
+                android:text="View More Photos"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/product_photos" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/verified_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/more_photos_btn">
+
+                <ImageView
+                    android:id="@+id/verified_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="100dp"
+                    android:src="@drawable/verified_icon"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+                <TextView
+                    android:id="@+id/verified_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="Verified Renter"
+                    android:textColor="@color/accent_background"
+                    android:textSize="15dp"
+
+
+                    app:layout_constraintStart_toEndOf="@id/verified_logo"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/productTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/raleway_black"
+                android:gravity="center"
+                android:padding="5dp"
+
+
+                android:text="Pricing"
+                android:textColor="@color/accent_background"
+                android:textSize="30sp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/verified_layout" />
 
             <TextView
                 android:id="@+id/daily"
@@ -442,87 +536,6 @@
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toEndOf="@+id/productTitle"
                 app:layout_constraintTop_toBottomOf="@id/productTitle" />
-
-            <Button
-                android:id="@+id/more_photos_btn"
-                android:layout_width="202dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="20dp"
-
-                android:background="@drawable/background_right_orange"
-                android:fontFamily="@font/roboto_medium"
-                android:padding="3dp"
-                android:text="View More Photos"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/product_photos" />
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/verified_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/more_photos_btn">
-
-                <ImageView
-                    android:id="@+id/verified_logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="100dp"
-                    android:src="@drawable/verified_icon"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-
-                    />
-
-                <TextView
-                    android:id="@+id/verified_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="2dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:gravity="center"
-                    android:text="Verified Renter"
-                    android:textColor="@color/accent_background"
-                    android:textSize="15dp"
-
-
-                    app:layout_constraintStart_toEndOf="@id/verified_logo"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <TextView
-                android:id="@+id/productTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/raleway_black"
-                android:gravity="center"
-                android:padding="5dp"
-
-
-                android:text="Pricing"
-                android:textColor="@color/accent_background"
-                android:textSize="30sp"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/verified_layout" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/condition_box"

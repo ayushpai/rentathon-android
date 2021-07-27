@@ -144,7 +144,7 @@
                 android:layout_width="203dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/background_right"
+                android:background="@drawable/background_right_orange"
                 android:fontFamily="@font/roboto_medium"
                 android:padding="3dp"
                 android:clickable="true"
@@ -310,22 +310,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/product_description_title" />
 
-            <Button
-                android:id="@+id/save_button"
-                android:layout_width="100dp"
-                android:layout_height="50sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/login_btn"
-                android:fontFamily="sans-serif-black"
-                android:hint="Save"
-                android:textSize="16sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/product_description_input" />
-
             <ViewFlipper
                 android:id="@+id/product_photos"
                 android:layout_width="match_parent"
@@ -368,7 +352,7 @@
             android:id="@+id/save"
             android:layout_width="129dp"
             android:layout_height="47dp"
-            android:background="@drawable/background_right"
+            android:background="@drawable/background_right_orange"
 
             android:shadowColor="#000000"
 

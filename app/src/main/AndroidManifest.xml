@@ -25,7 +25,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Product.GenerateQRCode"></activity>
-        <activity android:name=".Rent.RentalDetails" />
         <activity android:name=".Rent.QRScan" />
         <activity android:name=".Product.BackgroundCheck" />
 

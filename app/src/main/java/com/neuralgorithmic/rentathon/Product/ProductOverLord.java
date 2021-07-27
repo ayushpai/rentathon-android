@@ -8,8 +8,6 @@ import androidx.core.content.res.ResourcesCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -41,13 +39,9 @@ import com.neuralgorithmic.rentathon.Profile.ProfileMain;
 import com.neuralgorithmic.rentathon.Profile.UserHomeMain;
 import com.neuralgorithmic.rentathon.R;
 import com.neuralgorithmic.rentathon.Rent.RentProductMain;
-import com.neuralgorithmic.rentathon.Rent.RentalDetails;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class ProductOverLord extends AppCompatActivity {
