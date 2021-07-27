@@ -8,17 +8,36 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/user_info_bar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
+        android:background="#EAEAEA"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/imageView3"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="12dp"
+            android:src="@drawable/ic_baseline_keyboard_backspace_24"
             app:layout_constraintBottom_toBottomOf="@+id/user_info_bar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/user_info_bar" />
+
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Full Name"
+            android:fontFamily="@font/raleway_bold"
+            android:textSize="20dp"
+            android:textColor="#222222"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/user1_card"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/user1_card"
@@ -41,12 +60,50 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/user_info_bar"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/message_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#EAEAEA"
+        app:layout_constraintBottom_toTopOf="@+id/send_message"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/user_info_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/user_info_bar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/send_message"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="15dp"
+            android:hint="Enter Message"
+            android:textSize="16dp"
+            android:background="@drawable/edt_txt"
+            android:fontFamily="@font/raleway_medium"
+            android:padding="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/send_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/send_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_send_24"
+            android:layout_marginRight="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
