@@ -7,6 +7,25 @@
     android:background="@drawable/backgroundmain"
     tools:context=".Product.GenerateQRCode">
 
+
+    <ImageView
+        android:id="@+id/product_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="13dp"
+        android:src="@drawable/ic_baseline_local_grocery_store_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/chat_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_margin="14dp"
+        android:src="@drawable/ic_baseline_chat_bubble_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/idIVQrcode"
         android:layout_width="250dp"
@@ -21,7 +40,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway"
+        android:fontFamily="@font/raleway_bold"
         android:textSize="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
-        android:text="Hold QR code up to renters scanner."
+        android:text="Hold QR code up to the renter's scanner."
         android:layout_marginTop="4dp"
         android:textColor="@color/white"
         />
