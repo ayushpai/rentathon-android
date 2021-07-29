@@ -619,7 +619,6 @@
                 android:fontFamily="@font/raleway"
 
                 android:inputType="textMultiLine"
-                android:minLines="1"
                 android:nestedScrollingEnabled="true"
                 android:padding="16dp"
                 android:scrollbarAlwaysDrawVerticalTrack="true"
