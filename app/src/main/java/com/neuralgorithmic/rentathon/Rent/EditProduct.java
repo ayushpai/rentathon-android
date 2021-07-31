@@ -99,8 +99,8 @@ public class EditProduct extends AppCompatActivity {
 
         layer = findViewById(R.id.layer);
         save = findViewById(R.id.save);
-        delete = findViewById(R.id.delete);
-        rentalFee = findViewById(R.id.RentalFee);
+        //delete = findViewById(R.id.delete);
+        //wrentalFee = findViewById(R.id.RentalFee);
         productPic = findViewById(R.id.product_pic_input);
         imageSlideShow = findViewById(R.id.product_photos);
         price2 = findViewById(R.id.price2);

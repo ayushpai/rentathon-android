@@ -172,7 +172,7 @@ public class ProductMain extends AppCompatActivity {
         conditionInfo = findViewById(R.id.condition_info_button);
         descriptionInfo = findViewById(R.id.product_description_info_button);
 
-        rentBtn = findViewById(R.id.upload);
+        //rentBtn = findViewById(R.id.upload);
         mFirestore = FirebaseFirestore.getInstance();
 
 

@@ -65,12 +65,14 @@ import com.neuralgorithmic.rentathon.R;
 import com.neuralgorithmic.rentathon.Profile.UserHomeMain;
 import com.rtchagas.pingplacepicker.PingPlacePicker;
 
+import org.bouncycastle.asn1.dvcs.Data;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -160,13 +162,15 @@ public class RentProductMain extends AppCompatActivity {
     static double totalPrice = 0;
     static String returnDateString;
 
-    Map<String, Object> transactions;
-    CollectionReference tInfo;
+    Map<String, Object> transactions, messages;
+    CollectionReference tInfo, mInfo;
 
     DecimalFormat df;
     String maltRequiredString;
 
     DocumentReference ownerFile, renterFile, productFile;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -251,7 +255,9 @@ public class RentProductMain extends AppCompatActivity {
         continueConstraint = findViewById(R.id.continueConstraint);
         darkenBackground = findViewById(R.id.darkenBackground);
         transactions = new HashMap<>();
+        messages = new HashMap<>();
         tInfo = mFirestore.collection("transactions");
+
 
 
         newButton.setOnClickListener(new View.OnClickListener() {
@@ -262,7 +268,7 @@ public class RentProductMain extends AppCompatActivity {
                 FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
-                ownerFile = mFirestore.collection("users").document(renteeUID);
+                ownerFile = mFirestore.collection("users").document(renterUID);
                 renterFile = mFirestore.collection("users").document(renteeUID);
                 productFile = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
 
@@ -273,57 +279,78 @@ public class RentProductMain extends AppCompatActivity {
                         DocumentSnapshot document = task.getResult();
                         if(document.exists()){
                             transactions.put("OwnerName", document.getString("Name"));
+
                             transactions.put("OwnerCity", document.getString("City"));
+
                             transactions.put("OwnerRating", document.getDouble("RAverage"));
-                            transactions.put("OwnerName", document.getString("Name"));
+                            renterFile.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                                    DocumentSnapshot documentRenter = task.getResult();
+                                    if (document.exists()) {
+                                        transactions.put("RenterName", documentRenter.getString("Name"));
+
+                                        transactions.put("RenterCity", documentRenter.getString("City"));
+
+                                        productFile.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
+                                                DocumentSnapshot document3 = task.getResult();
+                                                if (document.exists()) {
+                                                    df = new DecimalFormat("0.00");
+                                                    transactions.put("ProductName", document3.getString("Product Name"));
+                                                    transactions.put("ProductID", Home.userProductSelection);
+                                                    transactions.put("ProductValue", document3.getDouble("Product Value"));
+                                                    SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyy");
+                                                    transactions.put("TransactionAmnt", totalPrice);
+                                                    transactions.put("RentathonEarnings", df.format(totalPrice * 0.12));
+                                                    transactions.put("ReturnDate", returnDateString);
+                                                    transactions.put("PickupDate", sdf.format(calendarView.getDate()));
+                                                    transactions.put("RenterUID", renteeUID);
+                                                    transactions.put("OwnerUID", renterUID);
+                                                    transactions.put("PaymentComplete", false);
+                                                    transactions.put("QRCodeVerifiedPickup", false);
+                                                    transactions.put("QRCodeVerifiedDropoff", false);
+                                                    transactions.put("OwnerAccepted", false);
+                                                    transactions.put("RentDuration", numDays);
+                                                    transactions.put("ProductStatus", "Pending Transaction");
+
+                                                    Map<String, Object> messages = new HashMap<>();
+                                                    Map<String, Object> messagesInfo = new HashMap<>();
+
+                                                    String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
+
+                                                    messagesInfo.put("Sender", renteeUID);
+                                                    messagesInfo.put("Time", currentTime);
+                                                    messagesInfo.put("Message", "Greetings! I would like to rent your " + document3.getString("Product Name") + " for " + numDays + " days.");
+
+                                                    messages.put("1", messagesInfo);
+
+
+                                                    transactions.put("Messages", messages);
+
+
+                                                    WriteBatch batch = mFirestore.batch();
+                                                    docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
+                                                    batch.update(docRef, "Product Status", "Pending Transaction");
+                                                    batch.commit();
+
+                                                    tInfo.document(renterCity.getText().toString() + " - "+String.valueOf(Home.userProductSelection) + " - $" + String.valueOf(totalPrice)).set(transactions);
+                                                }
+                                            }
+                                        });
+
+                                    }
+                                }
+                            });
+
                         }
                     }
                 });
 
-                renterFile.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            transactions.put("RenterName", document.getString("Name"));
-                            transactions.put("RenterCity", document.getString("City"));
 
-                        }
-                    }
-                });
 
-                productFile.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            df = new DecimalFormat("0.00");
-                            transactions.put("ProductName", document.getString("Product Name"));
-                            transactions.put("ProductID", Home.userProductSelection);
-                            transactions.put("ProductValue", document.getDouble("Product Value"));
-                            SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyy");
-                            transactions.put("TransactionAmnt", totalPrice);
-                            transactions.put("RentathonEarnings", df.format(totalPrice * 0.12));
-                            transactions.put("ReturnDate", returnDateString);
-                            transactions.put("PickupDate", sdf.format(calendarView.getDate()));
-                            transactions.put("RenterUID", renteeUID);
-                            transactions.put("OwnerUID", renterUID);
-                            transactions.put("PaymentComplete", false);
-                            transactions.put("QRCodeVerifiedPickup", false);
-                            transactions.put("QRCodeVerifiedDropoff", false);
-                            transactions.put("OwnerAccepted", false);
-                            transactions.put("RentDuration", numDays);
-                            transactions.put("ProductStatus", "Pending Transaction");
 
-                            WriteBatch batch = mFirestore.batch();
-                            docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
-                            batch.update(docRef, "Product Status", "Pending Transaction");
-                            batch.commit();
-
-                            tInfo.document(renterCity.getText().toString() + " - "+String.valueOf(Home.userProductSelection) + " - $" + String.valueOf(totalPrice)).set(transactions);
-                        }
-                    }
-                });
 
 
             }
