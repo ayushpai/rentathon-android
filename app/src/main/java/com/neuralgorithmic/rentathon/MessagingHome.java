@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,8 @@ public class MessagingHome extends AppCompatActivity {
     FirebaseFirestore mFirestore;
 
     String currentUserUID;
+
+
 
 
 
@@ -109,12 +112,13 @@ public class MessagingHome extends AppCompatActivity {
                     Map<String, Object> messageMapInfo  = (Map) messageMap.get("1");
 
 
-                    messageList.add(new MessageHomeCardInfo(message.getString("OwnerName"), messageMapInfo.get("Message").toString(), messageMapInfo.get("Time").toString(), messageMapInfo.get("Sender").toString()));
+                    messageList.add(new MessageHomeCardInfo(message.getString("OwnerName"), messageMapInfo.get("Message").toString(), messageMapInfo.get("Time").toString(), messageMapInfo.get("Sender").toString(), message.getId()));
 
                     listAdapter.notifyDataSetChanged();
                 }
             }
         });
+
 
         mFirestore.collection("transactions").whereEqualTo("OwnerUID", currentUserUID).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -124,7 +128,7 @@ public class MessagingHome extends AppCompatActivity {
                     Map<String, Object> messageMapInfo  = (Map) messageMap.get("1");
 
 
-                    messageList.add(new MessageHomeCardInfo(message.getString("RenterName"), messageMapInfo.get("Message").toString(), messageMapInfo.get("Time").toString(), messageMapInfo.get("Sender").toString()));
+                    messageList.add(new MessageHomeCardInfo(message.getString("RenterName"), messageMapInfo.get("Message").toString(), messageMapInfo.get("Time").toString(), messageMapInfo.get("Sender").toString(), message.getId()));
 
                     listAdapter.notifyDataSetChanged();
                 }

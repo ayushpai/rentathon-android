@@ -11,14 +11,17 @@ public class MessageHomeCardInfo {
     private String senderLastMessageTime;
     private String senderUID;
     private Uri imageUri;
+    private String transactionID;
 
-    public MessageHomeCardInfo(String senderName, String senderLastMessage, String senderLastMessageTime, String senderUID) {
+    public MessageHomeCardInfo(String senderName, String senderLastMessage, String senderLastMessageTime, String senderUID, String transactionID) {
         this.senderName = senderName;
         this.senderLastMessage = senderLastMessage;
         this.senderLastMessageTime = senderLastMessageTime;
         this.senderUID = senderUID;
+        this.transactionID = transactionID;
         //this.imageUri = imageUri;
     }
+
 
     public String getSenderName() {
         return senderName;
@@ -59,4 +62,13 @@ public class MessageHomeCardInfo {
     public void setImageUri(Uri imageUri) {
         this.imageUri = imageUri;
     }
+
+    public String getTransactionID() {
+        return transactionID;
+    }
+
+    public void setTransactionID(String transactionID) {
+        this.transactionID = transactionID;
+    }
+
 }

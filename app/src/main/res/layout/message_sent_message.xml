@@ -2,31 +2,62 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
+    android:id="@+id/layoutmain"
+
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/message"
+        android:id="@+id/messageSent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/sent_message"
         android:maxWidth="280dp"
         android:padding="12dp"
-        android:text="Recieved Message Recieved Message Recieved Message"
+
+
+        android:text="Sent Message "
         android:textSize="17dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
     <TextView
-        android:id="@+id/time_sent"
+        android:id="@+id/time_sent_sent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:text="12:00 PM"
         android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/message"
-        app:layout_constraintTop_toBottomOf="@+id/message" />
+        app:layout_constraintEnd_toEndOf="@+id/messageSent"
+        app:layout_constraintTop_toBottomOf="@+id/messageSent" />
+
+    <TextView
+        android:id="@+id/messageRecieved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/received_message"
+        android:maxWidth="280dp"
+        android:padding="12dp"
+        android:text="Recieved Message Recieved Message Recieved Message"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_sent_recieved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="12:00 PM"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="@+id/messageRecieved"
+        app:layout_constraintTop_toBottomOf="@+id/messageRecieved" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,6 +28,7 @@ public class MessageHomeAdapter extends RecyclerView.Adapter<MessageHomeAdapter.
     private Context mContext;
     StorageReference storageRef;
     public Uri puri;
+    public static String chatTransactionID;
 
 
     // Counstructor for the Class
@@ -61,7 +62,9 @@ public class MessageHomeAdapter extends RecyclerView.Adapter<MessageHomeAdapter.
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), MessageChat.class);
+                chatTransactionID = messageHomeCardInfo.getTransactionID();
                 mContext.startActivity(intent);
+
             }
         });
 
@@ -121,7 +124,7 @@ public class MessageHomeAdapter extends RecyclerView.Adapter<MessageHomeAdapter.
         }
 
         public void setSenderImage(Uri imageUri) {
-            Glide.with(mContext).load(imageUri).into(senderImage);
+            //Glide.with(mContext).load(imageUri).into(senderImage);
             senderImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
 

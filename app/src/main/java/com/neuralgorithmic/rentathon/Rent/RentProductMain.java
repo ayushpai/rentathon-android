@@ -318,7 +318,7 @@ public class RentProductMain extends AppCompatActivity {
                                                     Map<String, Object> messages = new HashMap<>();
                                                     Map<String, Object> messagesInfo = new HashMap<>();
 
-                                                    String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
+                                                    String currentTime = new SimpleDateFormat("EEE, MMM d @ h:mm a", Locale.getDefault()).format(new Date());
 
                                                     messagesInfo.put("Sender", renteeUID);
                                                     messagesInfo.put("Time", currentTime);
@@ -333,6 +333,7 @@ public class RentProductMain extends AppCompatActivity {
                                                     WriteBatch batch = mFirestore.batch();
                                                     docRef = mFirestore.collection("products").document(String.valueOf(Home.userProductSelection));
                                                     batch.update(docRef, "Product Status", "Pending Transaction");
+
                                                     batch.commit();
 
                                                     tInfo.document(renterCity.getText().toString() + " - "+String.valueOf(Home.userProductSelection) + " - $" + String.valueOf(totalPrice)).set(transactions);
