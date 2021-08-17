@@ -74,7 +74,7 @@ dependencies {
     implementation   'com.theartofdev.edmodo:android-image-cropper:2.4.+'
     implementation 'com.budiyev.android:code-scanner:2.1.0'
     implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
-
+3
 
     implementation 'com.github.rtchagas:pingplacepicker:1.0.3'
     implementation "androidx.recyclerview:recyclerview:1.1.0"

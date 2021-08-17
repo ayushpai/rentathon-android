@@ -172,7 +172,7 @@ public class ProductMain extends AppCompatActivity {
         conditionInfo = findViewById(R.id.condition_info_button);
         descriptionInfo = findViewById(R.id.product_description_info_button);
 
-        //rentBtn = findViewById(R.id.upload);
+        rentBtn = findViewById(R.id.save);
         mFirestore = FirebaseFirestore.getInstance();
 
 
@@ -243,14 +243,14 @@ public class ProductMain extends AppCompatActivity {
                         PackageManager.PERMISSION_GRANTED) {
             Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-            showMessage("true");
+
         }
         else {
             ActivityCompat.requestPermissions(this, new String[] {
                             Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.ACCESS_COARSE_LOCATION },
                     200);
-            showMessage("false");
+
         }
 
 
@@ -420,7 +420,7 @@ public class ProductMain extends AppCompatActivity {
 
                 productValueLayer = true;
                 if(descriptionLayer && rentalFeeLayer && productValueLayer && productNameLayer){
-                    layer.setVisibility(View.INVISIBLE);
+                    layer.setVisibility(View.GONE);
                 }
 
             }
