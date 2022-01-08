@@ -648,7 +648,7 @@ public class ProductMain extends AppCompatActivity {
 
 
                 intelligentRating = ((((double) numberOfViews / numberOfUniqueViews) * 250) + (numberOfUniqueViews * 10) + (rating * 110) + ((35 - Double.parseDouble(fee)) * 6)) - ((distance - 10) * 100);
-                //NEW RATING EQUATION intelligentRating = Math.pow(rating, 1.5) * ((((double) numberOfViews / numberOfUniqueViews) * 250) + (numberOfUniqueViews * 10) + (rating * 110) - (Double.parseDouble(fee) * 6)) - (Math.pow(distance, 1.3) * 70);
+                //NEW RATING EQUATION intelligentRating = Math.pow(rating, 1.5) * ((((double) numberOfViews / numberOfUniqueViews) * 250) + (numberOfUniqueViews * 10) + (rating * 110) - (Double.parseDouble(fee) * 6)) - (Math.pow(distance, 1.15) * 70);
 
                 rentalMap.put("Intelligent Rating", intelligentRating);
 
